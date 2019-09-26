@@ -1,0 +1,230 @@
+2018-11-26 21:46:30,354 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-26 23:05:59,967 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-26 23:06:00,018 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-26 23:06:00,030 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-26 23:06:00,033 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 22:45:54,016 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:12:22,747 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:12:55,676 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:12:58,620 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:13:03,468 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - 错误: 字段 "ISUSEABLE" 不存在
+  位置：68
+2018-11-27 23:15:08,091 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:15:52,898 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:16:06,780 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:16:25,217 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:44:35,217 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:44:35,253 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:44:35,257 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:44:35,265 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:44:35,268 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - 错误: 字段 "regionname" 不存在
+  位置：8
+2018-11-27 23:44:56,492 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:44:56,497 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:45:01,151 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:45:30,479 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:45:36,270 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - 错误: 字段 "regionname" 不存在
+  位置：8
+2018-11-27 23:48:12,351 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:49:03,053 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:49:03,099 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:49:07,366 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:49:07,890 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:49:08,919 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-27 23:49:18,850 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-30 11:23:05,719 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-11-30 11:23:51,280 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-02 16:19:59,591 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-02 16:19:59,602 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - ResultSet 中找不到栏位名称 X。
+2018-12-02 16:20:39,506 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-02 16:20:39,509 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - ResultSet 中找不到栏位名称 X。
+2018-12-02 16:22:36,833 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-02 16:22:56,714 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-02 16:25:02,978 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-02 16:25:03,022 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 01:31:04,263 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - 错误: 字段 "BEGINTIME" 的类型为 timestamp without time zone, 但表达式的类型为 character varying
+  建议：你需要重写或转换表达式
+  位置：188
+2018-12-06 01:31:04,288 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 01:33:22,407 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - 错误: 字段 "BEGINTIME" 的类型为 timestamp without time zone, 但表达式的类型为 character varying
+  建议：你需要重写或转换表达式
+  位置：188
+2018-12-06 03:36:37,168 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 03:37:01,431 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 03:37:47,662 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 03:41:29,073 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 03:42:52,929 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 03:44:07,477 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 03:48:22,661 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 03:49:02,351 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 03:49:44,806 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 03:50:19,973 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:03:44,271 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:04:25,696 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:09:46,679 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:09:56,726 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:10:02,923 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:10:11,875 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:10:24,672 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:10:40,184 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:11:06,857 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:13:45,503 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:13:58,366 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:14:07,598 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:14:35,443 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:15:09,080 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt exit cache
+2018-12-06 04:15:09,080 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:15:39,376 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt exit cache
+2018-12-06 04:15:39,376 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:17:09,720 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt exit cache
+2018-12-06 04:17:09,720 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:19:57,781 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt exit cache
+2018-12-06 04:19:57,781 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:20:01,693 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt exit cache
+2018-12-06 04:20:01,693 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:20:11,815 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt exit cache
+2018-12-06 04:20:11,816 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:20:58,583 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt exit cache
+2018-12-06 04:20:58,584 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:21:55,145 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt exit cache
+2018-12-06 04:21:55,145 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:22:02,715 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt exit cache
+2018-12-06 04:22:02,715 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:23:46,320 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt exit cache
+2018-12-06 04:23:46,320 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:56:03,990 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:56:07,367 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:56:09,704 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:56:15,483 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:56:16,489 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:56:17,234 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:56:18,068 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:56:19,394 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:56:20,471 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:56:21,263 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:56:21,878 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:56:22,737 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 04:56:24,319 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:16:44,075 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:51:31,556 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:51:31,602 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:51:31,606 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:52:36,326 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:52:36,330 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:52:51,879 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:52:51,882 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:53:42,252 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:53:46,519 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:58:35,887 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:58:47,027 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:59:00,111 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:59:37,079 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 20:59:38,426 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 21:00:12,237 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 21:00:14,999 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 21:42:27,230 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 22:43:18,953 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 22:44:41,063 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 22:44:52,000 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 22:45:28,011 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 22:45:49,759 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-06 22:51:12,957 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-07 00:06:48,013 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-07 00:34:22,363 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-07 00:46:07,048 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - ERROR: syntax error at or near "1123"
+  位置：114
+2018-12-07 00:48:44,057 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - ERROR: operator does not exist: character varying = integer
+  建议：No operator matches the given name and argument type(s). You might need to add explicit type casts.
+  位置：143
+2018-12-07 00:49:27,617 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - ERROR: operator does not exist: character varying = integer
+  建议：No operator matches the given name and argument type(s). You might need to add explicit type casts.
+  位置：143
+2018-12-07 00:51:46,822 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-07 00:52:46,822 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-07 00:58:07,939 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - ERROR: operator does not exist: character varying = integer
+  建议：No operator matches the given name and argument type(s). You might need to add explicit type casts.
+  位置：143
+2018-12-07 00:58:30,083 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - ERROR: operator does not exist: character varying = integer
+  建议：No operator matches the given name and argument type(s). You might need to add explicit type casts.
+  位置：143
+2018-12-07 01:01:59,003 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-07 01:02:43,804 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-07 01:02:59,702 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-07 01:45:13,708 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-07 02:17:26,370 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-07 04:41:24,748 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-07 05:24:54,726 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 02:33:04,901 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 02:37:06,869 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 02:39:32,610 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 02:43:42,691 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 03:06:48,235 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 03:10:15,129 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 03:16:59,696 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 03:27:44,662 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 03:27:54,199 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 03:27:54,278 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 03:27:54,349 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - 错误: 对于可变字符类型来说，值太长了(3000)
+2018-12-11 03:29:52,261 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - 错误: 已缓冲的计划不能改变结果类型
+2018-12-11 03:31:23,302 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 03:31:23,305 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 03:31:23,314 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 03:33:13,390 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 03:44:14,436 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 03:44:14,448 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 03:44:14,516 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:03:56,727 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:10:01,188 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:10:07,692 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:10:07,753 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:27:20,358 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:27:20,371 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:27:20,430 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:27:20,728 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - 错误: 对于可变字符类型来说，值太长了(7000)
+2018-12-11 04:28:37,862 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - 错误: 已缓冲的计划不能改变结果类型
+2018-12-11 04:28:51,683 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:28:51,689 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:28:51,710 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:38:48,765 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:38:48,777 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:38:48,864 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:46:50,165 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:46:50,176 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:48:53,865 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:48:53,877 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:55:48,485 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:55:48,497 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 04:55:48,561 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 05:01:27,092 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 05:01:27,104 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 05:04:04,493 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 05:04:04,507 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 05:04:04,588 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 05:11:42,133 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 05:11:42,146 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 05:11:42,215 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 06:33:53,552 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 06:40:06,554 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 06:54:16,882 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 06:54:30,362 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 06:54:30,427 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 07:04:35,217 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 07:06:14,858 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 07:13:53,355 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 07:13:53,456 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 07:14:38,311 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2018-12-11 07:14:38,329 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-25 16:21:37,689 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"ea_device"' at line 1
+2019-09-25 16:23:42,692 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-25 16:28:49,032 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-25 16:41:32,584 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-25 17:06:33,849 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-25 17:08:59,617 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-26 15:47:05,944 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-26 15:47:36,463 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-26 15:47:36,464 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - Column 'EMAIL' not found.
+2019-09-26 15:50:40,927 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-26 15:50:40,928 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - Column 'TRUENAME' not found.
+2019-09-26 15:52:13,340 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-26 15:52:13,341 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - Invalid value for getInt() - '检修员'
+2019-09-26 15:53:20,994 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache

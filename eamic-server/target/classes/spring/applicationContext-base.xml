@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	<!-- 参数占位符 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+		lazy-init="true">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="false" />
+		<property name="locations">
+			<list>
+				<value>classpath:spring/database.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<context:annotation-config />
+
+	<!-- 使用annotation 自动注册bean,扫描除了@Controller之外的注解类 -->
+	<context:component-scan base-package="com.qwx">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>	
+
+	<import resource="application-db.xml" />
+	<import resource="application-servlet.xml" />
+
+</beans>
