@@ -13,6 +13,7 @@ import com.qwx.bean.HttpResponseList;
 import com.qwx.bean.HttpResponsePageList;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.bean.SPStatParam;
+import com.qwx.database.BasePagingAndSortingRepository;
 import com.qwx.database.BaseService;
 import com.qwx.entity.BaseEntity;
 import com.qwx.util.Ansj;
@@ -22,7 +23,7 @@ public class BaseController<T extends BaseEntity> extends BaseService<T> {
 
 	@Override
 	public void getBaseDao() {   
-
+		
 	}
 
 	/**

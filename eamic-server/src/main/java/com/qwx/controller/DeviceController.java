@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.qwx.bean.HttpResponse;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.controller.BaseController;
-import com.qwx.entity.BaseEntity;
+import com.qwx.entity.DeviceEntity;
 import com.qwx.service.DeviceService;
 
 
 @RestController
 @RequestMapping(value = "/device")
-public class DeviceController extends BaseController<BaseEntity> {
+public class DeviceController extends BaseController<DeviceEntity> {
 
 	
 	public DeviceController() {
-		tableName = "\"ea_device\"";
+		tableName = "ea_device";
 	}
 
 	@Resource

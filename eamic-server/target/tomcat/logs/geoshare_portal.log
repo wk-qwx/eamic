@@ -228,3 +228,94 @@
 2019-09-26 15:52:13,340 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
 2019-09-26 15:52:13,341 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - Invalid value for getInt() - 'ºÏ–ﬁ‘±'
 2019-09-26 15:53:20,994 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 08:53:05,647 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 08:54:59,071 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 09:57:09,669 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 09:57:30,442 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '??? and password = 123456' at line 1
+2019-09-27 09:57:42,079 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '??? and password = 123456' at line 1
+2019-09-27 09:57:45,062 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '??? and password = 1234562' at line 1
+2019-09-27 09:57:46,632 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '??? and password = 1234562' at line 1
+2019-09-27 09:57:48,255 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '??? and password = 1234562' at line 1
+2019-09-27 10:01:08,386 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '??? and password = 1234562' at line 1
+2019-09-27 10:01:11,762 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '??? and password = 123456' at line 1
+2019-09-27 10:01:16,185 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '??? and password = 123456' at line 1
+2019-09-27 10:01:18,448 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '??? and password = 123456' at line 1
+2019-09-27 10:01:38,805 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '??? and password = 123456' at line 1
+2019-09-27 10:03:08,330 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 10:03:30,216 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 10:10:18,899 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 10:16:26,714 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 10:19:27,354 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 10:20:54,869 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 10:30:17,395 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 11:01:50,897 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"ea_user"' at line 1
+2019-09-27 11:04:12,367 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"ea_user"' at line 1
+2019-09-27 11:05:12,119 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"ea_user"' at line 1
+2019-09-27 11:05:32,751 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 11:07:32,754 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 11:08:32,755 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 11:11:30,932 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 11:12:16,259 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 11:40:35,331 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 14:22:45,953 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 14:35:43,422 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 14:51:46,723 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 15:00:23,084 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 15:11:21,126 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 15:17:21,463 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 15:24:47,138 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - Unknown column 'username' in 'where clause'
+2019-09-27 15:27:57,397 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 15:30:21,743 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 15:42:26,601 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 15:46:10,493 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 15:48:01,338 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 15:49:37,915 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 15:52:13,225 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 16:19:23,112 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 16:34:10,998 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 16:34:23,903 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 16:41:33,386 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 16:42:11,327 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 16:44:30,320 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 16:47:15,645 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 16:49:57,600 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 16:51:28,915 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 16:52:53,866 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 17:04:14,971 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 17:16:21,518 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 17:19:07,929 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-27 17:36:09,272 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-28 23:36:49,953 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-28 23:54:19,307 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-28 23:58:16,516 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 00:02:53,118 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 00:05:20,103 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 00:08:30,685 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 00:11:17,568 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 08:53:57,231 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 08:54:10,559 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 09:25:47,130 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 09:33:53,334 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 09:35:52,004 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 09:42:38,779 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 10:01:59,614 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 10:05:19,610 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 10:10:00,508 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 10:13:01,015 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 10:13:45,469 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 10:37:36,819 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 10:40:07,467 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 11:25:17,813 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 11:25:23,959 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 11:25:45,731 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 11:28:37,313 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 11:47:33,813 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 11:51:30,776 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 11:52:31,536 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-29 12:29:27,262 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-30 14:04:19,473 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-30 14:11:04,628 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-30 14:11:46,259 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-30 14:11:46,267 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache
+2019-09-30 14:13:35,187 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('public',ea_device)' at line 1
+2019-09-30 14:17:02,512 DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - stmt enter cache

@@ -16,8 +16,8 @@ import javax.persistence.Table;
 public class UserEntity extends BaseEntity{
 	private static final long serialVersionUID = 1L;
 	// 登录名
-	@Column(name = "\"NAME\"")
-	private String name;
+	@Column(name = "\"USERNAME\"")
+	private String username;
 	// 手机号码
 	@Column(name = "\"PHONE\"")
 	private String phone;
@@ -35,12 +35,12 @@ public class UserEntity extends BaseEntity{
 	private Timestamp syscreatetime;
 	
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}	
 
 	public String getPhone() {

@@ -13,4 +13,11 @@ public interface UserService {
 	 * @return 用户列表
 	 */
 	public String getUsers();
+	/**
+	 * 用户验证
+	 * @param username 用户名
+	 * @param pwd 密码
+	 * @return true or false
+	 */
+	public String checkUser(String username,String pwd);
 }
