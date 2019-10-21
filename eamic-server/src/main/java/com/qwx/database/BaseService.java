@@ -18,7 +18,6 @@ import org.springframework.data.domain.Sort.Direction;
 
 import com.qwx.bean.PageInfo;
 import com.qwx.bean.PageList;
-import com.qwx.dao.DeviceDao;
 import com.qwx.dao.UserDao;
 import com.qwx.entity.BaseEntity;
 
@@ -28,9 +27,12 @@ public class BaseService<T extends BaseEntity> {
 	protected EntityManagerFactory emf;
 	protected BasePagingAndSortingRepository<T, String> baseDao;
 	protected String tableName;
-
+	
+	@Resource
+	UserDao dao;
 	public void getBaseDao() {
-		
+		if (baseDao == null)
+			baseDao = (BasePagingAndSortingRepository<T, String>) dao;
 	}
 
 	/**

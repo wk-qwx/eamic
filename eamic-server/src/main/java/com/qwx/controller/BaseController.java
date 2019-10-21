@@ -3,6 +3,8 @@ package com.qwx.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,7 @@ import com.qwx.bean.HttpResponseList;
 import com.qwx.bean.HttpResponsePageList;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.bean.SPStatParam;
+import com.qwx.dao.UserDao;
 import com.qwx.database.BasePagingAndSortingRepository;
 import com.qwx.database.BaseService;
 import com.qwx.entity.BaseEntity;
@@ -20,10 +23,12 @@ import com.qwx.util.Ansj;
 import com.qwx.util.StatisticUtil;
 
 public class BaseController<T extends BaseEntity> extends BaseService<T> {
-
+	@Resource
+	UserDao dao;
 	@Override
 	public void getBaseDao() {   
-		
+		if (baseDao == null)
+			baseDao = (BasePagingAndSortingRepository<T, String>) dao;
 	}
 
 	/**

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.qwx.bean.HttpResponse;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.controller.BaseController;
-import com.qwx.entity.BaseEntity;
 import com.qwx.entity.UserEntity;
 import com.qwx.service.UserService;
 
