@@ -46,6 +46,27 @@ public class DictionaryServiceImpl extends BaseService<DictionaryEntity> impleme
 		return null;
 	}
 	/**
+	 * 字典模糊查询
+	 */
+	public List<DictionaryEntity> getStationByName(String jsonstr) {
+		try{
+			String sql = "";
+			JSONObject jsonobject = JSONObject.parseObject(jsonstr);
+			String name = jsonobject.getString("name");
+			String display = jsonobject.getString("display");
+			if(name==null){
+				return null;
+			}else{
+				sql = "select * from dictionary where name = '"+name+"' and display like '%"+display+"%'";
+			}
+			return getBySql(sql);
+			
+		}catch(Exception e){
+		
+		}
+		return null;
+	}
+	/**
 	 * 获取字典列表By Code
 	 */
 	public List<DictionaryEntity> getDicByCode(String jsonstr) {

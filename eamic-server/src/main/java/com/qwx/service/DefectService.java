@@ -1,5 +1,7 @@
 package com.qwx.service;
 
+import com.qwx.bean.HttpResponsePageList;
+import com.qwx.bean.PageList;
 import com.qwx.entity.DefectEntity;
 import com.qwx.util.ConfigUtil;
 
@@ -15,7 +17,7 @@ public interface DefectService {
 	 * 获取所有缺陷信息
 	 * @return 缺陷列表
 	 */
-	public String getDefects();
+	public PageList<DefectEntity> getDefects();
 	/**
 	 * 提交缺陷信息
 	 * @return 缺陷ID

@@ -88,7 +88,27 @@ public class DefectEntity extends BaseEntity{
 	//是否消缺
 	@Column(name = "\"FLAG\"")
 	private String flag;
-	
+	//最晚检修日期
+	@Column(name = "\"EXAMINEDATE\"")
+	private String examinedate;
+	//检修原则
+	@Column(name = "\"EXAMINERULE\"")
+	private String examinerule;
+	//检修内容
+	@Column(name = "\"EXAMINECONTENT\"")
+	private String examinecontent;
+	//状态量扣分
+	@Column(name = "\"DEDUCT\"")
+	private String deduct;
+	//消缺人员
+	@Column(name = "\"SOLVEPEOPLE\"")
+	private String solvepeople;
+	//消缺日期
+	@Column(name = "\"SOLVEDATE\"")
+	private String solvedate;	
+	//设备状态评价分析
+	@Column(name = "\"ANALYSETXT\"")
+	private String analysetxt;
 	public String getStationtype() {
 		return stationtype;
 	}
@@ -238,6 +258,48 @@ public class DefectEntity extends BaseEntity{
 	}
 	public void setFlag(String flag) {
 		this.flag = flag;
+	}
+	public String getExaminedate() {
+		return examinedate;
+	}
+	public void setExaminedate(String examinedate) {
+		this.examinedate = examinedate;
+	}
+	public String getExaminerule() {
+		return examinerule;
+	}
+	public void setExaminerule(String examinerule) {
+		this.examinerule = examinerule;
+	}
+	public String getExaminecontent() {
+		return examinecontent;
+	}
+	public void setExaminecontent(String examinecontent) {
+		this.examinecontent = examinecontent;
+	}
+	public String getDeduct() {
+		return deduct;
+	}
+	public void setDeduct(String deduct) {
+		this.deduct = deduct;
+	}
+	public String getSolvepeople() {
+		return solvepeople;
+	}
+	public void setSolvepeople(String solvepeople) {
+		this.solvepeople = solvepeople;
+	}
+	public String getSolvedate() {
+		return solvedate;
+	}
+	public void setSolvedate(String solvedate) {
+		this.solvedate = solvedate;
+	}
+	public String getAnalysetxt() {
+		return analysetxt;
+	}
+	public void setAnalysetxt(String analysetxt) {
+		this.analysetxt = analysetxt;
 	}
 	
 	

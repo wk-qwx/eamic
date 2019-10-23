@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qwx.bean.HttpResponse;
+import com.qwx.bean.HttpResponsePageList;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.controller.BaseController;
 import com.qwx.entity.DefectEntity;
@@ -27,16 +28,17 @@ public class DefectController extends BaseController<DefectEntity> {
 	DefectService defectService;
 
 	/**
-	 * 读取缺陷列表
+	 * 读取分页缺陷列表
 	 */
-	@RequestMapping(value = "/getDefects", method = RequestMethod.GET)
-	public HttpResponse<String>  getDefects() {
+	@RequestMapping(value = "/getDefects", method = RequestMethod.POST)
+	public HttpResponsePageList<DefectEntity> getDefects() {
 		try {			
-			return new HttpResponse<String>(defectService.getDefects());
+			return new HttpResponsePageList<DefectEntity>(defectService.getDefects());
 		} catch (Exception e) {
-			return new HttpResponse<String>(ResponseStatusCode.C400);
+			return new HttpResponsePageList<DefectEntity>(ResponseStatusCode.C400);
 		}
 	}	
+	
 	/**
 	 * 通过id获取缺陷信息
 	 * @return 未消缺状态量扣分总数

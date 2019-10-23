@@ -14,8 +14,8 @@ public interface RoutelibService {
 	 * 获取电站分页列表
 	 * @return 分页线路列表
 	 */
-	public PageList<RoutelibEntity> getStations(String jsonstr);
+	public String getStations(String jsonstr);
 	
-	public PageList<RoutelibEntity> getRouteByName(String jsonstr);
+	public String getRouteByName(String jsonstr);
 	
 }

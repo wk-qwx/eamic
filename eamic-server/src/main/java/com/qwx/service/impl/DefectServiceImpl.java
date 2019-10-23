@@ -16,6 +16,8 @@ import java.util.regex.Pattern;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.qwx.bean.HttpResponsePageList;
+import com.qwx.bean.PageList;
 import com.qwx.database.BaseService;
 import com.qwx.entity.DefectEntity;
 import com.qwx.service.DefectService;
@@ -37,16 +39,16 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
 	/**
 	 * 获取缺陷信息列表
 	 */
-	public String getDefects() {
+	public PageList<DefectEntity> getDefects() {
 		try{
 			String sql="select * from ea_defect";
-			List<DefectEntity> list = getBySql(sql,DefectEntity.class);
-			return JSONArray.fromObject(list).toString();
+			PageList<DefectEntity> list = getPageBySql("1","15",sql);
+			return list;
 			
 		}catch(Exception e){
 		
 		}
-		return "null";
+		return null;
 	}
 	/**
 	 * 通过id获取缺陷信息

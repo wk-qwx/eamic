@@ -12,5 +12,6 @@ import com.qwx.entity.DictionaryEntity;
 public interface DictionaryService {
 
 	public List<DictionaryEntity> getDictionary(String jsonstr);
+	public List<DictionaryEntity> getStationByName(String jsonstr);
 	public List<DictionaryEntity> getDicByCode(String jsonstr);
 }

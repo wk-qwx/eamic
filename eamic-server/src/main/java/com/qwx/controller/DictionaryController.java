@@ -36,6 +36,17 @@ public class DictionaryController extends BaseController<DictionaryEntity> {
 		}
 	}
 	/**
+	 * 字典模糊查询
+	 */
+	@RequestMapping(value = "/getStationByName", method = RequestMethod.POST)
+	public HttpResponseList<DictionaryEntity> getStationByName(@RequestBody String jsonstr) {
+		try {			
+			return new HttpResponseList<DictionaryEntity>(dictionaryService.getStationByName(jsonstr));
+		} catch (Exception e) {
+			return new HttpResponseList<DictionaryEntity>(ResponseStatusCode.C400);
+		}
+	}
+	/**
 	 * 读取字典列表 By code
 	 */
 	@RequestMapping(value = "/getDicByCode", method = RequestMethod.POST)
