@@ -25,17 +25,7 @@ public class UserController extends BaseController<UserEntity> {
 	@Resource
 	UserService userService;
 
-	/**
-	 * 读取用户列表
-	 */
-	@RequestMapping(value = "/getUsers", method = RequestMethod.GET)
-	public HttpResponse<String> getUsers() {
-		try {			
-			return new HttpResponse<String>(userService.getUsers());
-		} catch (Exception e) {
-			return new HttpResponse<String>(ResponseStatusCode.C400);
-		}
-	}	
+	
 	/**
 	 * 用户信息验证登录
 	 */

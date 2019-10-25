@@ -43,9 +43,12 @@ public class DefectEntity extends BaseEntity{
 	//发现人员
 	@Column(name = "\"FINDPEOPLE\"")
 	private String findpeople;
-	//发现人员
-	@Column(name = "\"GROUP\"")
-	private String group;
+	//所属班组名称
+	@Column(name = "\"GROUPNAME\"")
+	private String groupname;
+	//所属班组id
+	@Column(name = "\"GROUPID\"")
+	private String groupid;
 	//缺陷部位
 	@Column(name = "\"DEFECTPLACE\"")
 	private String defectplace;
@@ -85,6 +88,9 @@ public class DefectEntity extends BaseEntity{
 	//关联评分导则
 	@Column(name = "\"RULEID\"")
 	private String ruleid;
+	//关联登录用户
+	@Column(name = "\"USERID\"")
+	private String userid;
 	//是否消缺
 	@Column(name = "\"FLAG\"")
 	private String flag;
@@ -169,11 +175,17 @@ public class DefectEntity extends BaseEntity{
 	public void setFindpeople(String findpeople) {
 		this.findpeople = findpeople;
 	}
-	public String getGroup() {
-		return group;
+	public String getGroupname() {
+		return groupname;
 	}
-	public void setGroup(String group) {
-		this.group = group;
+	public void setGroupname(String groupname) {
+		this.groupname = groupname;
+	}
+	public String getGroupid() {
+		return groupid;
+	}
+	public void setGroupid(String groupid) {
+		this.groupid = groupid;
 	}
 	public String getDefectplace() {
 		return defectplace;
@@ -253,6 +265,12 @@ public class DefectEntity extends BaseEntity{
 	public void setRuleid(String ruleid) {
 		this.ruleid = ruleid;
 	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 	public String getFlag() {
 		return flag;
 	}
@@ -301,6 +319,5 @@ public class DefectEntity extends BaseEntity{
 	public void setAnalysetxt(String analysetxt) {
 		this.analysetxt = analysetxt;
 	}
-	
 	
 }

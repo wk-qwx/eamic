@@ -9,11 +9,6 @@ package com.qwx.service;
 public interface UserService {
 
 	/**
-	 * 获取所有用户
-	 * @return 用户列表
-	 */
-	public String getUsers();
-	/**
 	 * 用户验证
 	 * @param username 用户名
 	 * @param pwd 密码

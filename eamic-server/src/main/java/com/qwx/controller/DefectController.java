@@ -1,14 +1,16 @@
 package com.qwx.controller;
 
-import javax.annotation.Resource;
+import java.util.Enumeration;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.qwx.bean.HttpResponse;
-import com.qwx.bean.HttpResponsePageList;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.controller.BaseController;
 import com.qwx.entity.DefectEntity;
@@ -26,31 +28,7 @@ public class DefectController extends BaseController<DefectEntity> {
 
 	@Resource
 	DefectService defectService;
-
-	/**
-	 * 读取分页缺陷列表
-	 */
-	@RequestMapping(value = "/getDefects", method = RequestMethod.POST)
-	public HttpResponsePageList<DefectEntity> getDefects() {
-		try {			
-			return new HttpResponsePageList<DefectEntity>(defectService.getDefects());
-		} catch (Exception e) {
-			return new HttpResponsePageList<DefectEntity>(ResponseStatusCode.C400);
-		}
-	}	
-	
-	/**
-	 * 通过id获取缺陷信息
-	 * @return 未消缺状态量扣分总数
-	 */
-	@RequestMapping(value = "/getCurrentScore", method = RequestMethod.POST)
-	public HttpResponse<String>  getCurrentScore(@RequestBody String jsonstr) {
-		try {			
-			return new HttpResponse<String>(defectService.getCurrentScore(jsonstr));
-		} catch (Exception e) {
-			return new HttpResponse<String>(ResponseStatusCode.C400);
-		}
-	}	
+		
 	/**
 	 * 提交缺陷信息
 	 * @param entity
@@ -64,4 +42,24 @@ public class DefectController extends BaseController<DefectEntity> {
 			return new HttpResponse<String>(ResponseStatusCode.C400);
 		}
 	}	
+	/**
+	 * 缺陷查询列表分页
+	 * @param where where 条件拼接字符
+	 * @return 缺陷列表
+	 */
+	@RequestMapping(value = "/getDefectsByFilter/{pageIndex}/{pageSize}", method = RequestMethod.POST)
+	public HttpResponse<String> getDefectsByFilter(@RequestBody String where,HttpServletRequest request,
+										   @PathVariable("pageIndex") String pageIndex,
+										   @PathVariable("pageSize") String pageSize) {
+		try {			
+			Enumeration headerNames = request.getHeaderNames();
+			String groupid = request.getHeader("groupid");
+			System.out.println("登录用户分组id："+groupid);
+			if(groupid == null)groupid = "0";
+			return new HttpResponse<String>(defectService.getDefectsByFilter(pageIndex,pageSize,groupid,where));
+		} catch (Exception e) {
+			return new HttpResponse<String>(ResponseStatusCode.C400);
+		}
+	}	
+	
 }

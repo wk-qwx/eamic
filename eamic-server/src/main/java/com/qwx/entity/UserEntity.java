@@ -18,6 +18,9 @@ public class UserEntity extends BaseEntity{
 	// 登录名
 	@Column(name = "\"USERNAME\"")
 	private String username;
+	// 真实姓名
+	@Column(name = "\"TRUENAME\"")
+	private String truename;
 	// 手机号码
 	@Column(name = "\"PHONE\"")
 	private String phone;
@@ -28,62 +31,53 @@ public class UserEntity extends BaseEntity{
 	@Column(name = "\"NO\"")
 	private String no;	
 	// 人员类别
-	@Column(name = "\"TYPE\"")
-	private String type;
-	// 创建日期
-	@Column(name = "\"SYSCREATETIME\"")
-	private Timestamp syscreatetime;
+	@Column(name = "\"GROUP\"")
+	private String group;
+	// 人员类别
+	@Column(name = "\"GROUPID\"")
+	private String groupid;
 	
-
 	public String getUsername() {
 		return username;
 	}
-
 	public void setUsername(String username) {
 		this.username = username;
-	}	
-
+	}
+	public String getTruename() {
+		return truename;
+	}
+	public void setTruename(String truename) {
+		this.truename = truename;
+	}
 	public String getPhone() {
 		return phone;
 	}
-
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 	public String getNo() {
 		return no;
 	}
-
 	public void setNo(String no) {
 		this.no = no;
 	}
-
-	
-	public String getType() {
-		return type;
+	public String getGroup() {
+		return group;
 	}
-
-	public void setType(String type) {
-		this.type = type;
+	public void setGroup(String group) {
+		this.group = group;
 	}
-	
-
-	public Timestamp getSyscreatetime() {
-		return syscreatetime;
+	public String getGroupid() {
+		return groupid;
 	}
-
-	public void setSyscreatetime(Timestamp syscreatetime) {
-		this.syscreatetime = syscreatetime;
+	public void setGroupid(String groupid) {
+		this.groupid = groupid;
 	}
-
 
 }

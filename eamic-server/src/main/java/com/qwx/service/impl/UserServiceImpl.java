@@ -6,8 +6,6 @@ import com.qwx.database.BaseService;
 import com.qwx.entity.UserEntity;
 import com.qwx.service.UserService;
 
-import net.sf.json.JSONArray;
-
 /**
  * 用户服务
  * @author kal02
@@ -20,20 +18,7 @@ public class UserServiceImpl extends BaseService<UserEntity> implements UserServ
 	public UserServiceImpl() {
 		tableName = "ea_user";
 	}
-	/**
-	 * 获取所有用户
-	 */
-	public String getUsers() {		
-		
-		try{
-			String sql="select * from ea_user";
-			List<UserEntity> list = getBySql(sql,UserEntity.class);
-			return JSONArray.fromObject(list).toString();
-		}catch(Exception e){
-		
-		}
-		return "null";
-	}
+	
 	/**
 	 * 用户验证
 	 * @param username 用户名
