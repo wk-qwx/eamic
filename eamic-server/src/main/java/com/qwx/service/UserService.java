@@ -1,5 +1,8 @@
 package com.qwx.service;
 
+import java.util.List;
+
+import com.qwx.entity.UserEntity;
 
 /**
  * 用户信息接口
@@ -14,5 +17,5 @@ public interface UserService {
 	 * @param pwd 密码
 	 * @return true or false
 	 */
-	public String checkUser(String username,String pwd);
+	public List<UserEntity> checkUser(String username,String pwd);
 }

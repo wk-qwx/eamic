@@ -30,7 +30,7 @@ public interface RoutelibService {
 	 * @param jsonstr 查询条件
 	 * @param groupid 登录用户分组id
 	 * @return 设备状态列表
-	 */
-	public String getRoutesOfState(String jsonstr,String groupid,String pageIndex,String pageSize);
+	 *//*
+	public String getRoutesOfState(String jsonstr,String groupid,String pageIndex,String pageSize);*/
 	
 }

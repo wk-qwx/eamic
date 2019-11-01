@@ -5,13 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * 缺陷信息表
+ * 缺陷库视图
  * @author kal02
  *
  */
 @Entity
-@Table(name = "\"EA_DEFECT\"")
-public class DefectEntity extends BaseEntity{
+@Table(name = "\"EA_DEFECTLIB_V\"")
+public class DefectLibEntity extends BaseEntity{
 	private static final long serialVersionUID = 1L;
 	//电站类型
 	@Column(name = "\"STATIONTYPE\"")
@@ -124,10 +124,9 @@ public class DefectEntity extends BaseEntity{
 	//是否是家族缺陷
 	@Column(name = "\"FAMILYDEFECT\"")
 	private String familydefect;
-	//录入方式
-	@Column(name = "\"INPUTTYPE\"")
-	private String inputtype;
-	
+	//是否超期
+	@Column(name = "\"ISTIME\"")
+	private String istime;
 	public String getStationtype() {
 		return stationtype;
 	}
@@ -350,10 +349,11 @@ public class DefectEntity extends BaseEntity{
 	public void setFamilydefect(String familydefect) {
 		this.familydefect = familydefect;
 	}
-	public String getInputtype() {
-		return inputtype;
+	public String getIstime() {
+		return istime;
 	}
-	public void setInputtype(String inputtype) {
-		this.inputtype = inputtype;
-	}	
+	public void setIstime(String istime) {
+		this.istime = istime;
+	}
+	
 }

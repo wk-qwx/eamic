@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class HttpResponse<T extends Serializable> {
 	private int statusCode;
 	private String message;
+	private String token;
 	private T data;
 
 	public HttpResponse() {
@@ -29,6 +30,12 @@ public class HttpResponse<T extends Serializable> {
 		this.message = message;
 		this.data = data;
 	}
+	public HttpResponse(int code, String message, String token, T data) {
+		this.statusCode = code;
+		this.message = message;
+		this.token = token;
+		this.data = data;
+	}
 
 	public int getStatusCode() {
 		return statusCode;
@@ -46,6 +53,14 @@ public class HttpResponse<T extends Serializable> {
 		this.message = message;
 	}
 
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+	
 	public T getData() {
 		return data;
 	}

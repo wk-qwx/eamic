@@ -23,20 +23,18 @@ public class UserServiceImpl extends BaseService<UserEntity> implements UserServ
 	 * 用户验证
 	 * @param username 用户名
 	 * @param pwd 密码
-	 * @return 1:验证成功  0:验证失败 2:token失效（在控制层验证返回）
+	 * @return 返回数据行和token验证码
 	 */
-	public String checkUser(String username,String pwd){
+	public List<UserEntity> checkUser(String username,String pwd){
 		try {
 			String sql="select * from ea_user where username = '"+username+"' and password = '"+pwd+"'";
-			List<UserEntity> user = getBySql(sql,UserEntity.class);
-			if(user.size() == 1){//验证成功后读入ridis缓存
-				return "1";
-			}
-			if(user.size() == 0)return "0";
+			List<UserEntity> user = getBySql(sql,UserEntity.class);	
+				
+			return user;
 		} catch (Exception e) {
 			e.printStackTrace();			
 		}
-		return "登录异常";
+		return null;
 	}
 
 }

@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -22,15 +23,15 @@ import org.apache.poi.hssf.util.HSSFColor;
 @SuppressWarnings({ "deprecation", "rawtypes" })
 public class ExcelUtil<T> {
 	public void export(Collection<T> dataset, OutputStream out) {
-		export("sheet", null, dataset, "yyyy-MM-dd", out);
+		export("sheet", null,null, dataset, "yyyy-MM-dd", out);
 	}
 
-	public void export(Map<String, String> headers, Collection<T> dataset, OutputStream out) {
-		export("sheet", headers, dataset, "yyyy-MM-dd", out);
+	public void export(Map<Integer, String> headers,Map<Integer, String> rows, Collection<T> dataset, OutputStream out) {
+		export("sheet", headers,rows, dataset, "yyyy-MM-dd", out);
 	}
 
-	public void export(Map<String, String> headers, Collection<T> dataset, String pattern, OutputStream out) {
-		export("sheet", headers, dataset, pattern, out);
+	public void export(Map<Integer, String> headers,Map<Integer, String> rows, Collection<T> dataset, String pattern, OutputStream out) {
+		export("sheet", headers,rows, dataset, pattern, out);
 	}
 
 	/**
@@ -47,14 +48,17 @@ public class ExcelUtil<T> {
 	 * @param pattern
 	 *            设定时间输出格式，默认为yyy-MM-dd
 	 */
-	public void export(String title, Map<String, String> headers, Collection<T> dataSet, String pattern,
+	public void export(String title, Map<Integer, String> headers, Map<Integer, String> rows,Collection<T> dataSet, String pattern,
 			OutputStream out) {
 		HSSFWorkbook workbook = new HSSFWorkbook();// 声明一个工作薄
 		HSSFSheet sheet = workbook.createSheet(title);// 生成一个表格
 		sheet.setDefaultColumnWidth((short)15);
 		HSSFRow row = sheet.createRow(0);
-		int index = 0;
-		for(Entry<String, String> ent : headers.entrySet()) {
+		HSSFCell xh = row.createCell(0);//创建序号列
+		xh.setCellStyle(createCellStyle(workbook, true));
+		xh.setCellValue(new HSSFRichTextString("序号"));
+		int index = 1;
+		for(Entry<Integer, String> ent : headers.entrySet()) {
 			HSSFCell cell = row.createCell(index);
 			cell.setCellStyle(createCellStyle(workbook, true));
 			cell.setCellValue(new HSSFRichTextString(ent.getValue()));
@@ -68,16 +72,24 @@ public class ExcelUtil<T> {
 			data.clear();
 			row = sheet.createRow(index);
 			convert(t, t.getClass(), data);
-			int i = 0;
-			for(Entry<String, String> ent : headers.entrySet()) {
+			HSSFCell valxh = row.createCell(0);//创建序号列值
+			valxh.setCellStyle(style);
+			HSSFRichTextString xhString = new HSSFRichTextString(String.valueOf(index));				
+			HSSFFont font1 = workbook.createFont();
+			font1.setColor(HSSFColor.BLACK.index);
+			xhString.applyFont(font1);
+			valxh.setCellValue(xhString);
+			int i = 1;
+			//Iterator<Integer> iterator =  headers.keySet().iterator();
+			for(Entry<Integer, String> ent : rows.entrySet()) {
 				HSSFCell cell = row.createCell(i);
 				cell.setCellStyle(style);
-				Object value = data.get(ent.getKey());
+				Object value = data.get(ent.getValue());
 				String textValue = valueFormat(value, pattern);
-				if (textValue == null) continue;
-				HSSFRichTextString richString = new HSSFRichTextString(textValue);
+				if (textValue == null) textValue = "";
+				HSSFRichTextString richString = new HSSFRichTextString(textValue);				
 				HSSFFont font = workbook.createFont();
-				font.setColor(HSSFColor.BLUE.index);
+				font.setColor(HSSFColor.BLACK.index);
 				richString.applyFont(font);
 				cell.setCellValue(richString);
 				i++;
@@ -96,6 +108,7 @@ public class ExcelUtil<T> {
 			String key = methods[i].getName();
 			if (!key.startsWith("get")) continue;
 			try {
+				key = key.toLowerCase().substring(3);
 				map.put(key, methods[i].invoke(t, new Object[] {}));
 			} catch (Exception e) {
 				map.put(key, "");
@@ -114,7 +127,7 @@ public class ExcelUtil<T> {
 
 	private HSSFCellStyle createCellStyle(HSSFWorkbook workbook, boolean isHeader) {
 		HSSFCellStyle style = workbook.createCellStyle();
-		style.setFillForegroundColor(isHeader ? HSSFColor.SKY_BLUE.index : HSSFColor.LIGHT_YELLOW.index);
+		style.setFillForegroundColor(isHeader ? HSSFColor.GREY_25_PERCENT.index : HSSFColor.WHITE.index);
 		style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
 		style.setBorderBottom(HSSFCellStyle.BORDER_THIN);
 		style.setBorderLeft(HSSFCellStyle.BORDER_THIN);
@@ -124,7 +137,7 @@ public class ExcelUtil<T> {
 		if (!isHeader) style.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
 		HSSFFont font = workbook.createFont();
 		if (isHeader) {
-			font.setColor(HSSFColor.VIOLET.index);
+			font.setColor(HSSFColor.BLACK.index);
 			font.setFontHeightInPoints((short)12);
 			font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
 		} else font.setBoldweight(HSSFFont.BOLDWEIGHT_NORMAL);

@@ -11,7 +11,7 @@ import com.qwx.util.ConfigUtil;
  */
 public interface DefectService {
 	//照片存放路径
-	public static String PHOTOPATH = ConfigUtil.getProperty("photoPath");
+	public static String PHOTOPATH = ConfigUtil.getProperty("filePath");
 	/**
 	 * 提交缺陷信息
 	 * @param entity
@@ -19,12 +19,7 @@ public interface DefectService {
 	 */
 	public String submit(DefectEntity entity);
 	/**
-	 * 缺陷查询列表分页
-	 * @param pageIndex
-	 * @param pageSize
-	 * @param groupid
-	 * @param where
-	 * @return 缺陷列表
+	 * 缺陷列表导出exel
 	 */
-	public String getDefectsByFilter(String pageIndex, String pageSize, String groupid, String where);
+	public String downloadexel();
 }

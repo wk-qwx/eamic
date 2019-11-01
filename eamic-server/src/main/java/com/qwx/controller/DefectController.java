@@ -1,11 +1,6 @@
 package com.qwx.controller;
 
-import java.util.Enumeration;
-
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -43,23 +38,15 @@ public class DefectController extends BaseController<DefectEntity> {
 		}
 	}	
 	/**
-	 * 缺陷查询列表分页
-	 * @param where where 条件拼接字符
-	 * @return 缺陷列表
+	 * 缺陷列表exel导出
 	 */
-	@RequestMapping(value = "/getDefectsByFilter/{pageIndex}/{pageSize}", method = RequestMethod.POST)
-	public HttpResponse<String> getDefectsByFilter(@RequestBody String where,HttpServletRequest request,
-										   @PathVariable("pageIndex") String pageIndex,
-										   @PathVariable("pageSize") String pageSize) {
-		try {			
-			Enumeration headerNames = request.getHeaderNames();
-			String groupid = request.getHeader("groupid");
-			System.out.println("登录用户分组id："+groupid);
-			if(groupid == null)groupid = "0";
-			return new HttpResponse<String>(defectService.getDefectsByFilter(pageIndex,pageSize,groupid,where));
+	@RequestMapping(value = "/downloadexel", method = RequestMethod.GET)
+	public HttpResponse<String> downloadexel() {
+		try {						
+			return new HttpResponse<String>(defectService.downloadexel());
 		} catch (Exception e) {
 			return new HttpResponse<String>(ResponseStatusCode.C400);
 		}
-	}	
+	}
 	
 }

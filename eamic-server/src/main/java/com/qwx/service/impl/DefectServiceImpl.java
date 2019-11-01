@@ -1,29 +1,26 @@
 package com.qwx.service.impl;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.springframework.stereotype.Service;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.qwx.bean.PageList;
 import com.qwx.database.BaseService;
 import com.qwx.entity.DefectEntity;
 import com.qwx.service.DefectService;
+import com.qwx.util.ExcelUtil;
 
 /**
  * 缺陷信息服务
@@ -36,42 +33,8 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
 	public DefectServiceImpl() {
 		tableName = "ea_defect";
 	}
-
-	Date now = new Date(); 
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");//可以方便地修改日期格式
-	/**
-	 * 缺陷信息筛选查询分页列表
-	 */
-	public String getDefectsByFilter(String pageIndex, String pageSize, String groupid, String where){
-		String sql = "";
-		if(where.equals("null")){
-			if(groupid.equals("0")){
-				sql = "select * from ea_defect";
-			}else{				
-				sql = "select * from ea_defect where groupid ='"+groupid+"'";
-			}
-		}else{
-			JSONObject jsonobject = JSONObject.parseObject(where);
-			if(groupid.equals("0")){
-				sql = "select * from ea_defect where "+jsonobject.getString("where");
-			}else{				
-				sql = "select * from ea_defect where groupid ='"+groupid+"' and "+jsonobject.getString("where");
-			}
-		}
-		try{
-			//返回分页列表
-			PageList<DefectEntity> pagelist = getPageBySql(pageIndex,pageSize,sql);
-			List<String> result = IsOverdueFun(pagelist);//是否超期
-			
-			Map<String,String> resultMap = new HashMap<String,String>();
-			resultMap.put("DataSource",result.toString());
-			resultMap.put("PageInfo",JSONObject.toJSONString(pagelist.getPageInfo()));//加上分页信息
-			return resultMap.toString().replace("\\","");
-		}catch(Exception e){
-			e.printStackTrace();
-			return null;
-		}		
-	}
+	
 	/**
 	 * 提交缺陷信息
 	 */
@@ -91,7 +54,45 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
 		}
 		return add(entity);
 	}
-	
+	/**
+	 * 缺陷列表导出exel
+	 */
+	public String downloadexel(){
+		String sql = "select * from ea_defect";
+		List<DefectEntity> list = getBySql(sql,DefectEntity.class);
+		ExcelUtil<DefectEntity> ex = new ExcelUtil<DefectEntity>();
+		Map<Integer,String> cells = new HashMap<>();
+		Map<Integer,String> cells2 = new HashMap<>();
+		cells.put(1, "线路名称");cells2.put(1, "route");
+		cells.put(2, "设备类型");cells2.put(2, "devicetype");
+		cells.put(3, "设备部件");cells2.put(3, "unit");
+		cells.put(4, "设备名称");cells2.put(4, "devicename");
+		cells.put(5, "设备等级");cells2.put(5, "grade");
+		cells.put(6, "维护班组");cells2.put(6, "groupname");
+		cells.put(7, "发现日期");cells2.put(7, "finddate");
+		cells.put(8, "发现人员");cells2.put(8, "findpeople");
+		cells.put(9, "缺陷部位");cells2.put(9, "defectplace");
+		cells.put(10, "缺陷类型");cells2.put(10, "defecttype");
+		cells.put(11, "缺陷程度");cells2.put(11, "defectlevel");
+		cells.put(12, "缺陷等级");cells2.put(12, "defectscale");
+		cells.put(13, "状态量评分");cells2.put(13, "score");
+		cells.put(14, "设备状态");cells2.put(14, "devicestatus");
+		cells.put(15, "消缺日期");cells2.put(15, "solvedate");
+		cells.put(16, "消缺人员");cells2.put(16, "solvepeople");
+		cells.put(17, "检修类别");cells2.put(17, "examinetype");
+		cells.put(18, "检修方式");cells2.put(18, "examinemode");
+		try {
+			String date = dateFormat.format(new Date()); 
+			String filename = "缺陷信息"+date+".xls";
+			File targetFile = new File("D:\\upload\\export\\"+filename);
+			OutputStream out = new FileOutputStream(targetFile);
+			ex.export("缺陷列表",cells,cells2,list, "yyyy-MM-dd", out);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
+	}
 	/**
 	 * 图片上传
 	 * @param photobase64
@@ -141,9 +142,9 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
 	 * @return path
 	 */
 	private String getPath(){
-		String date = dateFormat.format( now ); 
+		String date = dateFormat.format(new Date()); 
 		try {
-			String str = PHOTOPATH+"\\"+date;
+			String str = PHOTOPATH+"\\image\\"+date;
 			return new String(str.getBytes("ISO-8859-1"),"UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			System.out.println("输入的路径不正确。");
@@ -158,74 +159,5 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
         Matcher m = p.matcher(str);
         return m.replaceAll("");
     }	
-	/**
-	 * 算日期差值
-	 * @param dateStart
-	 * @param dateStop
-	 * @return 差值
-	 */
-	public String sumDate(String dateStart,String dateStop){
-
-        Date d1 = null;
-        Date d2 = null;
-
-        try {
-            d1 = dateFormat.parse(dateStart);
-            d2 = dateFormat.parse(dateStop);
-
-            //毫秒ms
-            long diff = d2.getTime() - d1.getTime();
-
-            /*long diffSeconds = diff / 1000 % 60;
-            long diffMinutes = diff / (60 * 1000) % 60;
-            long diffHours = diff / (60 * 60 * 1000) % 24;*/
-            long diffDays = diff / (24 * 60 * 60 * 1000);
-
-           //指定小数点后面的位数（2位）
-           //double result = (d1 / d2) * 100;
-           BigDecimal bd = new BigDecimal(diff);
-           double cycleRate = bd.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-           return String.valueOf(diffDays);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "null";
-	}
-	/**
-	 * 要返回的结果集中加上是否超期
-	 * @param pagelist 分页列表
-	 * @return 是否超期的列表
-	 */
-	public List<String> IsOverdueFun(PageList<DefectEntity> pagelist){		
-		//是否超期状态
-		String istime = "";
-		HashMap<String,Object > reHashMap=new HashMap<String, Object>(); 
-		List<String> list2 = new ArrayList<>();
-		List<DefectEntity> list = pagelist.getDataSource();
-		for(int i = 0; i < list.size(); i++){
-			//已消缺1
-			if(list.get(i).getFlag().equals("1")){
-				istime = "1";
-			}else{
-				//计算日期差
-				istime = sumDate(dateFormat.format(now).toString(),list.get(i).getExaminedate());	
-				if(Integer.parseInt(istime)>0)istime = "0";//未消缺已超期 >0
-				if(Integer.parseInt(istime)<0)istime = "-1";//未消缺未超期 <0
-			}
-			String jsonstr = JSONObject.toJSONString(list.get(i),SerializerFeature.WriteMapNullValue);
-			JSONObject jsonobject = JSONObject.parseObject(jsonstr);
-			Iterator<String> it =  jsonobject.keySet().iterator();
-
-			while (it.hasNext()) {
-				String key = it.next();
-				reHashMap.put(key, jsonobject.get(key));
-	        }
-			reHashMap.put("istime", istime);//添加超期状态
-			jsonstr = JSONObject.toJSONString(reHashMap,SerializerFeature.WriteMapNullValue);//转化为json格式  
-			if (jsonstr != null)
-			list2.add(i,jsonstr);
-			
-		}
-		return list2;
-	}
+	
 }

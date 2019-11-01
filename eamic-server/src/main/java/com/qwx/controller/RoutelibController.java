@@ -4,15 +4,10 @@ import java.util.Enumeration;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.qwx.bean.HttpResponse;
 import com.qwx.bean.HttpResponseList;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.controller.BaseController;
@@ -22,10 +17,10 @@ import com.qwx.service.RoutelibService;
 
 @RestController
 @RequestMapping(value = "/routelib")
-public class RoutlibController extends BaseController<RoutelibEntity> {
+public class RoutelibController extends BaseController<RoutelibEntity> {
 
 	
-	public RoutlibController() {
+	public RoutelibController() {
 		tableName = "ea_routelib";
 	}
 
@@ -64,7 +59,7 @@ public class RoutlibController extends BaseController<RoutelibEntity> {
 	}	
 	/*
 	 * 设备状态查询
-	 */
+	 
 	@RequestMapping(value = "/getRoutesOfState/{pageIndex}/{pageSize}", method = RequestMethod.POST)
 	public HttpResponse<String> getRoutesOfState(@RequestBody String jsonstr,HttpServletRequest request,
 											     @PathVariable("pageIndex") String pageIndex,
@@ -77,6 +72,6 @@ public class RoutlibController extends BaseController<RoutelibEntity> {
 		} catch (Exception e) {
 			return new HttpResponse<String>(ResponseStatusCode.C400);
 		}
-	}	
+	}	*/
 	
 }

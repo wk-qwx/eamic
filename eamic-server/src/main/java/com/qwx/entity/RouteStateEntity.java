@@ -5,11 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * 线路信息表
+ * 线路状态视图
  * @author kal02
  *
  */
 @Entity
+@Table(name = "\"EA_ROUTESTATE_V\"")
 public class RouteStateEntity extends BaseEntity{
 	private static final long serialVersionUID = 1L;
 	//缺陷部位
@@ -27,6 +28,9 @@ public class RouteStateEntity extends BaseEntity{
 	//所属维护班组id
 	@Column(name = "\"GROUPID\"")
 	private String groupid;
+	//是否消缺
+	@Column(name = "\"FLAG\"")
+	private String flag;
 	public String getDefectplace() {
 		return defectplace;
 	}
@@ -57,7 +61,12 @@ public class RouteStateEntity extends BaseEntity{
 	public void setGroupid(String groupid) {
 		this.groupid = groupid;
 	}
-	
-	
+	public String getFlag() {
+		return flag;
+	}
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
 		
+	
 }

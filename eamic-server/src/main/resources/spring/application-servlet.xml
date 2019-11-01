@@ -17,11 +17,11 @@
 	<context:component-scan base-package="com.qwx">
 	</context:component-scan>
 
-	<!-- 设置最大上传大小 10M -->
+	<!-- 设置最大上传大小 100M -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding" value="UTF-8" />
-		<property name="maxUploadSize" value="10485760" />
+		<property name="maxUploadSize" value="104857600" />
 	</bean>
 
 	<mvc:annotation-driven>
