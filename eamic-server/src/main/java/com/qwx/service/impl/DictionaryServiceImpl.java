@@ -32,12 +32,12 @@ public class DictionaryServiceImpl extends BaseService<DictionaryEntity> impleme
 			JSONObject jsonobject = JSONObject.parseObject(jsonstr);
 			String name = jsonobject.getString("name");
 			String pid = jsonobject.getString("pid");
-			if(name==null){
+			if(name==null||name.equals("")){
 				return null;
 			}else{
 				sql = "select * from dictionary where name = '"+name+"'";
 			}
-			if(pid!=null && pid!="")sql = "select * from dictionary where name = '"+name+"' and pid = '"+pid+"'";
+			if(pid!=null && pid.equals(""))sql = "select * from dictionary where name = '"+name+"' and pid = '"+pid+"'";
 			return getBySql(sql);
 			
 		}catch(Exception e){

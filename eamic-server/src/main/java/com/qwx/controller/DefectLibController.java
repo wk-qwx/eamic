@@ -48,5 +48,19 @@ public class DefectLibController extends BaseController<DefectLibEntity> {
 			return new HttpResponse<String>(ResponseStatusCode.C400);
 		}
 	}	
-	
+	/**
+	 * 缺陷列表exel导出
+	 */
+	@RequestMapping(value = "/downloadexel", method = RequestMethod.POST)
+	public HttpResponse<String> downloadexel(@RequestBody String where,HttpServletRequest request) {
+		try {	
+			Enumeration headerNames = request.getHeaderNames();
+			String groupid = request.getHeader("groupid");
+			System.out.println("登录用户分组id："+groupid);
+			if(groupid == null)groupid = "0";
+			return new HttpResponse<String>(defectlibService.downloadexel(groupid,where));
+		} catch (Exception e) {
+			return new HttpResponse<String>(ResponseStatusCode.C400);
+		}
+	}
 }

@@ -3,19 +3,19 @@ package com.qwx.service.impl;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
+
+import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import com.qwx.database.BasePagingAndSortingRepository;
 import com.qwx.database.BaseService;
 import com.qwx.entity.ReadMaterialEntity;
 import com.qwx.service.ReadMaterialService;
 import com.qwx.util.FileUtil;
-import com.qwx.util.StringUtil;
 
 /**
  * 参考资料服务
@@ -24,8 +24,8 @@ import com.qwx.util.StringUtil;
  */
 @Service
 public class ReadMaterialServiceImpl extends BaseService<ReadMaterialEntity> implements ReadMaterialService{
-
-
+	@Resource
+	BasePagingAndSortingRepository<ReadMaterialEntity, String> ReadMaterialDao;
 	public ReadMaterialServiceImpl() {
 		tableName = "ea_readmaterial";
 	}	
@@ -67,10 +67,23 @@ public class ReadMaterialServiceImpl extends BaseService<ReadMaterialEntity> imp
 		}
 	}
 	/**
-	 * 文件下载
+	 * 参考资料删除
 	 */
-	public List<ReadMaterialEntity> download(String jsonstr) {
+	public String delMaterial(String id,String groupid){
+		if(!groupid.equals("0"))return "暂无操作权限";
 		
-		return null;
+		try {
+			ReadMaterialEntity row = ReadMaterialDao.findOne(id);
+			//根据id删除		
+			ReadMaterialDao.delete(id);
+			//删除服务器上传文件
+			if(FileUtil.deleteFie(row.getUploadpath()))return "true";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "删除异常！";
+		}
+		
+		return "false";
 	}
 }

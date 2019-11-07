@@ -1,14 +1,13 @@
 package com.qwx.controller;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import com.qwx.bean.HttpResponseList;
+
+import com.qwx.bean.HttpResponse;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.controller.BaseController;
 import com.qwx.entity.DeductRuleEntity;
@@ -31,12 +30,12 @@ public class DeductRuleController extends BaseController<DeductRuleEntity> {
 	 * 评分导则
 	 */
 	@RequestMapping(value = "/Guideline", method = RequestMethod.POST)
-	public HttpResponseList<DeductRuleEntity> Guideline(@RequestBody String jsonstr) {
+	public HttpResponse<String> Guideline(@RequestBody String jsonstr) {
 		try {			
-			List<DeductRuleEntity> list = deductRuleService.Guideline(jsonstr);
-			return new HttpResponseList<DeductRuleEntity>(list);
+			
+			return new HttpResponse<String>(deductRuleService.Guideline(jsonstr));
 		} catch (Exception e) {
-			return new HttpResponseList<DeductRuleEntity>(ResponseStatusCode.C400);
+			return new HttpResponse<String>(ResponseStatusCode.C400);
 		}
 	}	
 	

@@ -1,16 +1,16 @@
 package com.qwx.controller;
 
-import javax.annotation.Resource;
+import java.util.Enumeration;
 
-import org.springframework.web.bind.annotation.RequestBody;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-
 import com.qwx.bean.HttpResponse;
-import com.qwx.bean.HttpResponseList;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.controller.BaseController;
 import com.qwx.entity.ReadMaterialEntity;
@@ -41,17 +41,19 @@ public class ReadMaterialController extends BaseController<ReadMaterialEntity> {
 			return new HttpResponse<String>(ResponseStatusCode.C400);
 		}
 	}	
-	
 	/**
-	 * 文件下载
+	 * 参考资料删除
 	 */
-	@RequestMapping(value = "/download", method = RequestMethod.POST)
-	public HttpResponseList<ReadMaterialEntity> download(@RequestBody String jsonstr) {
+	@RequestMapping(value = "/delMaterial", method = RequestMethod.POST)
+	public HttpResponse<String> delMaterial(@RequestParam("id") String id,HttpServletRequest request) {
 		try {			
-			
-			return new HttpResponseList<ReadMaterialEntity>(null);
+			Enumeration headerNames = request.getHeaderNames();
+			String groupid = request.getHeader("groupid");
+			System.out.println("登录用户分组id："+groupid);
+			if(groupid == null)groupid = "0";
+			return new HttpResponse<String>(readMaterialService.delMaterial(id,groupid));
 		} catch (Exception e) {
-			return new HttpResponseList<ReadMaterialEntity>(ResponseStatusCode.C400);
+			return new HttpResponse<String>(ResponseStatusCode.C400);
 		}
 	}	
 }

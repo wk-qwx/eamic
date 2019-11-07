@@ -1,9 +1,6 @@
 package com.qwx.service;
 
-import java.util.List;
-
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import com.qwx.entity.ReadMaterialEntity;
 import com.qwx.util.ConfigUtil;
 
 /**
@@ -21,9 +18,7 @@ public interface ReadMaterialService {
 	 */
 	public String upload(CommonsMultipartFile file);
 	/**
-	 * 参考资料下载
-	 * @param jsonstr
-	 * @return
+	 * 参考资料删除
 	 */
-	public List<ReadMaterialEntity> download(String jsonstr);
+	public String delMaterial(String id,String groupid);
 }

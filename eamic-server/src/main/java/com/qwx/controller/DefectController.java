@@ -1,9 +1,14 @@
 package com.qwx.controller;
 
+import java.util.Enumeration;
+
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.qwx.bean.HttpResponse;
 import com.qwx.bean.ResponseStatusCode;
@@ -36,17 +41,34 @@ public class DefectController extends BaseController<DefectEntity> {
 		} catch (Exception e) {
 			return new HttpResponse<String>(ResponseStatusCode.C400);
 		}
-	}	
+	}
 	/**
-	 * 缺陷列表exel导出
+	 * 修改缺陷信息
+	 * @param entity
+	 * @return 缺陷信息id
 	 */
-	@RequestMapping(value = "/downloadexel", method = RequestMethod.GET)
-	public HttpResponse<String> downloadexel() {
-		try {						
-			return new HttpResponse<String>(defectService.downloadexel());
+	@RequestMapping(value = "/updatex", method = RequestMethod.POST)
+	public HttpResponse<String> updatex(@RequestBody DefectEntity entity) {
+		try {			
+			return new HttpResponse<String>(defectService.updatex(entity));
 		} catch (Exception e) {
 			return new HttpResponse<String>(ResponseStatusCode.C400);
 		}
 	}
 	
+	/**
+	 * 缺陷删除
+	 */
+	@RequestMapping(value = "/delDefect", method = RequestMethod.POST)
+	public HttpResponse<String> delDefect(@RequestParam("id") String id,HttpServletRequest request) {
+		try {			
+			Enumeration headerNames = request.getHeaderNames();
+			String groupid = request.getHeader("groupid");
+			System.out.println("登录用户分组id："+groupid);
+			if(groupid == null)groupid = "0";
+			return new HttpResponse<String>(defectService.delDefect(id,groupid));
+		} catch (Exception e) {
+			return new HttpResponse<String>(ResponseStatusCode.C400);
+		}
+	}
 }

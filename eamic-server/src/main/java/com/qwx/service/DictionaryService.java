@@ -10,7 +10,11 @@ import com.qwx.entity.DictionaryEntity;
  *
  */
 public interface DictionaryService {
-
+	/**
+	 * 通过字典名称读取字典值
+	 * @param jsonstr
+	 * @return
+	 */
 	public List<DictionaryEntity> getDictionary(String jsonstr);
 	public List<DictionaryEntity> getStationByName(String jsonstr);
 	public List<DictionaryEntity> getDicByCode(String jsonstr);

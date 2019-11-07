@@ -18,4 +18,8 @@ public interface DefectLibService {
 	 * @return 缺陷列表
 	 */
 	public String getDefectsByFilter(String pageIndex, String pageSize, String groupid, String where);
+	/**
+	 * 缺陷列表导出exel
+	 */
+	public String downloadexel(String groupid,String where);
 }

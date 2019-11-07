@@ -19,7 +19,14 @@ public interface DefectService {
 	 */
 	public String submit(DefectEntity entity);
 	/**
-	 * 缺陷列表导出exel
+	 * 修改缺陷信息
+	 * @param entity
+	 * @return 缺陷id字符串
 	 */
-	public String downloadexel();
+	public String updatex(DefectEntity entity);
+	
+	/**
+	 * 缺陷删除
+	 */
+	public String delDefect(String id,String groupid);
 }

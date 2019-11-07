@@ -1,7 +1,6 @@
 package com.qwx.service.impl;
 
 import java.util.Iterator;
-import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -26,10 +25,10 @@ public class DeductRuleServiceImpl extends BaseService<DeductRuleEntity> impleme
 	/**
 	 * 扣分导则
 	 */
-	public List<DeductRuleEntity> Guideline(String jsonstr) {
+	public String Guideline(String jsonstr) {
 		try{
 			StringBuffer sqlstr = new StringBuffer();
-			String sql = "select * from ea_deduct_rule where ";
+			String filed = "*";			
 			JSONObject jsonobject = JSONObject.parseObject(jsonstr);			
 			if(jsonobject==null)return null;
 			
@@ -37,11 +36,28 @@ public class DeductRuleServiceImpl extends BaseService<DeductRuleEntity> impleme
 
 			while (it.hasNext()) {
 				String key = it.next();
-				sqlstr.append(" "+key+"='"+ jsonobject.getString(key)+"' and");
+				sqlstr.append(" "+key+"='"+ jsonobject.getString(key)+"' and");				
+				
 	        }
-			sql += sqlstr.toString();
-			sql = sql.substring(0, sql.length()-4);						
-			return getBySql(sql);
+			if(jsonobject.getString("defectlevel") != null && jsonobject.getString("defectlevel") != "")filed = "*";
+			else if(jsonobject.getString("defecttype") != null && jsonobject.getString("defecttype") != "")filed = "defectlevel";
+			else if(jsonobject.getString("defectplace") != null && jsonobject.getString("defectplace") != "")filed = "defecttype";
+			else if(jsonobject.getString("unit") != null && jsonobject.getString("unit") != "")filed = "defectplace";
+			else if(jsonobject.getString("devicetype") != null && jsonobject.getString("devicetype") != "")filed = "unit";
+			
+			String sql = "select distinct "+filed+" from ea_deduct_rule where ";
+				
+			if(filed.equals("*")){
+				sql = "select "+filed+" from ea_deduct_rule where ";
+				sql += sqlstr.toString();
+				sql = sql.substring(0, sql.length()-4);	
+				return JSONObject.toJSONString(getBySql(sql));
+			}else{
+				sql += sqlstr.toString();
+				sql = sql.substring(0, sql.length()-4);
+			}
+							
+			return JSONObject.toJSONString(getFieldBySql(sql));
 			
 		}catch(Exception e){
 		

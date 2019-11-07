@@ -127,6 +127,10 @@ public class DefectLibEntity extends BaseEntity{
 	//是否超期
 	@Column(name = "\"ISTIME\"")
 	private String istime;
+	//录入方式
+	@Column(name = "\"INPUTTYPE\"")
+	private String inputtype;
+	
 	public String getStationtype() {
 		return stationtype;
 	}
@@ -355,5 +359,10 @@ public class DefectLibEntity extends BaseEntity{
 	public void setIstime(String istime) {
 		this.istime = istime;
 	}
-	
+	public String getInputtype() {
+		return inputtype;
+	}
+	public void setInputtype(String inputtype) {
+		this.inputtype = inputtype;
+	}	
 }

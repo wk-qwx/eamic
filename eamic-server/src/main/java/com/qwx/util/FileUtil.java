@@ -69,9 +69,9 @@ public class FileUtil {
             return flag;    
         }
     	if (!file.delete()) {
-			flag = false;
+			return flag;
 		}
-	   return flag;
+	   return true;
 	}
 	/**
      * 上传文件
