@@ -25,12 +25,6 @@ public interface RoutelibService {
 	 * @return 该用户下线路
 	 */
 	public List<RoutelibEntity> getRouteByName(String jsonstr,String groupid);
-	/**
-	 * 设备状态列表
-	 * @param jsonstr 查询条件
-	 * @param groupid 登录用户分组id
-	 * @return 设备状态列表
-	 *//*
-	public String getRoutesOfState(String jsonstr,String groupid,String pageIndex,String pageSize);*/
+	
 	
 }

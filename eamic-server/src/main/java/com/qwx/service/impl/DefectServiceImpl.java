@@ -34,22 +34,58 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
 	 */
 	public String submit(DefectEntity entity){
 		String path = "";
-		if(!entity.getPhoto1().equals("") && entity.getPhoto1()!=null){//缺陷部位局部照片
-			if(entity.getPhoto1().indexOf("D:\\upload")==-1){				
-				path = base64toImg(entity.getPhoto1());//照片上传
-				entity.setPhoto1(path);//将照片的存放路径写入
+		if(!entity.getLocalimg1().equals("") && entity.getLocalimg1()!=null){//缺陷部位局部照片1
+			if(entity.getLocalimg1().indexOf("D:\\upload")==-1){				
+				path = base64toImg(entity.getLocalimg1());//照片上传
+				entity.setLocalimg1(path);//将照片的存放路径写入
 			}
 		}
-		if(!entity.getPhoto2().equals("") && entity.getPhoto1()!=null){//设备运行编码照片
-			if(entity.getPhoto2().indexOf("D:\\upload")==-1){				
-				path = base64toImg(entity.getPhoto2());//照片上传
-				entity.setPhoto2(path);//将照片的存放路径写入
+		if(!entity.getLocalimg2().equals("") && entity.getLocalimg2()!=null){//缺陷部位局部照片2
+			if(entity.getLocalimg2().indexOf("D:\\upload")==-1){				
+				path = base64toImg(entity.getLocalimg2());//照片上传
+				entity.setLocalimg2(path);//将照片的存放路径写入
 			}
 		}
-		if(!entity.getPhoto3().equals("") && entity.getPhoto1()!=null){//设备整体照片
-			if(entity.getPhoto3().indexOf("D:\\upload")==-1){				
-				path = base64toImg(entity.getPhoto3());//照片上传
-				entity.setPhoto3(path);//将照片的存放路径写入
+		if(!entity.getLocalimg3().equals("") && entity.getLocalimg3()!=null){//缺陷部位局部照片3
+			if(entity.getLocalimg3().indexOf("D:\\upload")==-1){				
+				path = base64toImg(entity.getLocalimg3());//照片上传
+				entity.setLocalimg3(path);//将照片的存放路径写入
+			}
+		}
+		if(!entity.getCodeimg1().equals("") && entity.getCodeimg1()!=null){//设备运行编码照片1
+			if(entity.getCodeimg1().indexOf("D:\\upload")==-1){				
+				path = base64toImg(entity.getCodeimg1());//照片上传
+				entity.setCodeimg1(path);//将照片的存放路径写入
+			}
+		}
+		if(!entity.getCodeimg2().equals("") && entity.getCodeimg2()!=null){//设备运行编码照片2
+			if(entity.getCodeimg2().indexOf("D:\\upload")==-1){				
+				path = base64toImg(entity.getCodeimg2());//照片上传
+				entity.setCodeimg2(path);//将照片的存放路径写入
+			}
+		}
+		if(!entity.getCodeimg3().equals("") && entity.getCodeimg3()!=null){//设备运行编码照片3
+			if(entity.getCodeimg3().indexOf("D:\\upload")==-1){				
+				path = base64toImg(entity.getCodeimg3());//照片上传
+				entity.setCodeimg3(path);//将照片的存放路径写入
+			}
+		}
+		if(!entity.getWholeimg1().equals("") && entity.getWholeimg1()!=null){//设备整体照片1
+			if(entity.getWholeimg1().indexOf("D:\\upload")==-1){				
+				path = base64toImg(entity.getWholeimg1());//照片上传
+				entity.setWholeimg1(path);//将照片的存放路径写入
+			}
+		}
+		if(!entity.getWholeimg2().equals("") && entity.getWholeimg2()!=null){//设备整体照片2
+			if(entity.getWholeimg2().indexOf("D:\\upload")==-1){				
+				path = base64toImg(entity.getWholeimg2());//照片上传
+				entity.setWholeimg2(path);//将照片的存放路径写入
+			}
+		}
+		if(!entity.getWholeimg3().equals("") && entity.getWholeimg3()!=null){//设备整体照片3
+			if(entity.getWholeimg3().indexOf("D:\\upload")==-1){				
+				path = base64toImg(entity.getWholeimg3());//照片上传
+				entity.setWholeimg3(path);//将照片的存放路径写入
 			}
 		}
 		return add(entity);
@@ -60,25 +96,59 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
 	public String updatex(DefectEntity entity){
 		DefectEntity row = getById(entity.getId());
 		String path = "";
-		if(!entity.getPhoto1().equals("") && entity.getPhoto1()!=null){//缺陷部位局部照片
-			if(entity.getPhoto1().indexOf("D:\\upload")==-1){				
-				//图片覆盖
-				path = photoEx(row.getPhoto1(),entity.getPhoto1());
-				entity.setPhoto1(path);
+		
+		if(!entity.getLocalimg1().equals("") && entity.getLocalimg1()!=null){//缺陷部位局部照片1
+			if(entity.getLocalimg1().indexOf("D:\\upload")==-1){				
+				path = photoEx(row.getLocalimg1(),entity.getLocalimg1());//照片上传
+				entity.setLocalimg1(path);//将照片的存放路径写入
 			}
 		}
-		if(!entity.getPhoto2().equals("") && entity.getPhoto1()!=null){//设备运行编码照片
-			if(entity.getPhoto2().indexOf("D:\\upload")==-1){				
-				//图片覆盖
-				path = photoEx(row.getPhoto2(),entity.getPhoto2());
-				entity.setPhoto2(path);
+		if(!entity.getLocalimg2().equals("") && entity.getLocalimg2()!=null){//缺陷部位局部照片2
+			if(entity.getLocalimg2().indexOf("D:\\upload")==-1){				
+				path = photoEx(row.getLocalimg2(),entity.getLocalimg2());//照片上传
+				entity.setLocalimg2(path);//将照片的存放路径写入
 			}
 		}
-		if(!entity.getPhoto3().equals("") && entity.getPhoto1()!=null){//设备整体照片
-			if(entity.getPhoto3().indexOf("D:\\upload")==-1){				
-				//图片覆盖
-				path = photoEx(row.getPhoto3(),entity.getPhoto3());
-				entity.setPhoto3(path);
+		if(!entity.getLocalimg3().equals("") && entity.getLocalimg3()!=null){//缺陷部位局部照片3
+			if(entity.getLocalimg3().indexOf("D:\\upload")==-1){				
+				path = photoEx(row.getLocalimg3(),entity.getLocalimg3());//照片上传
+				entity.setLocalimg3(path);//将照片的存放路径写入
+			}
+		}
+		if(!entity.getCodeimg1().equals("") && entity.getCodeimg1()!=null){//设备运行编码照片1
+			if(entity.getCodeimg1().indexOf("D:\\upload")==-1){				
+				path = photoEx(row.getCodeimg1(),entity.getCodeimg1());//照片上传
+				entity.setCodeimg1(path);//将照片的存放路径写入
+			}
+		}
+		if(!entity.getCodeimg2().equals("") && entity.getCodeimg2()!=null){//设备运行编码照片2
+			if(entity.getCodeimg2().indexOf("D:\\upload")==-1){				
+				path = photoEx(row.getCodeimg2(),entity.getCodeimg2());//照片上传
+				entity.setCodeimg2(path);//将照片的存放路径写入
+			}
+		}
+		if(!entity.getCodeimg3().equals("") && entity.getCodeimg3()!=null){//设备运行编码照片3
+			if(entity.getCodeimg3().indexOf("D:\\upload")==-1){				
+				path = photoEx(row.getCodeimg3(),entity.getCodeimg3());//照片上传
+				entity.setCodeimg3(path);//将照片的存放路径写入
+			}
+		}
+		if(!entity.getWholeimg1().equals("") && entity.getWholeimg1()!=null){//设备整体照片1
+			if(entity.getWholeimg1().indexOf("D:\\upload")==-1){				
+				path = photoEx(row.getWholeimg1(),entity.getWholeimg1());//照片上传
+				entity.setWholeimg1(path);//将照片的存放路径写入
+			}
+		}
+		if(!entity.getWholeimg2().equals("") && entity.getWholeimg2()!=null){//设备整体照片2
+			if(entity.getWholeimg2().indexOf("D:\\upload")==-1){				
+				path = photoEx(row.getWholeimg2(),entity.getWholeimg2());//照片上传
+				entity.setWholeimg2(path);//将照片的存放路径写入
+			}
+		}
+		if(!entity.getWholeimg3().equals("") && entity.getWholeimg3()!=null){//设备整体照片3
+			if(entity.getWholeimg3().indexOf("D:\\upload")==-1){				
+				path = photoEx(row.getWholeimg3(),entity.getWholeimg3());//照片上传
+				entity.setWholeimg3(path);//将照片的存放路径写入
 			}
 		}
 		return update(entity);
@@ -94,15 +164,33 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
 			DefectEntity row = DefectDao.findOne(id);
 			//根据id删除		
 			DefectDao.delete(id);
-			//删除服务器上传文件
-			if(!row.getPhoto1().equals("") && row.getPhoto1()!=null){
-				FileUtil.deleteFie(row.getPhoto1());
+			//删除服务器的上传文件
+			if(!row.getLocalimg1().equals("") && row.getLocalimg1()!=null){
+				FileUtil.deleteFie(row.getLocalimg1());
 			}
-			if(!row.getPhoto2().equals("") && row.getPhoto2()!=null){
-				FileUtil.deleteFie(row.getPhoto2());
+			if(!row.getCodeimg1().equals("") && row.getCodeimg1()!=null){
+				FileUtil.deleteFie(row.getCodeimg1());
 			}
-			if(!row.getPhoto3().equals("") && row.getPhoto3()!=null){
-				FileUtil.deleteFie(row.getPhoto3());
+			if(!row.getWholeimg1().equals("") && row.getWholeimg1()!=null){
+				FileUtil.deleteFie(row.getWholeimg1());
+			}
+			if(!row.getLocalimg2().equals("") && row.getLocalimg2()!=null){
+				FileUtil.deleteFie(row.getLocalimg2());
+			}
+			if(!row.getCodeimg2().equals("") && row.getCodeimg2()!=null){
+				FileUtil.deleteFie(row.getCodeimg2());
+			}
+			if(!row.getWholeimg2().equals("") && row.getWholeimg2()!=null){
+				FileUtil.deleteFie(row.getWholeimg2());
+			}
+			if(!row.getLocalimg3().equals("") && row.getLocalimg3()!=null){
+				FileUtil.deleteFie(row.getLocalimg3());
+			}
+			if(!row.getCodeimg3().equals("") && row.getCodeimg3()!=null){
+				FileUtil.deleteFie(row.getCodeimg3());
+			}
+			if(!row.getWholeimg3().equals("") && row.getWholeimg3()!=null){
+				FileUtil.deleteFie(row.getWholeimg3());
 			}
 			return "true";
 		} catch (Exception e) {

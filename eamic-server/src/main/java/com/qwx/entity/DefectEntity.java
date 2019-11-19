@@ -72,16 +72,7 @@ public class DefectEntity extends BaseEntity{
 	private String devicestatus;
 	//检修意见
 	@Column(name = "\"OPINION\"")
-	private String opinion;
-	//缺陷部位局部照片
-	@Column(name = "\"PHOTO1\"")
-	private String photo1;
-	//设备运行编码
-	@Column(name = "\"PHOTO2\"")
-	private String photo2;
-	//整体照片
-	@Column(name = "\"PHOTO3\"")
-	private String photo3;
+	private String opinion;	
 	//关联线路
 	@Column(name = "\"ROUTEID\"")
 	private String routeid;
@@ -127,7 +118,33 @@ public class DefectEntity extends BaseEntity{
 	//录入方式
 	@Column(name = "\"INPUTTYPE\"")
 	private String inputtype;
-	
+	//缺陷部位局部照片1
+	@Column(name = "\"LOCALIMG1\"")
+	private String localimg1;
+	//缺陷部位局部照片2
+	@Column(name = "\"LOCALIMG2\"")
+	private String localimg2;
+	//缺陷部位局部照片3
+	@Column(name = "\"LOCALIMG3\"")
+	private String localimg3;
+	//设备运行编码照片1
+	@Column(name = "\"CODEIMG1\"")
+	private String codeimg1;
+	//设备运行编码照片2
+	@Column(name = "\"CODEIMG2\"")
+	private String codeimg2;
+	//设备运行编码照片3
+	@Column(name = "\"CODEIMG3\"")
+	private String codeimg3;
+	//缺陷设备整体照片1
+	@Column(name = "\"WHOLEIMG1\"")
+	private String wholeimg1;
+	//缺陷设备整体照片2
+	@Column(name = "\"WHOLEIMG2\"")
+	private String wholeimg2;
+	//缺陷设备整体照片3
+	@Column(name = "\"WHOLEIMG3\"")
+	private String wholeimg3;
 	public String getStationtype() {
 		return stationtype;
 	}
@@ -248,24 +265,6 @@ public class DefectEntity extends BaseEntity{
 	public void setOpinion(String opinion) {
 		this.opinion = opinion;
 	}
-	public String getPhoto1() {
-		return photo1;
-	}
-	public void setPhoto1(String photo1) {
-		this.photo1 = photo1;
-	}
-	public String getPhoto2() {
-		return photo2;
-	}
-	public void setPhoto2(String photo2) {
-		this.photo2 = photo2;
-	}
-	public String getPhoto3() {
-		return photo3;
-	}
-	public void setPhoto3(String photo3) {
-		this.photo3 = photo3;
-	}
 	public String getRouteid() {
 		return routeid;
 	}
@@ -355,5 +354,61 @@ public class DefectEntity extends BaseEntity{
 	}
 	public void setInputtype(String inputtype) {
 		this.inputtype = inputtype;
-	}	
+	}
+	public String getLocalimg1() {
+		return localimg1;
+	}
+	public void setLocalimg1(String localimg1) {
+		this.localimg1 = localimg1;
+	}
+	public String getLocalimg2() {
+		return localimg2;
+	}
+	public void setLocalimg2(String localimg2) {
+		this.localimg2 = localimg2;
+	}
+	public String getLocalimg3() {
+		return localimg3;
+	}
+	public void setLocalimg3(String localimg3) {
+		this.localimg3 = localimg3;
+	}
+	public String getCodeimg1() {
+		return codeimg1;
+	}
+	public void setCodeimg1(String codeimg1) {
+		this.codeimg1 = codeimg1;
+	}
+	public String getCodeimg2() {
+		return codeimg2;
+	}
+	public void setCodeimg2(String codeimg2) {
+		this.codeimg2 = codeimg2;
+	}
+	public String getCodeimg3() {
+		return codeimg3;
+	}
+	public void setCodeimg3(String codeimg3) {
+		this.codeimg3 = codeimg3;
+	}
+	public String getWholeimg1() {
+		return wholeimg1;
+	}
+	public void setWholeimg1(String wholeimg1) {
+		this.wholeimg1 = wholeimg1;
+	}
+	public String getWholeimg2() {
+		return wholeimg2;
+	}
+	public void setWholeimg2(String wholeimg2) {
+		this.wholeimg2 = wholeimg2;
+	}
+	public String getWholeimg3() {
+		return wholeimg3;
+	}
+	public void setWholeimg3(String wholeimg3) {
+		this.wholeimg3 = wholeimg3;
+	}
+	
+	
 }

@@ -60,7 +60,7 @@ public class ReadMaterialServiceImpl extends BaseService<ReadMaterialEntity> imp
 			else
 				return "上传失败！";
 			
-		} catch (IllegalStateException | IOException e) {
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return "上传异常！";

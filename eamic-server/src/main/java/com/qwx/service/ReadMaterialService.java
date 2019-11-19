@@ -10,7 +10,7 @@ import com.qwx.util.ConfigUtil;
  */
 public interface ReadMaterialService {
 	//文件存放路径
-	public static String FILEPATH = ConfigUtil.getProperty("filePath");
+	public static final String FILEPATH = ConfigUtil.getProperty("filePath");
 	/**
 	 * 参考资料上传
 	 * @param 文件流

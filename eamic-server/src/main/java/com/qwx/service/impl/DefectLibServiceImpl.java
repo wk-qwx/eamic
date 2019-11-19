@@ -70,6 +70,7 @@ public class DefectLibServiceImpl extends BaseService<DefectLibEntity> implement
 				sql = "select * from ea_defectlib_v where "+jsonobject.getString("where");
 			}
 		}else{
+			sql = "select * from ea_defectlib_v where groupid = '"+groupid+"'";
 			if(!where.equals("null")){
 				sql = "select * from ea_defectlib_v where groupid = '"+groupid+"' and "+jsonobject.getString("where");
 			}

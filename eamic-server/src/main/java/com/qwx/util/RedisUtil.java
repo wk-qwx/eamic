@@ -15,7 +15,7 @@ import com.alibaba.fastjson.JSONObject;
   
   
 /** 
- *  
+ *  redis工具类
  * @author KAL
  * 基于spring和redis的redisTemplate工具类 
  * 针对所有的hash 都是以h开头的方法 
