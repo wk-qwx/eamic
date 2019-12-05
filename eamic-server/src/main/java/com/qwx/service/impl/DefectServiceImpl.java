@@ -8,6 +8,10 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.Resource;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.stereotype.Service;
 import com.qwx.database.BasePagingAndSortingRepository;
 import com.qwx.database.BaseService;
@@ -97,60 +101,71 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
 		DefectEntity row = getById(entity.getId());
 		String path = "";
 		
-		if(!entity.getLocalimg1().equals("") && entity.getLocalimg1()!=null){//缺陷部位局部照片1
-			if(entity.getLocalimg1().indexOf("D:\\upload")==-1){				
+		if(!entity.getLocalimg1().equals("") && entity.getLocalimg1()!=null){//缺陷部位局部照片1		
+			if(entity.getLocalimg1().indexOf("D:\\upload")==-1){
 				path = photoEx(row.getLocalimg1(),entity.getLocalimg1());//照片上传
 				entity.setLocalimg1(path);//将照片的存放路径写入
 			}
-		}
+		}else FileUtil.deleteFie(row.getLocalimg1());
+		
 		if(!entity.getLocalimg2().equals("") && entity.getLocalimg2()!=null){//缺陷部位局部照片2
-			if(entity.getLocalimg2().indexOf("D:\\upload")==-1){				
+			if(entity.getLocalimg2().indexOf("D:\\upload")==-1){
 				path = photoEx(row.getLocalimg2(),entity.getLocalimg2());//照片上传
 				entity.setLocalimg2(path);//将照片的存放路径写入
 			}
-		}
+		}else FileUtil.deleteFie(row.getLocalimg2());
+		
 		if(!entity.getLocalimg3().equals("") && entity.getLocalimg3()!=null){//缺陷部位局部照片3
-			if(entity.getLocalimg3().indexOf("D:\\upload")==-1){				
+			if(entity.getLocalimg3().indexOf("D:\\upload")==-1){
 				path = photoEx(row.getLocalimg3(),entity.getLocalimg3());//照片上传
 				entity.setLocalimg3(path);//将照片的存放路径写入
 			}
-		}
+		}else FileUtil.deleteFie(row.getLocalimg3());
+		
 		if(!entity.getCodeimg1().equals("") && entity.getCodeimg1()!=null){//设备运行编码照片1
-			if(entity.getCodeimg1().indexOf("D:\\upload")==-1){				
+			if(entity.getCodeimg1().indexOf("D:\\upload")==-1){
 				path = photoEx(row.getCodeimg1(),entity.getCodeimg1());//照片上传
 				entity.setCodeimg1(path);//将照片的存放路径写入
 			}
-		}
+		}else FileUtil.deleteFie(row.getCodeimg1());
+		
 		if(!entity.getCodeimg2().equals("") && entity.getCodeimg2()!=null){//设备运行编码照片2
-			if(entity.getCodeimg2().indexOf("D:\\upload")==-1){				
+			if(entity.getCodeimg2().indexOf("D:\\upload")==-1){
 				path = photoEx(row.getCodeimg2(),entity.getCodeimg2());//照片上传
 				entity.setCodeimg2(path);//将照片的存放路径写入
 			}
-		}
-		if(!entity.getCodeimg3().equals("") && entity.getCodeimg3()!=null){//设备运行编码照片3
-			if(entity.getCodeimg3().indexOf("D:\\upload")==-1){				
+		}else FileUtil.deleteFie(row.getCodeimg2());
+		
+		if(!entity.getCodeimg3().equals("") && entity.getCodeimg3()!=null){//设备运行编码照片3		
+			if(entity.getCodeimg3().indexOf("D:\\upload")==-1){
 				path = photoEx(row.getCodeimg3(),entity.getCodeimg3());//照片上传
-				entity.setCodeimg3(path);//将照片的存放路径写入
+				entity.setCodeimg3(path);//将照片的存放路径写入	
 			}
-		}
+		}else FileUtil.deleteFie(row.getCodeimg3());
+		
 		if(!entity.getWholeimg1().equals("") && entity.getWholeimg1()!=null){//设备整体照片1
-			if(entity.getWholeimg1().indexOf("D:\\upload")==-1){				
+			if(entity.getWholeimg1().indexOf("D:\\upload")==-1){	
 				path = photoEx(row.getWholeimg1(),entity.getWholeimg1());//照片上传
 				entity.setWholeimg1(path);//将照片的存放路径写入
 			}
-		}
-		if(!entity.getWholeimg2().equals("") && entity.getWholeimg2()!=null){//设备整体照片2
-			if(entity.getWholeimg2().indexOf("D:\\upload")==-1){				
+		}else FileUtil.deleteFie(row.getWholeimg1());
+		
+		if(!entity.getWholeimg2().equals("") && entity.getWholeimg2()!=null){//设备整体照片2		
+			if(entity.getWholeimg2().indexOf("D:\\upload")==-1){
 				path = photoEx(row.getWholeimg2(),entity.getWholeimg2());//照片上传
 				entity.setWholeimg2(path);//将照片的存放路径写入
 			}
-		}
-		if(!entity.getWholeimg3().equals("") && entity.getWholeimg3()!=null){//设备整体照片3
-			if(entity.getWholeimg3().indexOf("D:\\upload")==-1){				
+		}else FileUtil.deleteFie(row.getWholeimg2());
+		
+		if(!entity.getWholeimg3().equals("") && entity.getWholeimg3()!=null){//设备整体照片3		
+			if(entity.getWholeimg3().indexOf("D:\\upload")==-1){
 				path = photoEx(row.getWholeimg3(),entity.getWholeimg3());//照片上传
 				entity.setWholeimg3(path);//将照片的存放路径写入
 			}
-		}
+		}else FileUtil.deleteFie(row.getWholeimg3());
+		/*Session session = this.getSession();
+        Transaction tran = session.beginTransaction();
+        tran.commit();*/
 		return update(entity);
 	}
 	

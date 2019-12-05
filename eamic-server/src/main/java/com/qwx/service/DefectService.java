@@ -12,6 +12,7 @@ import com.qwx.util.ConfigUtil;
 public interface DefectService {
 	//照片存放路径
 	public static final String PHOTOPATH = ConfigUtil.getProperty("filePath");
+	
 	/**
 	 * 提交缺陷信息
 	 * @param entity

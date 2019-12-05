@@ -11,6 +11,8 @@ import javax.persistence.Query;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -34,7 +36,19 @@ public class BaseService<T extends BaseEntity> {
 		if (baseDao == null)
 			baseDao = (BasePagingAndSortingRepository<T, String>) dao;
 	}
-
+	private SessionFactory sessionFactory;  
+    
+    public Session getSession() {  
+        return sessionFactory.getCurrentSession();  
+    }  
+  
+    public SessionFactory getSessionFactory() {  
+        return sessionFactory;  
+    }  
+  
+    public void setSessionFactory(SessionFactory sessionFactory) {  
+        this.sessionFactory = sessionFactory;  
+    }  
 	/**
 	 * 查询表中的所有数据
 	 * 

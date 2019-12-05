@@ -63,6 +63,7 @@ public class FileUtil {
 	
 	//删除单个文件
 	public static boolean deleteFie(String path){
+		if(path.equals("")||path == null) return false;
 		boolean flag = false;
 		File file = new File(path);
         if (!file.exists()) {

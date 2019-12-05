@@ -1,11 +1,9 @@
 package com.qwx.controller;
 
-import java.util.Enumeration;
+import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.UUID;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,8 +46,16 @@ public class UserController extends BaseController<UserEntity> {
 				List<UserEntity> user = userService.checkUser(username,pwd);
 				if(user.size() == 0 || user == null)return new HttpResponse<String>("[]");
 					
-				token = user.get(0).getId();
-				redisUtil.set(user.get(0).getId(), token, 86400);//写入redis计时
+				long now = System.currentTimeMillis();
+				SimpleDateFormat sdfOne = new SimpleDateFormat("yyyy-MM-dd");
+				long overTime = (now - (sdfOne.parse(sdfOne.format(now)).getTime()))/1000;
+				
+				//当前时间  距离当天晚上23:59:59  秒数 也就是今天还剩多少秒
+		        long TimeNext = 24*60*60 - overTime;
+		        
+				token = user.get(0).getId();		
+				redisUtil.set(user.get(0).getId(), token, TimeNext);//写入redis 当前时间  距离当天晚上23:59:59  秒数
+				//redisUtil.set(user.get(0).getId(), token, 86400);//写入redis计时一天
 				return new HttpResponse<String>(
 						ResponseStatusCode.C200,
 						ResponseStatusCode.getMessage(ResponseStatusCode.C200),
