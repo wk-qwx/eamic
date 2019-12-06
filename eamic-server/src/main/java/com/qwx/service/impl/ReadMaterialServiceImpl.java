@@ -74,8 +74,8 @@ public class ReadMaterialServiceImpl extends BaseService<ReadMaterialEntity> imp
 		
 		try {
 			ReadMaterialEntity row = ReadMaterialDao.findOne(id);
-			//根据id删除		
-			ReadMaterialDao.delete(id);
+			//数据库行删除	
+			delete(row);
 			//删除服务器上传文件
 			if(FileUtil.deleteFie(row.getUploadpath()))return "true";
 		} catch (Exception e) {

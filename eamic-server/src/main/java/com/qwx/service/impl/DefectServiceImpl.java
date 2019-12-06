@@ -8,10 +8,6 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.Resource;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.stereotype.Service;
 import com.qwx.database.BasePagingAndSortingRepository;
 import com.qwx.database.BaseService;
@@ -163,9 +159,6 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
 				entity.setWholeimg3(path);//将照片的存放路径写入
 			}
 		}else FileUtil.deleteFie(row.getWholeimg3());
-		/*Session session = this.getSession();
-        Transaction tran = session.beginTransaction();
-        tran.commit();*/
 		return update(entity);
 	}
 	
@@ -177,8 +170,8 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
 		
 		try {
 			DefectEntity row = DefectDao.findOne(id);
-			//根据id删除		
-			DefectDao.delete(id);
+			//删除		
+			delete(row);
 			//删除服务器的上传文件
 			if(!row.getLocalimg1().equals("") && row.getLocalimg1()!=null){
 				FileUtil.deleteFie(row.getLocalimg1());
@@ -207,6 +200,7 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
 			if(!row.getWholeimg3().equals("") && row.getWholeimg3()!=null){
 				FileUtil.deleteFie(row.getWholeimg3());
 			}
+			
 			return "true";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

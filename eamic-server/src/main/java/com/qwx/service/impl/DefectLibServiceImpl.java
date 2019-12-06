@@ -34,16 +34,16 @@ public class DefectLibServiceImpl extends BaseService<DefectLibEntity> implement
 	/**
 	 * 缺陷信息筛选查询分页列表
 	 */
-	public String getDefectsByFilter(String pageIndex, String pageSize, String groupid, String where){
+	public String getDefectsByFilter(String pageIndex, String pageSize, String groupid, String whereStr){
 		String sql = "";
-		if(where.equals("null")){
+		if(whereStr.equals("null")){
 			if(groupid.equals("0")){
 				sql = "select * from ea_defectlib_v ORDER BY finddate desc";
 			}else{				
 				sql = "select * from ea_defectlib_v where groupid ='"+groupid+"' ORDER BY finddate desc";
 			}
 		}else{
-			JSONObject jsonobject = JSONObject.parseObject(where);
+			JSONObject jsonobject = JSONObject.parseObject(whereStr);
 			if(groupid.equals("0")){
 				sql = "select * from ea_defectlib_v where "+jsonobject.getString("where") + " ORDER BY finddate desc";
 			}else{				

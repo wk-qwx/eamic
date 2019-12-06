@@ -18,6 +18,7 @@ import com.qwx.controller.BaseController;
 import com.qwx.entity.UserEntity;
 import com.qwx.service.UserService;
 import com.qwx.util.RedisUtil;
+import com.qwx.util.StringUtil;
 
 
 @RestController
@@ -53,8 +54,8 @@ public class UserController extends BaseController<UserEntity> {
 				//当前时间  距离当天晚上23:59:59  秒数 也就是今天还剩多少秒
 		        long TimeNext = 24*60*60 - overTime;
 		        
-				token = user.get(0).getId();		
-				redisUtil.set(user.get(0).getId(), token, TimeNext);//写入redis 当前时间  距离当天晚上23:59:59  秒数
+				token = StringUtil.getUUID();		
+				redisUtil.set(token, user.get(0).getId(), TimeNext);//写入redis 当前时间  距离当天晚上23:59:59  秒数
 				//redisUtil.set(user.get(0).getId(), token, 86400);//写入redis计时一天
 				return new HttpResponse<String>(
 						ResponseStatusCode.C200,
