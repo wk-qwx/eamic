@@ -26,18 +26,19 @@ public class RoutelibServiceImpl extends BaseService<RoutelibEntity> implements 
 		try{
 			String sql = "";
 			if(jsonstr.equals("null")){
-				if(groupid.equals("0"))sql = "select * from ea_routelib";
-				else sql = "select * from ea_routelib where groupid = '"+groupid+"'";			
+				if(groupid.equals("1")||groupid.equals("2")||groupid.equals("3"))
+					sql = "select * from ea_routelib where groupid = '"+groupid+"'";
+				else
+					sql = "select * from ea_routelib";							
 			}else{
 				JSONObject jsonobject = JSONObject.parseObject(jsonstr);		
 				String station = jsonobject.getString("station");
 				String stationname = jsonobject.getString("stationname");
 				
-				if(groupid.equals("0")){
-					sql = "select * from ea_routelib where station = '"+station+"' and stationname = '"+stationname+"'";
-				}else{
+				if(groupid.equals("1")||groupid.equals("2")||groupid.equals("3"))
 					sql = "select * from ea_routelib where station = '"+station+"' and stationname = '"+stationname+"' and groupid = '"+groupid+"'";
-				}
+				else					
+					sql = "select * from ea_routelib where station = '"+station+"' and stationname = '"+stationname+"'";
 			}
 			return getBySql(sql);
 			
@@ -58,15 +59,15 @@ public class RoutelibServiceImpl extends BaseService<RoutelibEntity> implements 
 			String station = jsonobject.getString("station");
 			String routename = jsonobject.getString("routename");
 			if(routename != null){
-				if(groupid.equals("0"))
-					sql = "select * from ea_routelib where routename like '%"+routename+"%'";
-				else
+				if(groupid.equals("1")||groupid.equals("2")||groupid.equals("3"))					
 					sql = "select * from ea_routelib where groupid = '"+groupid+"' and routename like '%"+routename+"%'";
-			}if(routename != null && station != null&&stationname != null){
-				if(groupid.equals("0"))
-					sql = "select * from ea_routelib where station = '"+station+"' and stationname = '"+stationname+"' and routename like '%"+routename+"%'";
 				else
-					sql = "select * from ea_routelib where groupid = '"+groupid+"' and station = '"+station+"' and stationname = '"+stationname+"' and routename like '%"+routename+"%'";
+					sql = "select * from ea_routelib where routename like '%"+routename+"%'";
+			}if(routename != null && station != null&&stationname != null){
+				if(groupid.equals("1")||groupid.equals("2")||groupid.equals("3"))
+					sql = "select * from ea_routelib where groupid = '"+groupid+"' and station = '"+station+"' and stationname = '"+stationname+"' and routename like '%"+routename+"%'";					
+				else
+					sql = "select * from ea_routelib where station = '"+station+"' and stationname = '"+stationname+"' and routename like '%"+routename+"%'";
 			}
 			return getBySql(sql);			
 		}catch(Exception e){

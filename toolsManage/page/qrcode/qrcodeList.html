@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>二维码文件</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../css/public.css" media="all" />
+</head>
+<body class="childrenBody">
+<form class="layui-form">
+	<blockquote class="layui-elem-quote quoteBox">
+		<form class="layui-form">
+			<div class="layui-inline">
+				<select name="tooltype" lay-verify="" lay-search>
+				  <option value="010" selected>工器具类别</option>
+				  <option value="021">绝缘手套</option>
+				  <option value="0571">登高鞋</option>
+				</select> 
+			</div>
+			<div class="layui-inline">
+				<select name="tooltype" lay-verify="" lay-search>
+				  <option value="010" selected>三级单位</option>
+				  <option value="021">绝缘手套</option>
+				  <option value="0571">登高鞋</option>
+				</select> 
+			</div>
+			<div class="layui-inline">
+				<div class="layui-input-inline">
+					<input type="text" class="layui-input searchVal" placeholder="二维码code" />
+				</div>
+				<a class="layui-btn search_btn" data-type="reload">搜索</a>
+			</div>
+			<div class="layui-inline">
+				<a class="layui-btn layui-btn-normal addNews_btn">导出文件</a>
+			</div>
+			<div class="layui-inline">
+				<a class="layui-btn layui-btn-danger layui-btn-normal delAll_btn">批量下载</a>
+			</div>
+		</form>
+	</blockquote>
+	<table id="qrcodeList" lay-filter="qrcodeList"></table>
+
+	<!--操作-->
+	<script type="text/html" id="qrcodeListBar">
+		<a class="layui-btn layui-btn-xs" lay-event="edit">下载</a>
+	</script>
+</form>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="qrcodeList.js"></script>
+</body>
+</html>

@@ -15,6 +15,8 @@ import java.util.UUID;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.transaction.annotation.Transactional;
+
 public class FileUtil {
 	public static String toString(List list) {
 		if (list.size() == 0)
@@ -62,6 +64,7 @@ public class FileUtil {
 	}
 	
 	//删除单个文件
+	@Transactional(rollbackFor=Exception.class)
 	public static boolean deleteFie(String path){
 		if(path.equals("")||path == null) return false;
 		boolean flag = false;

@@ -32,9 +32,9 @@ public class DictionaryServiceImpl extends BaseService<DictionaryEntity> impleme
 			if(name==null||name.equals("")){
 				return null;
 			}else{
-				sql = "select * from dictionary where name = '"+name+"'";
+				sql = "select * from dictionary where level = '1' and name = '"+name+"'";
 			}
-			if(pid!=null && !pid.equals(""))sql = "select * from dictionary where name = '"+name+"' and pid = '"+pid+"'";
+			if(pid!=null && !pid.equals(""))sql = "select * from dictionary where level = '2' and name = '"+name+"' and pid = '"+pid+"'";
 			return getBySql(sql);
 			
 		}catch(Exception e){

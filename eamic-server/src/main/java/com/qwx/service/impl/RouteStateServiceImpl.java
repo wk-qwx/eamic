@@ -32,16 +32,15 @@ public class RouteStateServiceImpl extends BaseService<RouteStateEntity> impleme
 		String devicestatus = jsonobject.getString("devicestatus");	
 		String routename = jsonobject.getString("routename");
 		if(!devicestatus.equals("") && devicestatus !=null){
-			if(groupid.equals("0"))
-				where = " where devicestatus = '"+devicestatus+"' ORDER BY cast(score as SIGNED)";
-			else
+			if(groupid.equals("1")||groupid.equals("2")||groupid.equals("3"))
 				where = " where groupid='"+groupid+"' and devicestatus = '"+devicestatus+"' ORDER BY cast(score as SIGNED)";
-		}if(devicestatus !=null && routename !=null){
-			if(groupid.equals("0"))
-				//sql = "select a.routename,a.station,a.stationname,b.* from ea_routelib a LEFT JOIN ea_defect b on a.id = b.routeid where b.devicestatus = '"+devicestatus+"' and ";
-				where = " where devicestatus = '"+devicestatus+"' and routename like '%"+routename+"%' ORDER BY cast(score as SIGNED)";
 			else
-				where = " where groupid='"+groupid+"' and devicestatus = '"+devicestatus+"' and routename like '%"+routename+"%' ORDER BY cast(score as SIGNED)";
+				where = " where devicestatus = '"+devicestatus+"' ORDER BY cast(score as SIGNED)";
+		}if(devicestatus !=null && routename !=null){
+			if(groupid.equals("1")||groupid.equals("2")||groupid.equals("3"))
+				where = " where groupid='"+groupid+"' and devicestatus = '"+devicestatus+"' and routename like '%"+routename+"%' ORDER BY cast(score as SIGNED)";				
+			else
+				where = " where devicestatus = '"+devicestatus+"' and routename like '%"+routename+"%' ORDER BY cast(score as SIGNED)";
 		}
 		
 		try {

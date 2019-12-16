@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>二维码文件</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../css/public.css" media="all" />
+</head>
+<body class="childrenBody">
+<form class="layui-form">
+	<blockquote class="layui-elem-quote quoteBox">
+		<form class="layui-form">
+			<div class="layui-inline">
+				<select name="tooltype" lay-verify="" lay-search>
+				  <option value="010" selected>工器具类别</option>
+				  <option value="021">绝缘手套</option>
+				  <option value="0571">登高鞋</option>
+				</select> 
+			</div>
+			<div class="layui-inline">
+				<select name="tooltype" lay-verify="" lay-search>
+				  <option value="010" selected>三级单位</option>
+				  <option value="021">绝缘手套</option>
+				  <option value="0571">登高鞋</option>
+				</select> 
+			</div>
+			<div class="layui-inline">
+				<div class="layui-input-inline">
+					<input type="text" class="layui-input searchVal" placeholder="请输入要搜索的批次" />
+				</div>
+				<a class="layui-btn search_btn" data-type="reload">搜索</a>
+			</div>
+			<!--<div class="layui-inline">
+				<a class="layui-btn layui-btn-normal addNews_btn">生成二维码</a>
+			</div>
+			<div class="layui-inline">
+				<a class="layui-btn layui-btn-danger layui-btn-normal delAll_btn">批量删除</a>
+			</div>-->
+		</form>
+	</blockquote>
+	<table id="qrcodeList" lay-filter="qrcodeList"></table>
+
+	<!--操作-->
+	<script type="text/html" id="qrcodeListBar">
+		<!--<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>-->
+		<a class="layui-btn layui-btn-xs" lay-event="download">下载</a>
+		<!--<a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>-->
+	</script>
+</form>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="qrcode.js"></script>
+</body>
+</html>

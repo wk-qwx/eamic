@@ -10,9 +10,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -20,7 +17,7 @@ import org.springframework.data.domain.Sort.Direction;
 
 import com.qwx.bean.PageInfo;
 import com.qwx.bean.PageList;
-import com.qwx.dao.UserDao;
+import com.qwx.dao.DefectDao;
 import com.qwx.entity.BaseEntity;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
@@ -31,24 +28,12 @@ public class BaseService<T extends BaseEntity> {
 	protected String tableName;
 	
 	@Resource
-	UserDao dao;
+	DefectDao dao;
 	public void getBaseDao() {
 		if (baseDao == null)
 			baseDao = (BasePagingAndSortingRepository<T, String>) dao;
 	}
-	private SessionFactory sessionFactory;  
-    
-    public Session getSession() {  
-        return sessionFactory.getCurrentSession();  
-    }  
-  
-    public SessionFactory getSessionFactory() {  
-        return sessionFactory;  
-    }  
-  
-    public void setSessionFactory(SessionFactory sessionFactory) {  
-        this.sessionFactory = sessionFactory;  
-    }  
+	 
 	/**
 	 * 查询表中的所有数据
 	 * 
@@ -336,7 +321,7 @@ public class BaseService<T extends BaseEntity> {
 	 * @param entity:实体对象
 	 * @return 删除成功后的对象ID（主键）
 	 */
-	@Transactional
+	@Transactional(rollbackFor=Exception.class)
 	public String delete(T entity) {
 		getBaseDao();
 		if (entity.getId() == null || !baseDao.exists(entity.getId())) return "参数错误";

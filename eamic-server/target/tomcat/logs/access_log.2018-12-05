@@ -1,7 +1,0 @@
-0:0:0:0:0:0:0:1 - - [05/Dec/2018:20:59:16 +0800] "POST /weixin/facilityspot/getSpotByMenuId HTTP/1.1" 500 4787 http-bio-8081-exec-1 26986
-0:0:0:0:0:0:0:1 - - [05/Dec/2018:21:08:13 +0800] "POST /weixin/facilityspot/getSpotByMenuId HTTP/1.1" 415 1048 http-bio-8081-exec-1 177
-0:0:0:0:0:0:0:1 - - [05/Dec/2018:21:08:19 +0800] "POST /weixin/facilityspot/getSpotByMenuId HTTP/1.1" 415 1048 http-bio-8081-exec-2 56
-0:0:0:0:0:0:0:1 - - [05/Dec/2018:21:08:32 +0800] "POST /weixin/facilityspot/getSpotByMenuId HTTP/1.1" 415 1048 http-bio-8081-exec-4 89
-0:0:0:0:0:0:0:1 - - [05/Dec/2018:21:08:34 +0800] "POST /weixin/facilityspot/getSpotByMenuId HTTP/1.1" 415 1048 http-bio-8081-exec-5 72
-0:0:0:0:0:0:0:1 - - [05/Dec/2018:21:10:45 +0800] "POST /weixin/facilityspot/getSpotByMenuId HTTP/1.1" 415 1048 http-bio-8081-exec-7 3
-0:0:0:0:0:0:0:1 - - [05/Dec/2018:21:12:18 +0800] "POST /weixin/facilityspot/getSpotByMenuId HTTP/1.1" 415 1048 http-bio-8081-exec-9 4

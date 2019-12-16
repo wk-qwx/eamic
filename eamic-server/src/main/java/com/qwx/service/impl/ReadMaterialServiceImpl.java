@@ -15,6 +15,7 @@ import com.qwx.database.BasePagingAndSortingRepository;
 import com.qwx.database.BaseService;
 import com.qwx.entity.ReadMaterialEntity;
 import com.qwx.service.ReadMaterialService;
+import com.qwx.util.ConfigUtil;
 import com.qwx.util.FileUtil;
 
 /**
@@ -29,6 +30,8 @@ public class ReadMaterialServiceImpl extends BaseService<ReadMaterialEntity> imp
 	public ReadMaterialServiceImpl() {
 		tableName = "ea_readmaterial";
 	}	
+	//文件存放路径
+	public static final String FILEPATH = ConfigUtil.getProperty("filePath");
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//可以方便地修改日期格式
 	/**
 	 * 文件上传
@@ -55,11 +58,8 @@ public class ReadMaterialServiceImpl extends BaseService<ReadMaterialEntity> imp
 			
 			long endTime=System.currentTimeMillis();
 			System.out.println("上传时间："+String.valueOf(endTime-startTime)+"ms");
-			if(add(row)!="")
-				return "上传成功！";
-			else
-				return "上传失败！";
-			
+			ReadMaterialDao.save(row);
+			return "上传成功！";
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -70,20 +70,19 @@ public class ReadMaterialServiceImpl extends BaseService<ReadMaterialEntity> imp
 	 * 参考资料删除
 	 */
 	public String delMaterial(String id,String groupid){
-		if(!groupid.equals("0"))return "暂无操作权限";
+		if(groupid.equals("1")||groupid.equals("2")||groupid.equals("3"))return "暂无操作权限";
 		
 		try {
 			ReadMaterialEntity row = ReadMaterialDao.findOne(id);
 			//数据库行删除	
-			delete(row);
+			ReadMaterialDao.delete(row);
 			//删除服务器上传文件
-			if(FileUtil.deleteFie(row.getUploadpath()))return "true";
+			FileUtil.deleteFie(row.getUploadpath());
+			return "true";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return "删除异常！";
 		}
-		
-		return "false";
 	}
 }

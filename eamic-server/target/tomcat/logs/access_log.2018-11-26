@@ -1,2 +1,0 @@
-0:0:0:0:0:0:0:1 - - [26/Nov/2018:21:46:32 +0800] "GET /weixin/region/getRegion HTTP/1.1" 200 3133080 http-bio-8081-exec-1 2818
-0:0:0:0:0:0:0:1 - - [26/Nov/2018:23:06:00 +0800] "POST /weixin/regiondic/getRegiondicById/19 HTTP/1.1" 200 292 http-bio-8081-exec-1 358

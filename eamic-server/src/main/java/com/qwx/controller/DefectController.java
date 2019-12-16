@@ -1,10 +1,8 @@
 package com.qwx.controller;
 
-import java.util.Enumeration;
-
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -60,13 +58,11 @@ public class DefectController extends BaseController<DefectEntity> {
 	 * 缺陷删除
 	 */
 	@RequestMapping(value = "/delDefect", method = RequestMethod.POST)
-	public HttpResponse<String> delDefect(@RequestParam("id") String id,HttpServletRequest request) {
+	@Transactional(rollbackFor=Exception.class)
+	public HttpResponse<String> delDefect(@RequestParam("id") String id) {
 		try {			
-			Enumeration headerNames = request.getHeaderNames();
-			String groupid = request.getHeader("groupid");
-			System.out.println("登录用户分组id："+groupid);
-			if(groupid == null)groupid = "0";
-			return new HttpResponse<String>(defectService.delDefect(id,groupid));
+			
+			return new HttpResponse<String>(defectService.delDefect(id));
 		} catch (Exception e) {
 			return new HttpResponse<String>(ResponseStatusCode.C400);
 		}

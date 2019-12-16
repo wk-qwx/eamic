@@ -17,6 +17,7 @@ import com.qwx.bean.PageList;
 import com.qwx.database.BaseService;
 import com.qwx.entity.DefectLibEntity;
 import com.qwx.service.DefectLibService;
+import com.qwx.util.ConfigUtil;
 import com.qwx.util.ExcelUtil;
 
 /**
@@ -30,6 +31,8 @@ public class DefectLibServiceImpl extends BaseService<DefectLibEntity> implement
 	public DefectLibServiceImpl() {
 		tableName = "ea_defectlib_v";
 	}
+	//文件存放路径
+	public static final String FILEPATH = ConfigUtil.getProperty("filePath");
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");//可以方便地修改日期格式
 	/**
 	 * 缺陷信息筛选查询分页列表
@@ -37,18 +40,16 @@ public class DefectLibServiceImpl extends BaseService<DefectLibEntity> implement
 	public String getDefectsByFilter(String pageIndex, String pageSize, String groupid, String whereStr){
 		String sql = "";
 		if(whereStr.equals("null")){
-			if(groupid.equals("0")){
-				sql = "select * from ea_defectlib_v ORDER BY finddate desc";
-			}else{				
-				sql = "select * from ea_defectlib_v where groupid ='"+groupid+"' ORDER BY finddate desc";
-			}
+			if(groupid.equals("1")||groupid.equals("2")||groupid.equals("3"))
+				sql = "select * from ea_defectlib_v where groupid ='"+groupid+"' ORDER BY finddate desc";				
+			else			
+				sql = "select * from ea_defectlib_v ORDER BY finddate desc";			
 		}else{
 			JSONObject jsonobject = JSONObject.parseObject(whereStr);
-			if(groupid.equals("0")){
-				sql = "select * from ea_defectlib_v where "+jsonobject.getString("where") + " ORDER BY finddate desc";
-			}else{				
+			if(groupid.equals("1")||groupid.equals("2")||groupid.equals("3"))
 				sql = "select * from ea_defectlib_v where groupid ='"+groupid+"' and "+jsonobject.getString("where") + " ORDER BY finddate desc";
-			}
+			else								
+				sql = "select * from ea_defectlib_v where "+jsonobject.getString("where") + " ORDER BY finddate desc";
 		}
 		try{
 			//返回分页列表
@@ -65,15 +66,15 @@ public class DefectLibServiceImpl extends BaseService<DefectLibEntity> implement
 	public String downloadexel(String groupid,String where){
 		JSONObject jsonobject = JSONObject.parseObject(where);			
 		String sql = "select * from ea_defectlib_v";
-		if(groupid.equals("0")){
-			if(!where.equals("null")){
-				sql = "select * from ea_defectlib_v where "+jsonobject.getString("where");
-			}
-		}else{
+		if(groupid.equals("1")||groupid.equals("2")||groupid.equals("3")){
 			sql = "select * from ea_defectlib_v where groupid = '"+groupid+"'";
 			if(!where.equals("null")){
 				sql = "select * from ea_defectlib_v where groupid = '"+groupid+"' and "+jsonobject.getString("where");
 			}
+		}else{
+			if(!where.equals("null")){
+				sql = "select * from ea_defectlib_v where "+jsonobject.getString("where");
+			}			
 		}
 		String path = "";
 		List<DefectLibEntity> list = getBySql(sql,DefectLibEntity.class);
@@ -102,7 +103,7 @@ public class DefectLibServiceImpl extends BaseService<DefectLibEntity> implement
 		try {
 			String date = dateFormat.format(new Date()); 
 			String filename = "缺陷信息"+date+".xls";
-			path = "D:\\upload\\export\\"+filename;
+			path = FILEPATH + "\\export\\"+filename;
 			File targetFile = new File(path);
 			OutputStream out = new FileOutputStream(targetFile);
 			ex.export("缺陷列表",cells,cells2,list, "yyyy-MM-dd", out);
@@ -110,6 +111,6 @@ public class DefectLibServiceImpl extends BaseService<DefectLibEntity> implement
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return path.replace("D:\\upload", "static");
+		return path.replace(FILEPATH, "static");
 	}
 }

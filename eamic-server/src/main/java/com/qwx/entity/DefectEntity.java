@@ -356,54 +356,63 @@ public class DefectEntity extends BaseEntity{
 		this.inputtype = inputtype;
 	}
 	public String getLocalimg1() {
+		if(localimg1 == null)localimg1="";
 		return localimg1;
 	}
 	public void setLocalimg1(String localimg1) {
 		this.localimg1 = localimg1;
 	}
 	public String getLocalimg2() {
+		if(localimg2 == null)localimg2="";
 		return localimg2;
 	}
 	public void setLocalimg2(String localimg2) {
 		this.localimg2 = localimg2;
 	}
 	public String getLocalimg3() {
+		if(localimg3 == null)localimg3="";
 		return localimg3;
 	}
 	public void setLocalimg3(String localimg3) {
 		this.localimg3 = localimg3;
 	}
 	public String getCodeimg1() {
+		//if(codeimg1 == null)codeimg1="";
 		return codeimg1;
 	}
 	public void setCodeimg1(String codeimg1) {
 		this.codeimg1 = codeimg1;
 	}
 	public String getCodeimg2() {
+		if(codeimg2 == null)codeimg2="";
 		return codeimg2;
 	}
 	public void setCodeimg2(String codeimg2) {
 		this.codeimg2 = codeimg2;
 	}
 	public String getCodeimg3() {
+		if(codeimg3 == null)codeimg3="";
 		return codeimg3;
 	}
 	public void setCodeimg3(String codeimg3) {
 		this.codeimg3 = codeimg3;
 	}
 	public String getWholeimg1() {
+		if(wholeimg1 == null)wholeimg1="";
 		return wholeimg1;
 	}
 	public void setWholeimg1(String wholeimg1) {
 		this.wholeimg1 = wholeimg1;
 	}
 	public String getWholeimg2() {
+		if(wholeimg2 == null)wholeimg2="";
 		return wholeimg2;
 	}
 	public void setWholeimg2(String wholeimg2) {
 		this.wholeimg2 = wholeimg2;
 	}
 	public String getWholeimg3() {
+		if(wholeimg3 == null)wholeimg3="";
 		return wholeimg3;
 	}
 	public void setWholeimg3(String wholeimg3) {

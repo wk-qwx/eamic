@@ -34,6 +34,9 @@ public class UserEntity extends BaseEntity{
 	// 人员类别
 	@Column(name = "\"GROUPID\"")
 	private String groupid;
+	// 角色id
+	@Column(name = "\"ROLEID\"")
+	private String roleid;
 	
 	public String getUsername() {
 		return username;
@@ -77,5 +80,10 @@ public class UserEntity extends BaseEntity{
 	public void setGroupid(String groupid) {
 		this.groupid = groupid;
 	}
-
+	public String getRoleid() {
+		return roleid;
+	}
+	public void setRoleid(String roleid) {
+		this.roleid = roleid;
+	}
 }
