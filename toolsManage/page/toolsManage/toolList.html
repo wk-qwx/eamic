@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>二维码文件</title>
+	<title>安全工器具列表</title>
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -17,25 +17,30 @@
 	<blockquote class="layui-elem-quote quoteBox">
 		<form class="layui-form">
 			<div class="layui-inline">
-				<select name="tooltype" lay-verify="" lay-search>
-				  <option value="010" selected>工器具类别</option>
-				  <option value="021">绝缘手套</option>
-				  <option value="0571">登高鞋</option>
+				<select name="toolstate" id="toolstate" lay-filter="toolstate">
+				  <option value="">请选择安全工器具状态</option>
+				  <option value="正常">正常</option>
+				  <option value="待检测">待检测</option>
+				  <option value="超期未检">超期未检</option>
+				  <option value="报废">报废</option>
 				</select> 
 			</div>
 			<div class="layui-inline">
-				<select name="tooltype" lay-verify="" lay-search>
-				  <option value="010" selected>三级单位</option>
-				  <option value="021">绝缘手套</option>
-				  <option value="0571">登高鞋</option>
+				<select name="tooltype" id="tooltype" lay-filter="tooltype" lay-search>
+				  <option value="">请选择安全工器具类别</option>
+				</select> 
+			</div>			
+			<div class="layui-inline">
+				<select name="unit" id="unit" lay-filter="unit" lay-search>
+				  <option value="">请选择三级单位</option>
 				</select> 
 			</div>
 			<div class="layui-inline">
 				<div class="layui-input-inline">
-					<input type="text" class="layui-input searchVal" placeholder="请输入要搜索的code" />
+					<input type="text" class="layui-input searchVal" placeholder="请输入要搜索的qrcode" />
 				</div>
 				<a class="layui-btn search_btn" data-type="reload">搜索</a>
-			</div>
+			</div> 
 			<div class="layui-inline">
 				<a class="layui-btn layui-btn-normal addNews_btn">生成报告</a>
 			</div>
@@ -44,12 +49,11 @@
 			</div>
 		</form>
 	</blockquote>
-	<table id="qrcodeList" lay-filter="qrcodeList"></table>
+	<table id="toolList" lay-filter="toolList"></table>
 
 	<!--操作-->
-	<script type="text/html" id="qrcodeListBar">
-		<a class="layui-btn layui-btn-xs" lay-event="edit">查看</a>
-		<a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="usable">编辑</a>
+	<script type="text/html" id="toolListBar">		
+		<a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="edit">编辑</a>
 		<a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
 	</script>
 </form>

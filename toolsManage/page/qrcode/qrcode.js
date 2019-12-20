@@ -5,20 +5,44 @@ layui.use(['form','layer','table','laytpl'],function(){
         laytpl = layui.laytpl,
         table = layui.table;
 
+
+	var jsonstr = {"name":"工器具类别"};
+	loadselect(jsonstr,"tooltype");
+	jsonstr = {"name":"国网衡阳供电公司"};
+	loadselect(jsonstr,"unit");
+	//加载下拉框
+	function loadselect(jsonstr,id){
+		$.ajax({
+		    type: 'POST',
+		    url: 'http://localhost:8086/toolsManage/dictionary/getDictionary',
+		    data: JSON.stringify(jsonstr),
+		    contentType: "application/json; charset=UTF-8",
+		    dataType : "json",
+	        success: function(result) {               
+	            if (result.statusCode == 200 && result.data.length>0) {
+	                $.each(result.data, function(index, item) {
+	                    $('#'+id+'').append(new Option(item.display,item.display));
+	                });
+	            } else {
+	                $("#"+id+"").append(new Option("暂无数据", ""));
+	            }
+	            layui.form.render("select");
+	        }
+    	});
+	}
     //列表
     var tableIns = table.render({
         elem: '#qrcodeList',
-        url : 'http://localhost:8086/toolsManage/qrcode/getall/1/10',
+        url : 'http://localhost:8086/toolsManage/qrcode/getQrcodeFileList',
         cellMinWidth : 95,
         page : true,
         height : "full-125",
         limits : [10,15,20,25],
         id : "qrcodeListTable",
         cols : [[
-            {type: "checkbox", fixed:"left", width:50},
             {field: 'unit', title: '单位', minWidth:100, align:"center"},
             {field: 'sunits', title: '三级单位', minWidth:150, align:'center'},
-            {field: 'tooltype', title: '工器具类别', minWidth:100, align:'center'},
+            {field: 'tooltype', title: '安全工器具类别', minWidth:100, align:'center'},
             {field: 'batch', title: '批次', align:'center', width:80},
             {field: 'item', title: '数量', align:'center', width:80},
             {field: 'createtime', title: '生成时间', align:'center',minWidth:150},
@@ -26,7 +50,6 @@ layui.use(['form','layer','table','laytpl'],function(){
             {title: '操作', minWidth:175, templet:'#qrcodeListBar',fixed:"right",align:"center"}
         ]],
         parseData:function(res){
-        console.log(res);
         
         return {
           "code":0,
@@ -59,77 +82,104 @@ layui.use(['form','layer','table','laytpl'],function(){
 		return newData;
 	}
     //搜索
-    $(".search_btn").on("click",function(){    	
+    $(".search_btn").on("click",function(){
+    	var tooltype = $("#tooltype option:selected").val();//获取工器具类别下拉文本
+    	var unit = $("#unit option:selected").val();//获取工器具所属单位下拉文本 
+    	var searchStr = "";
+    	if(tooltype != ''){
+    		searchStr += "tooltype = '"+tooltype+"' and ";
+    	}
+    	if(unit != ''){
+    		searchStr += "sunits = '"+unit+"' and ";
+    	}
         if($(".searchVal").val() != ''){
-            table.reload("qrcodeListTable",{
-                page: {
-                    curr: 1 //重新从第 1 页开始
-                },
-                where: {
-                	key:{
-                    	toolname: $(".searchVal").val()  //搜索的关键字
-                    }
-                }
-            },'data')
+        	searchStr += "batch like '%"+$(".searchVal").val()+"%'"            
         }else{
-            layer.msg("请输入搜索的工器具名称");
+        	if(searchStr == ""){
+        		
+        	}else{
+        		//字符串截取结尾的and
+        		searchStr = searchStr.substring(0,searchStr.length-4);
+        	} 
         }
+        var index = layer.msg('正在查询，请稍候',{icon: 16,time:false,shade:0.8});
+        setTimeout(function(){
+	        table.reload("qrcodeListTable",{
+	            	url: 'http://localhost:8086/toolsManage/qrcode/getListByFilter',
+	                page: {
+	                    curr: 1 //重新从第 1 页开始
+	                },
+	                where: {whereStr: searchStr  //搜索的关键字
+	                }
+	            },'data')
+	        layer.close(index);
+        },900);
+        
     });
-	var _index;
-    var _lp_baseTime = 0;
-    var _lp_startTime = 0;
-    function updateLoadProgress() {
-        if (_lp_baseTime < 0) {
-            layer.close(_index);
-            return;
-        }
-        var dval = parseInt(new Date().valueOf())- parseInt(_lp_startTime);
-        var timeDifference = (dval / _lp_baseTime).toFixed(2);
-        var lp = timeDifference < 1 ? timeDifference * 100 : 99;
-        $("#loadProgress").html(parseInt(lp));
-        setTimeout(function () { updateLoadProgress(); return; }, 650);
-    }
+
+	
     //下载二维码文件
-    function downFile(row){
+    function downloadFile(row){
+    	var index;
         $.ajax({
 	    	  type: 'POST',
-	    	  url: 'http://localhost:8086/toolsManage/qrcodev/exportFile',
+	    	  url: 'http://localhost:8086/toolsManage/qrcodev/exportFile/1',
 	    	  data: JSON.stringify(row),
 	    	  contentType: "application/json; charset=UTF-8",
 	    	  dataType : "json",
-	    	  success: function(result) {
-	    	  	  _lp_baseTime = -1;
-	    	  	  $("#loadProgress").html("100");
-	    	  	  layer.close(_index);
-	    		  var data = result.data;//返回的结果
-	    		  if(data!=null){
-	    		  	 window.open("http://47.106.193.135:8080/static/export/缺陷信息2019-11-21.xls");
-	    		  }else{
-	    		  	 layer.alert("下载异常");
-	    		  }
+	    	  success: function(result) {	    	  	  
+		        setTimeout(function(){
+		            layer.close(index);
+		            var data = result.data;//返回的结果
+	    		    if(data!=null){
+	    		  	   window.open(data);
+	    		    }else{
+	    		  	   layer.alert("下载异常！");
+	    		    }		            
+		        },1000);	    		  
 	    	  },
 	    	  beforeSend:function(XMLHttpRequest){
-		        _index = layer.load(1, {
-		                content: "<div style='margin-left:-23px;padding-top:44px;width:120px;color:#FFF;'>正在下载(<span id='loadProgress' >0</span>%)</div>",
-		                shade: [0.5, '#000']
-		            });
-		        //这里是预估的时间，因为整个进度都是根据消耗时间计算的 = =
-		        //这里的start,end,stns都是原始项目里带的。这个的作用是计算要等待的时长的，可以给一个固定值或者其他的东西公式，保证结果是正整数，单位是毫秒即可。
-		        _lp_baseTime = Math.abs(new Date(10).valueOf() - new Date(5).valueOf()) / 3600000 * 5 * 150;
-		            _lp_startTime = new Date().valueOf();
-		 
-		           setTimeout(function () { updateLoadProgress(); return; }, 60);
+		        index = layer.msg('正在下载中，请稍候',{icon: 16,time:false,shade:0.8});
 	    	  },
 	    	  error:function(){
-                _lp_baseTime = -1;
-                layer.close(_index);
+                layer.close(index);
+                layer.alert("下载异常");
             }
 
 	    });
     }
-    $(".addNews_btn").click(function(){
-        addUser();
-    })
+    //查看二维码信息
+    function qrcodeShow(data){
+        var index = layui.layer.open({
+            title : "信息查看",
+            type : 2,
+            content : "qrcodeinfo.html",
+            success : function(layero, index){
+                var body = layui.layer.getChildFrame('body', index);
+                if(data){
+                    body.find(".unit").val(data.unit);  //所属单位
+                    body.find(".sunits").val(data.sunits);  //三级单位
+                    body.find(".tooltype").val(data.tooltype);  //安全工器具类别
+                    body.find(".batch").val(data.batch);  //批次
+                    body.find(".createtime").val(data.createtime);  //生成时间
+                    body.find(".item").val(data.item);    //数量
+                    body.find(".remarks").text(data.remarks?null:"");    //备注
+                    form.render();
+                }
+                setTimeout(function(){
+                    layui.layer.tips('点击此处返回列表', '.layui-layer-setwin .layui-layer-close', {
+                        tips: 3
+                    });
+                },500)
+            }
+        })
+        layui.layer.full(index);
+        window.sessionStorage.setItem("index",index);
+        //改变窗口大小时，重置弹窗的宽高，防止超出可视区域（如F12调出debug的操作）
+        $(window).on("resize",function(){
+            layui.layer.full(window.sessionStorage.getItem("index"));
+        })
+    }
 
     //批量删除
     $(".delAll_btn").click(function(){
@@ -157,18 +207,13 @@ layui.use(['form','layer','table','laytpl'],function(){
     table.on('tool(qrcodeList)', function(obj){
         var layEvent = obj.event,
             data = obj.data;
-
-        if(layEvent === 'download'){ //编辑
-            downFile(data);
-        }else if(layEvent === 'del'){ //删除
-            layer.confirm('确定删除此用户？',{icon:3, title:'提示信息'},function(index){
-                // $.get("删除文章接口",{
-                //     newsId : data.newsId  //将需要删除的newsId作为参数传入
-                // },function(data){
-                    tableIns.reload();
-                    layer.close(index);
-                // })
-            });
+			
+        if(layEvent === 'download'){ //下载
+        	var arr = [];
+			arr.push(data);
+            downloadFile(arr);
+        }else if(layEvent === 'show'){ //查看
+            qrcodeShow(data);//查看
         }
     });
 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>二维码详细信息</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../css/public.css" media="all" />
+</head>
+<body class="childrenBody">
+<form class="layui-form" style="width:80%;">
+	<table style="width: 100%;">
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">所属单位</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input unit" lay-verify="required">
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">三级单位</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input sunits" lay-verify="required">
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">安全工器具类别</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input tooltype" lay-verify="required">
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">批次</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input batch" id="batch" lay-verify="required">
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">数量</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input item" lay-verify="required">
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">生成时间</label>
+					<div class="layui-input-block">
+						<input type="text" class="layui-input createtime" lay-verify="required">
+					</div>
+				</div>
+			</td>
+		</tr>		
+		<tr>
+			<td colspan="2">
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">备注</label>
+					<div class="layui-input-block">
+						<textarea class="layui-textarea remarks"></textarea>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<table id="qrcodeInfo" lay-filter="qrcodeInfo"></table>	
+	
+</form>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="qrcodeinfo.js"></script>
+</body>
+</html>
