@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.qwx.bean.HttpResponseList;
+import com.qwx.bean.HttpResponsePageList;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.controller.BaseController;
+import com.qwx.entity.QrcodeView2Entity;
 import com.qwx.entity.ToolsLib2Entity;
-import com.qwx.entity.ToolsLibEntity;
 import com.qwx.service.ToolsLibService;
 
 
@@ -26,7 +27,19 @@ public class ToolsLibController extends BaseController<ToolsLib2Entity> {
 
 	@Resource
 	ToolsLibService toolslibService;
-
+	/**
+	 * 获取工器具列表
+	 */
+	@RequestMapping(value = "/getToolList", method = RequestMethod.GET)
+	public HttpResponsePageList<ToolsLib2Entity> getToolList(@RequestParam("page") String page,@RequestParam("limit") String limit) {
+		try {			
+			
+			return new HttpResponsePageList<ToolsLib2Entity>(toolslibService.getToolList(page, limit));
+		} catch (Exception e) {
+			return new HttpResponsePageList<ToolsLib2Entity>(ResponseStatusCode.C400);
+		}
+	}
+	
 	/**
 	 * 获取安全工器具信息
 	 */

@@ -7,7 +7,13 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.qwx.bean.HttpResponsePageList;
+import com.qwx.bean.PageList;
+import com.qwx.bean.ResponseStatusCode;
 import com.qwx.database.BasePagingAndSortingRepository;
 import com.qwx.database.BaseService;
 import com.qwx.entity.Qrcode2Entity;
@@ -15,7 +21,7 @@ import com.qwx.entity.QrcodeEntity;
 import com.qwx.entity.QrcodeView2Entity;
 import com.qwx.entity.QrcodeViewEntity;
 import com.qwx.entity.ToolsLib2Entity;
-import com.qwx.entity.ToolsLibEntity;
+import com.qwx.entity.ToolsLibViewEntity;
 import com.qwx.service.QrcodeService;
 import com.qwx.util.ConfigUtil;
 import com.qwx.util.Des3Util;
@@ -41,6 +47,32 @@ public class QrcodeServiceImpl extends BaseService<Qrcode2Entity> implements Qrc
     private static String batch = "";
     private static ToolsLib2Entity row = null;
 	SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");//可以方便地修改日期格式
+	
+	/**
+	 *二维码文件
+	 */
+	public PageList<Qrcode2Entity> getQrcodeFileList(String page, String limit) {
+		String sql = "select * from tl_qrcode order by createtime desc";
+		return getPageBySql(page,limit,sql);
+	}
+	/**
+	 * 二维码文件筛选查询分页列表
+	 */
+	public PageList<Qrcode2Entity> getListByFilter(String page, String limit, String whereStr){
+		String sql = "";
+		if(whereStr.equals("")){
+			sql = "select * from tl_qrcode ORDER BY createtime desc";			
+		}else{
+			sql = "select * from tl_qrcode where " + whereStr + " ORDER BY createtime desc";
+		}
+		try{
+			//返回分页列表
+			return getPageBySql(page,limit,sql);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}		
+	}
 	/**
 	 * 1.二维码创建
 	 * 2.工器具导入

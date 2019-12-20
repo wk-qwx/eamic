@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +15,7 @@ import com.qwx.bean.HttpResponse;
 import com.qwx.bean.HttpResponsePageList;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.controller.BaseController;
+import com.qwx.entity.Qrcode2Entity;
 import com.qwx.entity.QrcodeView2Entity;
 import com.qwx.entity.QrcodeViewEntity;
 import com.qwx.service.QrcodeViewService;
@@ -32,7 +34,7 @@ public class QrcodeViewController extends BaseController<QrcodeViewEntity> {
 	QrcodeViewService qrcodeviewService;
 
 	/**
-	 * 二维码列表
+	 * 获取二维码列表
 	 */
 	@RequestMapping(value = "/getQrcodeView", method = RequestMethod.GET)
 	public HttpResponsePageList<QrcodeView2Entity> getQrcodeView(@RequestParam("page") String page,@RequestParam("limit") String limit) {
@@ -45,15 +47,27 @@ public class QrcodeViewController extends BaseController<QrcodeViewEntity> {
 	}		
 	
 	/**
-	 * 二维码下载导出
+	 * 二维码下载导出文件
 	 */
-	@RequestMapping(value = "/exportFile", method = RequestMethod.POST)
-	public HttpResponse<String> export(@RequestBody QrcodeView2Entity entity) {
+	@RequestMapping(value = "/exportFile/{flag}", method = RequestMethod.POST)
+	public HttpResponse<String> downloadexel(@RequestBody List<QrcodeView2Entity> entitys, @PathVariable("flag") String flag) {
 		try {			
 			
-			return new HttpResponse<String>(qrcodeviewService.export(entity));
+			return new HttpResponse<String>(qrcodeviewService.downloadexel(entitys, flag));
 		} catch (Exception e) {
 			return new HttpResponse<String>(ResponseStatusCode.C400);
+		}
+	}
+	/**
+	 * 根据筛选条件获取二维码列表
+	 */
+	@RequestMapping(value = "/getListByFilter", method = RequestMethod.GET)
+	public HttpResponsePageList<QrcodeView2Entity> getListByFilter(@RequestParam("page") String page,@RequestParam("limit") String limit, @RequestParam("whereStr") String whereStr) {
+		try {			
+			
+			return new HttpResponsePageList<QrcodeView2Entity>(qrcodeviewService.getListByFilter(page, limit, whereStr));
+		} catch (Exception e) {
+			return new HttpResponsePageList<QrcodeView2Entity>(ResponseStatusCode.C400);
 		}
 	}
 }

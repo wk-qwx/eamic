@@ -1,15 +1,23 @@
 package com.qwx.service.impl;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import com.qwx.bean.PageList;
 import com.qwx.database.BaseService;
+import com.qwx.entity.Qrcode2Entity;
 import com.qwx.entity.QrcodeView2Entity;
 import com.qwx.entity.QrcodeViewEntity;
 import com.qwx.service.QrcodeViewService;
 import com.qwx.util.ConfigUtil;
+import com.qwx.util.ExcelUtil;
 import com.qwx.util.QRCodeUtil;
 
 /**
@@ -24,7 +32,7 @@ public class QrcodeViewServiceImpl extends BaseService<QrcodeView2Entity> implem
 	public QrcodeViewServiceImpl() {
 		tableName = "qrcode_v";
 	}
-	private static final String CODEPATH = ConfigUtil.getProperty("filePath")+"\\codefile\\";
+	private static final String CODEPATH = ConfigUtil.getProperty("filePath");
 	/**
 	 *二维码列表
 	 */
@@ -33,8 +41,72 @@ public class QrcodeViewServiceImpl extends BaseService<QrcodeView2Entity> implem
 		return getPageBySql(page,limit,sql);
 	}
 	/**
+	 * 二维码筛选查询分页列表
+	 */
+	public PageList<QrcodeView2Entity> getListByFilter(String page, String limit, String whereStr){
+		String sql = "";
+		if(whereStr.equals("")){
+			sql = "select * from qrcode_v ORDER BY createtime desc";			
+		}else{
+			sql = "select * from qrcode_v where " + whereStr + " ORDER BY createtime desc";
+		}
+		try{
+			//返回分页列表
+			return getPageBySql(page,limit,sql);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}		
+	}
+	/**
 	 * 二维码文件下载导出
 	 */
+	public String downloadexel(List<QrcodeView2Entity> entitys, String flag){		
+		ExcelUtil<QrcodeView2Entity> eu = new ExcelUtil<QrcodeView2Entity>();
+		String filepath = CODEPATH + "\\codefile\\安全工器具二维码打印模板.xls";
+		if("1".equals(flag)){
+			String sql = "select * from qrcode_v where batch = '"+entitys.get(0).getBatch()+"'";
+			List<QrcodeView2Entity> list = getBySql(sql);
+			if(list.size()==0)return "暂无数据";
+			Map<Integer,String> cells = new HashMap<>();
+			Map<Integer,String> cells2 = new HashMap<>();
+			cells.put(1, "二维码");cells2.put(1, "qrcode");
+			cells.put(2, "三级单位");cells2.put(2, "sunits");
+			cells.put(3, "所属分组");cells2.put(3, "groupname");
+			cells.put(4, "工器具类别");cells2.put(4, "tooltype");
+			try {
+				File targetFile = new File(filepath);
+				OutputStream out = new FileOutputStream(targetFile);
+				//导出打印文件
+				eu.export("二维码打印列表",cells,cells2,list, "yyyy-MM-dd", out);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if("2".equals(flag)){			
+			Map<Integer,String> cells = new HashMap<>();
+			Map<Integer,String> cells2 = new HashMap<>();
+			cells.put(1, "二维码");cells2.put(1, "qrcode");
+			cells.put(2, "三级单位");cells2.put(2, "sunits");
+			cells.put(3, "所属分组");cells2.put(3, "groupname");
+			cells.put(4, "工器具类别");cells2.put(4, "tooltype");
+			try {
+				File targetFile = new File(filepath);
+				OutputStream out = new FileOutputStream(targetFile);
+				//导出打印文件
+				eu.export("二维码打印列表",cells,cells2,entitys, "yyyy-MM-dd", out);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		//返回下载路径
+		return filepath.replace(CODEPATH, "static");
+	}
+	
+	/**
+	 * 二维码文件下载导出
+	 *//*
 	public String export(QrcodeView2Entity entity){
 		
 		String filepath;
@@ -63,5 +135,5 @@ public class QrcodeViewServiceImpl extends BaseService<QrcodeView2Entity> implem
 			e.printStackTrace();
 		}
 		return null;
-	}
+	}*/
 }

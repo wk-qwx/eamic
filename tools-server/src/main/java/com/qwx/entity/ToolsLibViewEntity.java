@@ -7,27 +7,14 @@ import javax.persistence.Table;
 import com.qwx.util.Des3Util;
 
 /**
- * 二维码记录视图
+ * 设备工具视图
  * @author kal02
  *
  */
 @Entity
-@Table(name = "\"QRCODE_V\"")
-public class QrcodeView2Entity extends BaseEntity{
+@Table(name = "\"TOOLSLIB_V\"")
+public class ToolsLibViewEntity extends BaseEntity{
 	private static final long serialVersionUID = 1L;
-	//数量
-	@Column(name = "\"ITEM\"")
-	private String item;
-	//生成时间
-	@Column(name = "\"CREATETIME\"")
-	private String createtime;
-	//生成批次号
-	@Column(name = "\"BATCH\"")
-	private String batch;
-	//备注
-	@Column(name = "\"REMARKS\"")
-	private String remarks;
-	
 	//编码
 	@Column(name = "\"QRCODE\"")
 	private String qrcode;
@@ -55,49 +42,18 @@ public class QrcodeView2Entity extends BaseEntity{
 	//最新检测时间
 	@Column(name = "\"NEWCHECK\"")
 	private String newcheck;
-	//工器具状态
+	//设备状态
 	@Column(name = "\"DEVICESTATE\"")
 	private String devicestate;
-	
-	public String getItem() {
-		
-		return item;
-	}
-	public void setItem(String item) {
-		
-		this.item = item;
-	}
-	public String getCreatetime() {
-		
-		return createtime;
-	}
-	public void setCreatetime(String createtime) {
-		
-		this.createtime = createtime;
-	}
-	public String getBatch() {
-		
-		return batch;
-	}
-	public void setBatch(String batch) {
-		
-		this.batch = batch;
-	}
-	public String getRemarks() {
-		
-		return remarks;
-	}
-	public void setRemarks(String remarks) {
-		
-		this.remarks = remarks;
-	}
+	//设备状态
+	@Column(name = "\"DEVICESTATE2\"")
+	private String devicestate2;
 	
 	public String getQrcode() {
 		
 		return qrcode;
 	}
-	public void setQrcode(String qrcode) {
-		
+	public void setQrcode(String qrcode) {		
 		this.qrcode = qrcode;
 	}
 	public String getUnit() {
@@ -147,8 +103,7 @@ public class QrcodeView2Entity extends BaseEntity{
 	public void setUselife(String uselife) {
 		
 		this.uselife = uselife;
-	}
-	
+	}	
 	public String getLastcheck() {
 		
 		return lastcheck;
@@ -173,5 +128,12 @@ public class QrcodeView2Entity extends BaseEntity{
 		
 		this.devicestate = devicestate;
 	}
-	
+	public String getDevicestate2() {
+		
+		return devicestate2;
+	}
+	public void setDevicestate2(String devicestate2) {
+		
+		this.devicestate2 = devicestate2;
+	}
 }

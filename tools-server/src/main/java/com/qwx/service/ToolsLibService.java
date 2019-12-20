@@ -2,8 +2,8 @@ package com.qwx.service;
 
 import java.util.List;
 
+import com.qwx.bean.PageList;
 import com.qwx.entity.ToolsLib2Entity;
-import com.qwx.entity.ToolsLibEntity;
 
 /**
  * 工器具信息接口
@@ -11,6 +11,13 @@ import com.qwx.entity.ToolsLibEntity;
  *
  */
 public interface ToolsLibService {
+	/**
+	 * 获取工器具列表
+	 * @param page 页码
+	 * @param limit 页大小
+	 * @return
+	 */
+	public PageList<ToolsLib2Entity> getToolList(String page, String limit);
 	/**
 	 * 获取工器具信息
 	 * @param qrcode
