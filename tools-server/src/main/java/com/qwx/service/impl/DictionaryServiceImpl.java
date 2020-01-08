@@ -1,15 +1,12 @@
 package com.qwx.service.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.qwx.database.BaseService;
 import com.qwx.entity.Dictionary2Entity;
 import com.qwx.service.DictionaryService;
-import com.qwx.util.Des3Util;
 import com.qwx.util.DictionaryTreeEntity;
 
 /**

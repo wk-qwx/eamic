@@ -26,6 +26,7 @@
 		</property>
 	</bean>    <!-- 开启AOP监听 只对当前配置文件有效 -->
 	<aop:aspectj-autoproxy expose-proxy="true" />	
+	
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		init-method="init" destroy-method="close">
 		<!-- 基本属性 url、user、password -->
@@ -92,7 +93,6 @@
 
 	<!-- Jpa 事务管理器 -->
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="dataSource" ref="dataSource" />
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 

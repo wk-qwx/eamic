@@ -4,8 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.qwx.util.Des3Util;
-
 /**
  * 字典表
  * @author kal02

@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.qwx.bean.HttpResponse;
 import com.qwx.bean.HttpResponsePageList;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.controller.BaseController;
-import com.qwx.entity.Qrcode2Entity;
 import com.qwx.entity.QrcodeView2Entity;
 import com.qwx.entity.QrcodeViewEntity;
 import com.qwx.service.QrcodeViewService;
@@ -39,7 +37,8 @@ public class QrcodeViewController extends BaseController<QrcodeViewEntity> {
 	@RequestMapping(value = "/getQrcodeView", method = RequestMethod.GET)
 	public HttpResponsePageList<QrcodeView2Entity> getQrcodeView(@RequestParam("page") String page,@RequestParam("limit") String limit) {
 		try {			
-			
+			//PageList<QrcodeView2Entity> list = qrcodeviewService.getQrcodeView(page, limit);
+			//String str = Des3Util.encode(JSONObject.toJSONString(list,SerializerFeature.WriteMapNullValue));
 			return new HttpResponsePageList<QrcodeView2Entity>(qrcodeviewService.getQrcodeView(page, limit));
 		} catch (Exception e) {
 			return new HttpResponsePageList<QrcodeView2Entity>(ResponseStatusCode.C400);

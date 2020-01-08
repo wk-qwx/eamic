@@ -10,10 +10,12 @@ import java.util.regex.Pattern;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.qwx.database.BasePagingAndSortingRepository;
 import com.qwx.database.BaseService;
 import com.qwx.entity.DefectEntity;
+import com.qwx.entity.RecordEntity;
 import com.qwx.service.DefectService;
 import com.qwx.util.ConfigUtil;
 import com.qwx.util.FileUtil;
@@ -27,11 +29,15 @@ import com.qwx.util.FileUtil;
 public class DefectServiceImpl extends BaseService<DefectEntity> implements DefectService{
 	@Resource
 	BasePagingAndSortingRepository<DefectEntity, String> DefectDao;
+	@Resource
+	BasePagingAndSortingRepository<RecordEntity, String> RecordDao;
 	public DefectServiceImpl() {
 		tableName = "ea_defect";
 	}
 	//照片存放路径
 	public static final String PHOTOPATH = ConfigUtil.getProperty("filePath");
+	//缺陷删除密码
+	public static final String DELKEY = ConfigUtil.getProperty("delkey");
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");//可以方便地修改日期格式
 	
 	/**
@@ -98,7 +104,7 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
 	/**
 	 * 修改缺陷信息
 	 */
-	public String updatex(DefectEntity entity){
+	public String updatex(DefectEntity entity, String userid){
 		DefectEntity row = getById(entity.getId());
 		String path = "";
 		
@@ -164,21 +170,22 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
 				entity.setWholeimg3(path);//将照片的存放路径写入
 			}
 		}else FileUtil.deleteFie(row.getWholeimg3());
+		//插入操作记录
+		recordAdd(row.getId(), "编辑", userid);
 		return update(entity);
 	}
 	
 	/**
 	 * 缺陷信息删除
 	 */	
-	@Transactional(rollbackFor=Exception.class)
-	public String delDefect(String id){
-		
+	public String delDefect(String id, String password, String userid){
+		if(!DELKEY.equals(password))return "密码错误";
 		try {
 			DefectEntity row = DefectDao.findOne(id);
 			//删除		
-			delete(row);
+			//delete(row);
 			//删除服务器的上传文件
-			FileUtil.deleteFie(row.getLocalimg1());
+			/*FileUtil.deleteFie(row.getLocalimg1());
 			FileUtil.deleteFie(row.getCodeimg1());
 			FileUtil.deleteFie(row.getWholeimg1());
 			FileUtil.deleteFie(row.getLocalimg2());
@@ -186,16 +193,40 @@ public class DefectServiceImpl extends BaseService<DefectEntity> implements Defe
 			FileUtil.deleteFie(row.getWholeimg2());
 			FileUtil.deleteFie(row.getLocalimg3());
 			FileUtil.deleteFie(row.getCodeimg3());
-			FileUtil.deleteFie(row.getWholeimg3());
-			
-			
+			FileUtil.deleteFie(row.getWholeimg3());*/
+			//更新数据为已被删除状态
+			row.setFlag("-1");
+			update(row);
+			//插入操作记录
+			recordAdd(row.getId(), "删除", userid);
 			return "true";
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {			
+			// TODO Auto-generated catch block			
 			e.printStackTrace();
 			return "删除异常！";
 		}
 				
+	}
+	/**
+	 * 插入操作记录
+	 * @param defectid 缺陷id
+	 * @param opertype 操作类型
+	 * @param userid 用户id
+	 */
+	public void recordAdd(String defectid, String opertype, String userid){
+		try {
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			RecordEntity entity = new RecordEntity();
+			entity.setDefectid(defectid);
+			entity.setOpertype(opertype);
+			entity.setUserid(userid);
+			entity.setOpertime(df.format(new Date()));
+			entity.setId(UUID.randomUUID().toString());
+			RecordDao.save(entity);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * base64转图片

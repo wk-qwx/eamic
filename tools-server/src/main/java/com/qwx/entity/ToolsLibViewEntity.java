@@ -4,8 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.qwx.util.Des3Util;
-
 /**
  * 设备工具视图
  * @author kal02
@@ -30,6 +28,9 @@ public class ToolsLibViewEntity extends BaseEntity{
 	//设备工具类别
 	@Column(name = "\"TOOLTYPE\"")
 	private String tooltype;
+	//电压等级
+	@Column(name = "\"SCALE\"")
+	private String scale;
 	//设备工具名称
 	@Column(name = "\"TOOLNAME\"")
 	private String toolname;
@@ -48,6 +49,9 @@ public class ToolsLibViewEntity extends BaseEntity{
 	//设备状态
 	@Column(name = "\"DEVICESTATE2\"")
 	private String devicestate2;
+	//是否检测
+	@Column(name = "\"ISCHECK\"")
+	private String ischeck;
 	
 	public String getQrcode() {
 		
@@ -87,6 +91,14 @@ public class ToolsLibViewEntity extends BaseEntity{
 	public void setTooltype(String tooltype) {
 		
 		this.tooltype = tooltype;
+	}
+	public String getScale() {
+		
+		return scale;
+	}
+	public void setScale(String scale) {
+		
+		this.scale = scale;
 	}
 	public String getToolname() {
 		
@@ -135,5 +147,13 @@ public class ToolsLibViewEntity extends BaseEntity{
 	public void setDevicestate2(String devicestate2) {
 		
 		this.devicestate2 = devicestate2;
+	}
+	public String getIscheck() {
+		
+		return ischeck;
+	}
+	public void setIscheck(String ischeck) {
+		
+		this.ischeck = ischeck;
 	}
 }

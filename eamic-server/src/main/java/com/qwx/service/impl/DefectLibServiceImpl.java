@@ -45,6 +45,7 @@ public class DefectLibServiceImpl extends BaseService<DefectLibEntity> implement
 			else			
 				sql = "select * from ea_defectlib_v ORDER BY finddate desc";			
 		}else{
+			
 			JSONObject jsonobject = JSONObject.parseObject(whereStr);
 			if(groupid.equals("1")||groupid.equals("2")||groupid.equals("3"))
 				sql = "select * from ea_defectlib_v where groupid ='"+groupid+"' and "+jsonobject.getString("where") + " ORDER BY finddate desc";

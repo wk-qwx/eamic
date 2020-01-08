@@ -7,18 +7,14 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.stereotype.Service;
-
 import com.qwx.bean.PageList;
 import com.qwx.database.BaseService;
 import com.qwx.entity.Qrcode2Entity;
 import com.qwx.entity.QrcodeView2Entity;
-import com.qwx.entity.QrcodeViewEntity;
 import com.qwx.service.QrcodeViewService;
 import com.qwx.util.ConfigUtil;
 import com.qwx.util.ExcelUtil;
-import com.qwx.util.QRCodeUtil;
 
 /**
  * 二维码管理服务
@@ -71,9 +67,11 @@ public class QrcodeViewServiceImpl extends BaseService<QrcodeView2Entity> implem
 			Map<Integer,String> cells = new HashMap<>();
 			Map<Integer,String> cells2 = new HashMap<>();
 			cells.put(1, "二维码");cells2.put(1, "qrcode");
-			cells.put(2, "三级单位");cells2.put(2, "sunits");
-			cells.put(3, "所属分组");cells2.put(3, "groupname");
-			cells.put(4, "工器具类别");cells2.put(4, "tooltype");
+			cells.put(2, "code");cells2.put(2, "code");
+			cells.put(3, "三级单位");cells2.put(3, "sunits");
+			cells.put(4, "所属分组");cells2.put(4, "groupname");
+			cells.put(5, "工器具类别");cells2.put(5, "tooltype");
+			cells.put(6, "工器具名称");cells2.put(6, "toolname");
 			try {
 				File targetFile = new File(filepath);
 				OutputStream out = new FileOutputStream(targetFile);
@@ -87,9 +85,11 @@ public class QrcodeViewServiceImpl extends BaseService<QrcodeView2Entity> implem
 			Map<Integer,String> cells = new HashMap<>();
 			Map<Integer,String> cells2 = new HashMap<>();
 			cells.put(1, "二维码");cells2.put(1, "qrcode");
-			cells.put(2, "三级单位");cells2.put(2, "sunits");
-			cells.put(3, "所属分组");cells2.put(3, "groupname");
-			cells.put(4, "工器具类别");cells2.put(4, "tooltype");
+			cells.put(2, "code");cells2.put(2, "code");
+			cells.put(3, "三级单位");cells2.put(3, "sunits");
+			cells.put(4, "所属分组");cells2.put(4, "groupname");
+			cells.put(5, "工器具类别");cells2.put(5, "tooltype");
+			cells.put(6, "工器具名称");cells2.put(6, "toolname");
 			try {
 				File targetFile = new File(filepath);
 				OutputStream out = new FileOutputStream(targetFile);
@@ -101,9 +101,38 @@ public class QrcodeViewServiceImpl extends BaseService<QrcodeView2Entity> implem
 			}
 		}
 		//返回下载路径
-		return filepath.replace(CODEPATH, "static");
+		return filepath.replace(CODEPATH, "\\static");
 	}
-	
+	/**
+	 * 二维码文件下载导出
+	 */
+	public String downloadexel(String qrid){
+		ExcelUtil<QrcodeView2Entity> eu = new ExcelUtil<QrcodeView2Entity>();
+		String filepath = null;	
+		String sql = "select * from qrcode_v where qrid = '"+qrid+"'";
+		List<QrcodeView2Entity> list = getBySql(sql);
+		if(list.size()==0)return "暂无数据";
+		Map<Integer,String> cells = new HashMap<>();
+		Map<Integer,String> cells2 = new HashMap<>();
+		cells.put(1, "二维码");cells2.put(1, "qrcode");
+		cells.put(2, "code");cells2.put(2, "code");
+		cells.put(3, "三级单位");cells2.put(3, "sunits");
+		cells.put(4, "所属分组");cells2.put(4, "groupname");
+		cells.put(5, "工器具类别");cells2.put(5, "tooltype");
+		cells.put(6, "工器具名称");cells2.put(6, "toolname");
+		try {
+			filepath = CODEPATH + "\\codefile\\安全工器具二维码打印模板-"+list.get(0).getToolname()+".xls";
+			File targetFile = new File(filepath);
+			OutputStream out = new FileOutputStream(targetFile);
+			//导出打印文件
+			eu.export("二维码打印列表",cells,cells2,list, "yyyy-MM-dd", out);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//返回下载路径
+		return filepath.replace(CODEPATH, "\\static");
+	}
 	/**
 	 * 二维码文件下载导出
 	 *//*

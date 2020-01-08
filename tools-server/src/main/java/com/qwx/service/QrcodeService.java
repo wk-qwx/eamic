@@ -1,12 +1,8 @@
 package com.qwx.service;
 
-
-import java.util.List;
-
 import com.qwx.bean.PageList;
 import com.qwx.entity.Qrcode2Entity;
 import com.qwx.entity.QrcodeView2Entity;
-import com.qwx.entity.QrcodeViewEntity;
 
 
 /**

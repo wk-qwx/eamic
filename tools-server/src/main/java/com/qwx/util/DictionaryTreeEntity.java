@@ -4,11 +4,9 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 import com.qwx.entity.BaseEntity;
 import com.qwx.entity.Dictionary2Entity;
-import com.qwx.util.Des3Util;
 
 /**
  * 字典表

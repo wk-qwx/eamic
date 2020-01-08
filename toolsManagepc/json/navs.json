@@ -1,0 +1,49 @@
+{
+	"contentManagement": [		
+		{
+			"title": "安全工器具列表",
+			"icon": "&#xe61c;",
+			"href": "page/toolsManage/toolList.html",
+			"spread": false
+				
+		}
+	],
+	"seraphApi": [				
+		{
+			"title": "二维码生成记录",
+			"icon": "&#xe61c;",
+			"href": "page/qrcode/qrcode.html",
+			"spread": false
+		},
+		{
+			"title": "二维码列表",
+			"icon": "&#xe609;",
+			"href": "page/qrcode/qrcodeList.html",
+			"spread": false
+		}		
+	],	
+	"memberCenter": [
+		{
+			"title": "用户列表",
+			"icon": "&#xe612;",
+			"href": "page/user/userList.html",
+			"spread": false
+		}
+	],
+	"systemeSttings": [
+		{
+			"title": "字典管理",
+			"icon": "&#xe631;",
+			"href": "page/404.html",
+			"spread": false
+		},{
+			"title": "权限配置",
+			"icon": "&#xe631;",
+			"href": "page/toolsManage/toolinfo.html",
+			"spread": false
+		}
+	]
+	
+}
+
+

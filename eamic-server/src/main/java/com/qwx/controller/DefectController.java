@@ -1,8 +1,12 @@
 package com.qwx.controller;
 
+import java.util.Enumeration;
+
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,9 +50,11 @@ public class DefectController extends BaseController<DefectEntity> {
 	 * @return 缺陷信息id
 	 */
 	@RequestMapping(value = "/updatex", method = RequestMethod.POST)
-	public HttpResponse<String> updatex(@RequestBody DefectEntity entity) {
-		try {			
-			return new HttpResponse<String>(defectService.updatex(entity));
+	public HttpResponse<String> updatex(@RequestBody DefectEntity entity,HttpServletRequest request) {
+		try {	
+			Enumeration headerNames = request.getHeaderNames();
+			String userid = request.getHeader("userid");
+			return new HttpResponse<String>(defectService.updatex(entity,userid));
 		} catch (Exception e) {
 			return new HttpResponse<String>(ResponseStatusCode.C400);
 		}
@@ -58,12 +64,12 @@ public class DefectController extends BaseController<DefectEntity> {
 	 * 缺陷删除
 	 */
 	@RequestMapping(value = "/delDefect", method = RequestMethod.POST)
-	@Transactional(rollbackFor=Exception.class)
-	public HttpResponse<String> delDefect(@RequestParam("id") String id) {
+	public HttpResponse<String> delDefect(@RequestParam("id") String id, @RequestParam("password") String password, HttpServletRequest request) {
 		try {			
-			
-			return new HttpResponse<String>(defectService.delDefect(id));
-		} catch (Exception e) {
+			Enumeration headerNames = request.getHeaderNames();
+			String userid = request.getHeader("userid");
+			return new HttpResponse<String>(defectService.delDefect(id, password, userid));
+		} catch (Exception e) {			
 			return new HttpResponse<String>(ResponseStatusCode.C400);
 		}
 	}

@@ -3,15 +3,9 @@ package com.qwx.service.impl;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-
-import com.alibaba.fastjson.JSONObject;
 import com.qwx.bean.PageList;
 import com.qwx.database.BaseService;
-import com.qwx.entity.QrcodeView2Entity;
-import com.qwx.entity.QrcodeViewEntity;
-import com.qwx.entity.ToolsLib2Entity;
 import com.qwx.entity.ToolsLibViewEntity;
-import com.qwx.service.ToolsLibService;
 import com.qwx.service.ToolsLibViewService;
 
 /**
@@ -43,9 +37,9 @@ public class ToolsLibViewServiceImpl extends BaseService<ToolsLibViewEntity> imp
 	/**
 	 * 获取工器具信息
 	 */
-	public PageList<ToolsLibViewEntity> getToolInfo(String qrcode, String page, String limit) {
+	public List<ToolsLibViewEntity> getToolInfo(String qrcode) {
 		String sql = "select * from toolslib_v where qrcode = '"+qrcode+"'";
-		return getPageBySql(page,limit,sql);
+		return getBySql(sql);
 	}
 	/**
 	 * 根据类别获取工器具列表
@@ -73,6 +67,13 @@ public class ToolsLibViewServiceImpl extends BaseService<ToolsLibViewEntity> imp
 	 */
 	public PageList<ToolsLibViewEntity> getListBySunit(String sunits, String page, String limit){
 		String sql = "select * from toolslib_v where sunits = '"+sunits+"' order by devicestate2 desc";
+		return getPageBySql(page,limit,sql);
+	}
+	/**
+	 * 根据工器具名称模糊查询
+	 */
+	public PageList<ToolsLibViewEntity> getListByToolname(String toolname, String page, String limit){
+		String sql = "select * from toolslib_v where toolname like '%"+toolname+"%' order by devicestate2 desc";
 		return getPageBySql(page,limit,sql);
 	}
 	/**

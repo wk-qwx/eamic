@@ -82,8 +82,22 @@ public class ExcelUtil<T> {
 			//Iterator<Integer> iterator =  headers.keySet().iterator();
 			for(Entry<Integer, String> ent : rows.entrySet()) {
 				HSSFCell cell = row.createCell(i);
-				cell.setCellStyle(style);
-				Object value = data.get(ent.getValue());
+				cell.setCellStyle(style);	
+				Object value = null;
+				if(ent.getValue().equals("code")){
+					StringBuilder str = new StringBuilder(data.get("qrcode").toString());
+					int k = str.length() / 3;
+				    int j = str.length() % 3;
+				 
+				    for (int x = (j == 0 ? k - 1 : k); x > 0; x--) {
+				    	str = str.insert(x * 3," ");
+				    }
+				    value = str;
+				}else{
+					value = data.get(ent.getValue());
+				}
+				if(ent.getValue().equals("qrcode"))value = "http://47.106.193.135:8081/toolsManagepc/page/toolinfo.html?code=" + value;
+				
 				String textValue = valueFormat(value, pattern);
 				if (textValue == null) textValue = "";
 				HSSFRichTextString richString = new HSSFRichTextString(textValue);				

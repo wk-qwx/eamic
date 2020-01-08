@@ -4,8 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.qwx.util.Des3Util;
-
 /**
  * 二维码记录视图
  * @author kal02
@@ -58,6 +56,12 @@ public class QrcodeView2Entity extends BaseEntity{
 	//工器具状态
 	@Column(name = "\"DEVICESTATE\"")
 	private String devicestate;
+	//二维码文件id
+	@Column(name = "\"QRID\"")
+	private String qrid;
+	//规格、电压等级
+	@Column(name = "\"SCALE\"")
+	private String scale;
 	
 	public String getItem() {
 		
@@ -173,5 +177,20 @@ public class QrcodeView2Entity extends BaseEntity{
 		
 		this.devicestate = devicestate;
 	}
-	
+	public String getQrid() {
+		
+		return qrid;
+	}
+	public void setQrid(String qrid) {
+		
+		this.qrid = qrid;
+	}
+	public String getScale() {
+		
+		return scale;
+	}
+	public void setScale(String scale) {
+		
+		this.scale = scale;
+	}
 }

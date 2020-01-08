@@ -9,6 +9,7 @@ import java.util.UUID;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.qwx.database.BasePagingAndSortingRepository;
@@ -36,6 +37,8 @@ public class ReadMaterialServiceImpl extends BaseService<ReadMaterialEntity> imp
 	/**
 	 * 文件上传
 	 */
+	@Transactional
+	@Override
 	public String upload(CommonsMultipartFile file) {
 		try {
 			String filename = file.getOriginalFilename();
@@ -69,6 +72,8 @@ public class ReadMaterialServiceImpl extends BaseService<ReadMaterialEntity> imp
 	/**
 	 * 参考资料删除
 	 */
+	@Transactional
+	@Override
 	public String delMaterial(String id,String groupid){
 		if(groupid.equals("1")||groupid.equals("2")||groupid.equals("3"))return "暂无操作权限";
 		

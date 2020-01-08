@@ -7,14 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.qwx.bean.HttpResponseList;
 import com.qwx.bean.HttpResponsePageList;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.controller.BaseController;
-import com.qwx.entity.QrcodeView2Entity;
 import com.qwx.entity.ToolsLib2Entity;
 import com.qwx.entity.ToolsLibViewEntity;
-import com.qwx.service.ToolsLibService;
 import com.qwx.service.ToolsLibViewService;
 
 
@@ -56,13 +55,13 @@ public class ToolsLibViewController extends BaseController<ToolsLib2Entity> {
 	/**
 	 * 获取安全工器具信息
 	 */
-	@RequestMapping(value = "/getToolInfo/{qrcode}", method = RequestMethod.POST)
-	public HttpResponsePageList<ToolsLibViewEntity> getToolInfo(@PathVariable("qrcode") String qrcode, @RequestParam("page") String page, @RequestParam("limit") String limit) {
+	@RequestMapping(value = "/getToolInfo/{qrcode}", method = RequestMethod.GET)
+	public HttpResponseList<ToolsLibViewEntity> getToolInfo(@PathVariable("qrcode") String qrcode) {
 		try {			
 			
-			return new HttpResponsePageList<ToolsLibViewEntity>(toolslibvService.getToolInfo(qrcode, page, limit));
+			return new HttpResponseList<ToolsLibViewEntity>(toolslibvService.getToolInfo(qrcode));
 		} catch (Exception e) {
-			return new HttpResponsePageList<ToolsLibViewEntity>(ResponseStatusCode.C400);
+			return new HttpResponseList<ToolsLibViewEntity>(ResponseStatusCode.C400);
 		}
 	}
 	/**
@@ -97,6 +96,18 @@ public class ToolsLibViewController extends BaseController<ToolsLib2Entity> {
 		try {			
 			
 			return new HttpResponsePageList<ToolsLibViewEntity>(toolslibvService.getListBySunit(sunits, page, limit));
+		} catch (Exception e) {
+			return new HttpResponsePageList<ToolsLibViewEntity>(ResponseStatusCode.C400);
+		}
+	}
+	/**
+	 * 根据安全工器具名称模糊查询
+	 */
+	@RequestMapping(value = "/getListByToolname", method = RequestMethod.POST)
+	public HttpResponsePageList<ToolsLibViewEntity> getListByToolname(@RequestParam("toolname") String toolname, @RequestParam("page") String page,@RequestParam("limit") String limit) {
+		try {			
+			
+			return new HttpResponsePageList<ToolsLibViewEntity>(toolslibvService.getListByToolname(toolname, page, limit));
 		} catch (Exception e) {
 			return new HttpResponsePageList<ToolsLibViewEntity>(ResponseStatusCode.C400);
 		}

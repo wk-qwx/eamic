@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>安全工器具详情页面</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../css/public.css" media="all" />
+</head>
+<body class="childrenBody">
+<form class="layui-form" style="width:100%;">
+	<table style="width: 100%;">
+		<th>
+			<tr style="height: 60px;text-align: center;">
+				<td style="font-size: 18px;font-weight: bold;">安全工器具详细信息</td>
+			</tr>
+		</th>
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label" style="width: 30%;font-size: 16px;">所属单位</label>
+					<div class="layui-input-block">
+						<input type="text" style="width: 80%;font-size: 16px;" class="layui-input unit" disabled="disabled" lay-verify="required">
+					</div>
+				</div>
+			</td>			
+		</tr>
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label" style="width: 30%;font-size: 16px;">三级单位</label>
+					<div class="layui-input-block">
+						<input type="text" style="width: 80%;font-size: 16px;" class="layui-input sunits" disabled="disabled" lay-verify="required">
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label" style="width: 30%;font-size: 16px;">所属班组/供电所</label>
+					<div class="layui-input-block">
+						<input type="text" style="width: 80%;font-size: 16px;" class="layui-input groupname" disabled="disabled" lay-verify="required">
+					</div>
+				</div>
+			</td>			
+		</tr>
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label" style="width: 30%;font-size: 16px;">安全工器具类别</label>
+					<div class="layui-input-block">
+						<input type="text" style="width: 80%;font-size: 16px;" class="layui-input tooltype" disabled="disabled" lay-verify="required">
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label" style="width: 30%;font-size: 16px;">安全工器具名称</label>
+					<div class="layui-input-block">
+						<input type="text" style="width: 80%;font-size: 16px;" class="layui-input toolname" disabled="disabled" lay-verify="required">
+					</div>
+				</div>
+			</td>			
+		</tr>		
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label" style="width: 30%;font-size: 16px;">qrcode</label>
+					<div class="layui-input-block">
+						<input type="text" style="width: 80%;font-size: 16px;" class="layui-input qrcode" disabled="disabled" lay-verify="required">
+					</div>
+				</div>
+			</td>					
+		</tr>		
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label" style="width: 30%;font-size: 16px;">检测周期（月）</label>
+					<div class="layui-input-block">
+						<input type="text" style="width: 80%;font-size: 16px;" class="layui-input uselife" disabled="disabled" lay-verify="required">
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label" style="width: 30%;font-size: 16px;">上一次检测时间</label>
+					<div class="layui-input-block">
+						<input type="text" style="width: 80%;font-size: 16px;" class="layui-input lastcheck" disabled="disabled" lay-verify="required">
+					</div>
+				</div>
+			</td>			
+		</tr>
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label" style="width: 30%;font-size: 16px;">下一次检测时间</label>
+					<div class="layui-input-block">
+						<input type="text" style="width: 80%;font-size: 16px;" class="layui-input newcheck" disabled="disabled" lay-verify="required">
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label" style="width: 30%;font-size: 16px;">安全工器具状态</label>
+					<div class="layui-input-block" >
+						<input type="text" style="width: 80%;font-size: 16px;" class="layui-input devicestate" disabled="disabled" lay-verify="required">
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	
+</form>
+<script type="text/javascript" src="../layui/layui.js"></script>
+<script type="text/javascript" src="../js/toolinfo.js"></script>
+</body>
+</html>

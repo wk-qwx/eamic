@@ -1,11 +1,8 @@
 package com.qwx.service;
 
 import java.util.List;
-
 import com.qwx.bean.PageList;
-import com.qwx.entity.Qrcode2Entity;
 import com.qwx.entity.QrcodeView2Entity;
-import com.qwx.entity.QrcodeViewEntity;
 
 /**
  * 二维码管理信息接口
@@ -25,6 +22,12 @@ public interface QrcodeViewService {
 	 * @return
 	 */
 	public String downloadexel(List<QrcodeView2Entity> entitys, String flag);
+	/**
+	 * 二维码导出下载
+	 * @param qrid 文件id
+	 * @return
+	 */
+	public String downloadexel(String qrid);
 	/**
 	 * 根据筛选条件二维码列表
 	 * @param page 页码

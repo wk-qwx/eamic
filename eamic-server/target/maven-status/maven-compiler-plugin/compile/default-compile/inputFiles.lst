@@ -1,3 +1,4 @@
+E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\entity\RecordEntity.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\dao\UserDao.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\service\impl\DefectServiceImpl.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\service\impl\ReadMaterialServiceImpl.java
@@ -7,8 +8,8 @@ E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\util\StringUtil.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\controller\ReadMaterialController.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\service\DictionaryService.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\dao\DictionaryDao.java
+E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\dao\RecordDao.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\util\ConfigUtil.java
-E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\util\DictionaryUtil.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\controller\RoutelibController.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\bean\ResponseStatusCode.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\util\SpringUtils.java
@@ -28,6 +29,7 @@ E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\database\BasePagingAndS
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\dao\DefectDao.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\database\BaseJpaSpecificationExecutorRepository.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\entity\DefectLibEntity.java
+E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\service\impl\RecordViewServiceImpl.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\bean\HttpResponsePageList.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\entity\DefectEntity.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\util\ImportPOI.java
@@ -42,15 +44,20 @@ E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\bean\PageInfo.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\service\RoutelibService.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\bean\PageList.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\bean\HttpResponse.java
+E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\entity\RecordViewEntity.java
+E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\controller\RecordViewController.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\service\RouteStateService.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\database\BaseService.java
+E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\dao\RecordViewDao.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\dao\ReadMaterialDao.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\dao\RoutelibDao.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\entity\ReadMaterialEntity.java
+E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\service\RecordViewService.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\controller\DictionaryController.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\entity\RoutelibEntity.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\entity\DeductRuleEntity.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\service\impl\DictionaryServiceImpl.java
+E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\service\impl\RecordServiceImpl.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\util\test.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\util\JsonGeometrySerializer.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\controller\UserController.java
@@ -60,8 +67,10 @@ E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\util\PropertyUtil.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\bean\SPStatParam.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\service\impl\DefectLibServiceImpl.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\util\CorsFilter.java
+E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\controller\RecordController.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\util\DocUtil.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\util\FileUtil.java
+E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\service\RecordService.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\service\impl\RoutelibServiceImpl.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\util\DispatcherServlet.java
 E:\ÇÚÎ©ÐÅ\codePorject\eamic-server\src\main\java\com\qwx\service\DefectService.java

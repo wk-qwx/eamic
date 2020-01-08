@@ -23,10 +23,10 @@ public interface DefectService {
 	 * @param entity
 	 * @return 缺陷id字符串
 	 */
-	public String updatex(DefectEntity entity);
+	public String updatex(DefectEntity entity, String userid);
 	
 	/**
 	 * 缺陷删除
 	 */	
-	public String delDefect(String id);
+	public String delDefect(String id, String password, String userid);
 }

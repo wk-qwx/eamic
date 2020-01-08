@@ -3,7 +3,6 @@ package com.qwx.service;
 import java.util.List;
 
 import com.qwx.bean.PageList;
-import com.qwx.entity.ToolsLib2Entity;
 import com.qwx.entity.ToolsLibViewEntity;
 
 /**
@@ -32,7 +31,7 @@ public interface ToolsLibViewService {
 	 * @param qrcode
 	 * @return
 	 */
-	public PageList<ToolsLibViewEntity> getToolInfo(String qrcode, String page, String limit);
+	public List<ToolsLibViewEntity> getToolInfo(String qrcode);
 	/**
 	 * 根据工器具类别获取列表
 	 * @param tooltype
@@ -51,6 +50,12 @@ public interface ToolsLibViewService {
 	 * @return 工器具列表
 	 */
 	public PageList<ToolsLibViewEntity> getListBySunit(String sunits, String page, String limit);
+	/**
+	 * 根据工器具名称模糊查询
+	 * @param toolname
+	 * @return 工器具列表
+	 */
+	public PageList<ToolsLibViewEntity> getListByToolname(String toolname, String page, String limit);
 	/**
 	 * 根据批次号获取列表
 	 * @param sunits

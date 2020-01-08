@@ -1,7 +1,5 @@
 package com.qwx.controller;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qwx.bean.HttpResponse;
 import com.qwx.bean.HttpResponseList;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.controller.BaseController;

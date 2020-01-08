@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>安全工器具详细信息</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../css/public.css" media="all" />
+	
+</head>
+<body class="childrenBody">
+<form class="layui-form" style="width:98%;">
+	<table style="width: 100%;">
+		<tr>			
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">三级单位</label>
+					<div class="layui-input-block">
+						<input type="text" id="sunits" class="layui-input layui-disabled sunits" disabled  lay-verify="required">
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">所属班组</label>
+					<div class="layui-input-block">
+						<input type="text" id="groupname" class="layui-input layui-disabled groupname" disabled lay-verify="required">
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>		
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">安全工器具类别</label>
+					<div class="layui-input-block">
+						<input type="text" id="tooltype" class="layui-input layui-disabled tooltype" disabled lay-verify="required">
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">安全工器具名称</label>
+					<div class="layui-input-block">
+						<input type="text" id="toolname" class="layui-input layui-disabled toolname" disabled lay-verify="required">
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>			
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">qrcode</label>
+					<div class="layui-input-block">
+						<input type="text" id="qrcode" class="layui-input layui-disabled qrcode" disabled lay-verify="required">
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">电压等级</label>
+					<div class="layui-input-block">
+						<input type="text" id="scale" class="layui-input layui-disabled scale" disabled>
+					</div>
+				</div>
+			</td>
+		</tr>		
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">安全工器具状态</label>
+					<div class="layui-input-block">
+						<select id="devicestate" class="layui-input devicestate" lay-filter="devicestate">
+						  <option value="正常">正常</option>
+						  <option value="报废">报废</option>
+						</select>
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="layui-inline">
+					<label class="layui-form-label">上一次检测时间</label>
+					<div class="layui-input-inline">
+				        <input type="text" id="lastcheck" lay-verify="date" class="layui-input lastcheck">
+				    </div>					
+				</div>
+			</td>
+						
+		</tr>
+		<tr>
+			<td>
+				<div class="layui-form-item layui-row layui-col-xs12">
+					<label class="layui-form-label">检测周期（月）</label>
+					<div class="layui-input-block">
+						<select id="uselife" name="uselife" class="layui-input uselife" lay-filter="uselife">						  
+							<option id="opuselife" value=""></option>
+						</select>
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="layui-inline">
+					<label class="layui-form-label">下一次检测时间</label>					
+					<div class="layui-input-inline">
+				        <input type="text" id="newcheck" lay-verify="date" disabled class="layui-input layui-disabled newcheck">
+				    </div>	
+				</div>
+			</td>
+		</tr>
+		<tr style="display: none;">
+			<td><input type="text" id="id" class="layui-input id"></td>
+			<td><input type="text" id="index" class="layui-input index"></td></td>
+			<td><input type="text" id="unit" class="layui-input unit"></td></td>
+		</tr>
+		<tr>
+			<td style="text-align: center;" colspan="2">
+				<div class="layui-input-block">
+					<button class="layui-btn" lay-submit="" lay-filter="edit">立即提交</button>
+					<button id = "cancel" class="layui-btn layui-btn-primary">取消</button>
+				</div>
+			</td>
+		</tr>
+		
+	</table>
+</form>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="toolinfo.js"></script>
+<script type="text/javascript" src="../../js/config.js"></script>
+</body>
+</html>
