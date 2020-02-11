@@ -42,7 +42,7 @@ public class QRCodeUtil {
     private static final int BGWHITE = 0xFFFFFFFF;
     
     
-    static List<BufferedImage> images = new ArrayList<>();
+    static List<BufferedImage> images = new ArrayList();
 
     /*public static void main(String[] args) {
         try {
@@ -164,7 +164,7 @@ public class QRCodeUtil {
 		} finally {
 			if (fileOut != null) {
 				try {
-					images = new ArrayList<>();
+					images = new ArrayList();
 					fileOut.close();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block

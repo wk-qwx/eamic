@@ -14,7 +14,7 @@ import com.qwx.entity.Dictionary2Entity;
  *
  */
 @Entity
-public class DictionaryTreeEntity extends BaseEntity{
+public class DictionaryTreeEntity2 extends BaseEntity{
 	//id
 	@Column(name = "\"ID\"")
 	private String id;
@@ -30,12 +30,15 @@ public class DictionaryTreeEntity extends BaseEntity{
 	//中文代码
 	@Column(name = "\"CODE\"")
 	private String code;
-	//中文代码
+	//级别
 	@Column(name = "\"LEVEL\"")
 	private String level;
+	//父级
+	@Column(name = "\"PID\"")
+	private String pid;
 	//子集
 	@Column(name = "\"CHILDREN\"")
-	private List<Dictionary2Entity> children;
+	private List<DictionaryTreeEntity2> children;
 	
 	public String getId() {
 			
@@ -43,6 +46,13 @@ public class DictionaryTreeEntity extends BaseEntity{
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getPid() {
+		
+		return pid;
+	}
+	public void setPid(String pid) {
+		this.pid = pid;
 	}
 	public String getName() {
 		
@@ -60,10 +70,10 @@ public class DictionaryTreeEntity extends BaseEntity{
 	}
 	public String getTitle() {
 		
-		return display;
+		return title;
 	}
-	public void setTitle(String display) {
-		this.display = display;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getCode() {
 		
@@ -79,11 +89,11 @@ public class DictionaryTreeEntity extends BaseEntity{
 	public void setLevel(String level) {
 		this.level = level;
 	}
-	public List<Dictionary2Entity> getChildren() {
+	public List<DictionaryTreeEntity2> getChildren() {
 		
 		return children;
 	}
-	public void setChildren(List<Dictionary2Entity> children) {
+	public void setChildren(List<DictionaryTreeEntity2> children) {
 		this.children = children;
 	}
 	

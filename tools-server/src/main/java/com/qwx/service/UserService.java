@@ -1,7 +1,10 @@
 package com.qwx.service;
 
+import java.util.List;
+
 import com.qwx.bean.PageList;
 import com.qwx.entity.UserEntity;
+import com.qwx.entity.UserViewEntity;
 
 /**
  * 用户信息接口
@@ -30,4 +33,11 @@ public interface UserService {
 	 * @return
 	 */
 	public String delUser(UserEntity entity);
+	/**
+	 * 用户验证
+	 * @param username 用户名
+	 * @param pwd 密码
+	 * @return true or false
+	 */
+	public List<UserViewEntity> checkUser(String username,String pwd);
 }

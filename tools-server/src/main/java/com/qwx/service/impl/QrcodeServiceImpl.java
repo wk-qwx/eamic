@@ -86,7 +86,7 @@ public class QrcodeServiceImpl extends BaseService<Qrcode2Entity> implements Qrc
 				row.setQrcode(qrcode);
 				row.setSunits(entity.getSunits());
 				row.setTooltype(entity.getTooltype());
-				row.setToolname(entity.getToolname());
+				row.setToolname(entity.getToolname()+"("+qrcode.substring(5)+")");
 				row.setUselife(entity.getUselife());
 				row.setGroupname(entity.getGroupname());
 				row.setDevicestate(entity.getDevicestate());

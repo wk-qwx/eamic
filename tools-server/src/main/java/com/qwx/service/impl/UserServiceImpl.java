@@ -1,5 +1,7 @@
 package com.qwx.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -7,7 +9,9 @@ import org.springframework.stereotype.Service;
 import com.qwx.bean.PageList;
 import com.qwx.database.BasePagingAndSortingRepository;
 import com.qwx.database.BaseService;
+import com.qwx.entity.RoleUserEntity;
 import com.qwx.entity.UserEntity;
+import com.qwx.entity.UserViewEntity;
 import com.qwx.service.UserService;
 
 /**
@@ -19,6 +23,8 @@ import com.qwx.service.UserService;
 public class UserServiceImpl extends BaseService<UserEntity> implements UserService{
 	@Resource
 	BasePagingAndSortingRepository<UserEntity, String> userDao;
+	@Resource
+	BasePagingAndSortingRepository<RoleUserEntity, String> roleuserDao;
 	public UserServiceImpl() {
 		tableName = "tl_user";
 	}
@@ -54,11 +60,31 @@ public class UserServiceImpl extends BaseService<UserEntity> implements UserServ
 	public String delUser(UserEntity entity){
 		try {
 			userDao.delete(entity);
+			String sql = "select * from role_user where userid = '"+entity.getId()+"'";
+			List<RoleUserEntity> rows = getBySql(sql,RoleUserEntity.class);
+			roleuserDao.delete(rows);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
 		return entity.getId();
+	}
+	/**
+	 * 用户验证
+	 * @param username 用户名
+	 * @param pwd 密码
+	 * @return 返回数据行和token验证码
+	 */
+	public List<UserViewEntity> checkUser(String username,String pwd){
+		try {
+			String sql="select * from user_v where username = '"+username+"' and pwd = '"+pwd+"'";
+			List<UserViewEntity> user = getBySql(sql,UserViewEntity.class);	
+				
+			return user;
+		} catch (Exception e) {
+			e.printStackTrace();			
+		}
+		return null;
 	}
 }

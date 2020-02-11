@@ -10,7 +10,6 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 import com.qwx.bean.PageList;
 import com.qwx.database.BaseService;
-import com.qwx.entity.Qrcode2Entity;
 import com.qwx.entity.QrcodeView2Entity;
 import com.qwx.service.QrcodeViewService;
 import com.qwx.util.ConfigUtil;
@@ -64,8 +63,8 @@ public class QrcodeViewServiceImpl extends BaseService<QrcodeView2Entity> implem
 			String sql = "select * from qrcode_v where batch = '"+entitys.get(0).getBatch()+"'";
 			List<QrcodeView2Entity> list = getBySql(sql);
 			if(list.size()==0)return "暂无数据";
-			Map<Integer,String> cells = new HashMap<>();
-			Map<Integer,String> cells2 = new HashMap<>();
+			Map<Integer,String> cells = new HashMap();
+			Map<Integer,String> cells2 = new HashMap();
 			cells.put(1, "二维码");cells2.put(1, "qrcode");
 			cells.put(2, "code");cells2.put(2, "code");
 			cells.put(3, "三级单位");cells2.put(3, "sunits");
@@ -82,8 +81,8 @@ public class QrcodeViewServiceImpl extends BaseService<QrcodeView2Entity> implem
 				e.printStackTrace();
 			}
 		}else if("2".equals(flag)){			
-			Map<Integer,String> cells = new HashMap<>();
-			Map<Integer,String> cells2 = new HashMap<>();
+			Map<Integer,String> cells = new HashMap();
+			Map<Integer,String> cells2 = new HashMap();
 			cells.put(1, "二维码");cells2.put(1, "qrcode");
 			cells.put(2, "code");cells2.put(2, "code");
 			cells.put(3, "三级单位");cells2.put(3, "sunits");
@@ -112,8 +111,8 @@ public class QrcodeViewServiceImpl extends BaseService<QrcodeView2Entity> implem
 		String sql = "select * from qrcode_v where qrid = '"+qrid+"'";
 		List<QrcodeView2Entity> list = getBySql(sql);
 		if(list.size()==0)return "暂无数据";
-		Map<Integer,String> cells = new HashMap<>();
-		Map<Integer,String> cells2 = new HashMap<>();
+		Map<Integer,String> cells = new HashMap();
+		Map<Integer,String> cells2 = new HashMap();
 		cells.put(1, "二维码");cells2.put(1, "qrcode");
 		cells.put(2, "code");cells2.put(2, "code");
 		cells.put(3, "三级单位");cells2.put(3, "sunits");

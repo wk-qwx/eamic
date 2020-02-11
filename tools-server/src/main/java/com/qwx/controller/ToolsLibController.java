@@ -1,17 +1,13 @@
 package com.qwx.controller;
 
-import javax.annotation.Resource;
+import java.util.List;
 
-import org.springframework.web.bind.annotation.PathVariable;
+import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.qwx.bean.HttpResponse;
-import com.qwx.bean.HttpResponseList;
-import com.qwx.bean.HttpResponsePageList;
 import com.qwx.bean.ResponseStatusCode;
 import com.qwx.controller.BaseController;
 import com.qwx.entity.ToolsLib2Entity;
@@ -41,6 +37,17 @@ public class ToolsLibController extends BaseController<ToolsLib2Entity> {
 			return new HttpResponse<String>(ResponseStatusCode.C400);
 		}
 	}
-	
+	/**
+	 * 下载生成合格标签
+	 */
+	@RequestMapping(value = "/uptostandard", method = RequestMethod.POST)
+	public HttpResponse<String> uptostandard(@RequestBody List<ToolsLib2Entity> entitys) {
+		try {			
+			
+			return new HttpResponse<String>(toolslibService.uptostandard(entitys));
+		} catch (Exception e) {
+			return new HttpResponse<String>(ResponseStatusCode.C400);
+		}
+	}
 	
 }
