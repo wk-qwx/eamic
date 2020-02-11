@@ -82,10 +82,13 @@ layui.use(['form','layer','table','laytpl','laydate'],function(){
         	success : function(res){
 	        	setTimeout(function(){
 		            top.layer.close(index);
-		            top.layer.msg("保存成功！");
-		            layer.closeAll("iframe");
-		            //刷新父页面
-		            parent.location.reload();
+	        		if(res.data!="参数错误"){			            
+			            top.layer.msg("保存成功！");
+			            //刷新父页面
+			        	parent.location.reload();
+			        }else{
+			        	top.layer.msg("保存失败！稍候重试");
+			        }	
 	        	},1000);
         	},error : function(xhr,status,error){
         		top.layer.close(index);

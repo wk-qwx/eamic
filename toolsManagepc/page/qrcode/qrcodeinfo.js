@@ -18,7 +18,7 @@ layui.use(['form','layer','table','laytpl'],function(){
         id : "qrcodeInfoTable",
         cols : [[
             {field: 'groupname', title: '所属班组', minWidth:150, align:'center'},
-            {field: 'toolname', title: '安全工器具名称', minWidth:200, align:'center'},
+            {field: 'toolname', title: '安全工器具名称', minWidth:280, align:'center'},
             {field: 'qrcode', title: 'qrcode', minWidth:120, align:'center'},            
             {field: 'devicestate2', title: '安全工器具状态', align:'center',minWidth:150},
             {field: 'uselife', title: '检测周期(月)', align:'center',minWidth:150},

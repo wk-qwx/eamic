@@ -5,8 +5,7 @@ layui.use(['form','layer','table','laytpl'],function(){
         laytpl = layui.laytpl,
         table = layui.table;
 	
-	
-	var jsonstr = {"name":"工器具类别"};
+	var jsonstr = {"name":"安全工器具类别"};
 	loadselect(jsonstr,"tooltype");
 	jsonstr = {"name":"国网衡阳供电公司"};
 	loadselect(jsonstr,"unit");
@@ -39,21 +38,22 @@ layui.use(['form','layer','table','laytpl'],function(){
         cellMinWidth : 95,
         page : true,
         height : "full-125",
-        limits : [10,15,20,25],
+        limits : [10,20,30,50],
         id : "toolListTable",
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
+            {field: 'qrcode', title: '序号', width:80, type:"numbers", sort:true},
             {field: 'unit', title: '单位', minWidth:100, align:"center"},
-            {field: 'sunits', title: '三级单位', minWidth:200, align:'center'},
+            {field: 'sunits', title: '三级单位', minWidth:120, align:'center'},
             {field: 'groupname', title: '所属班组', minWidth:150, align:'center'},
             {field: 'tooltype', title: '安全工器具类别', minWidth:150, align:'center'},
             {field: 'scale', title: '规格', minWidth:100, align:'center'},
-            {field: 'toolname', title: '安全工器具名称', minWidth:200, align:'center'},
+            {field: 'toolname', title: '安全工器具名称', minWidth:280, align:'center'},
             {field: 'qrcode', title: 'qrcode', minWidth:120, align:'center'},            
-            {field: 'devicestate2', title: '安全工器具状态', align:'center',minWidth:150},
+            {field: 'devicestate2', title: '安全工器具状态', align:'center',minWidth:150, sort:true},
             {field: 'uselife', title: '检测周期(月)', align:'center',minWidth:150},
-            {field: 'lastcheck', title: '上一次检测时间', align:'center',minWidth:150},
-            {field: 'newcheck', title: '下一次检测时间', align:'center',minWidth:150},
+            {field: 'lastcheck', title: '上一次检测时间', align:'center',minWidth:150, sort:true},
+            {field: 'newcheck', title: '下一次检测时间', align:'center',minWidth:150, sort:true},
             {title: '操作', minWidth:175, templet:'#toolListBar',fixed:"right",align:"center"}
         ]],
         parseData:function(res){
@@ -105,7 +105,7 @@ layui.use(['form','layer','table','laytpl'],function(){
 	                }
 	            },'data')
 	        layer.close(index);
-        },900);
+        },1000);
         
     });
 	

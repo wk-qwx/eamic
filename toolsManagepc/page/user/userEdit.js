@@ -58,7 +58,7 @@ layui.use(['form','layer','laytpl','laydate'],function(){
         	type:"POST",
         	url:baseUrl+"/toolsManage/user/update",
         	data:JSON.stringify({
-        		 id : $("#id").val(),  //登录名
+        		 id : $("#id").val(),  //id
 	             username : $("#username").val(),  //登录名
 	             pwd : $("#pwd").val(),  //密码
 	             sex : data.field.sex,  //性别
@@ -66,17 +66,20 @@ layui.use(['form','layer','laytpl','laydate'],function(){
 	             truename : $("#truename").val(),    //真实姓名
 	             sunits : $("[class='layui-anim layui-anim-upbit'] dd[lay-value='"+data.field.sunits+"']").text(),    //所属三级单位
 	             groupname : data.field.groupname,    //所属班组
-	             createtime : submitTime    //添加时间
+	             createtime : $("#createtime").val()    //添加时间
         	}),
         	contentType: "application/json; charset=UTF-8",
         	dataType : "json",
         	success : function(res){
 	        	setTimeout(function(){
 		            top.layer.close(index);
-		            top.layer.msg("保存成功！");
-		            layer.closeAll("iframe");
-		            //刷新父页面
-		            parent.location.reload();
+	        		if(res.data!="参数错误"){			            
+			            top.layer.msg("保存成功！");
+			            //刷新父页面
+			        	parent.location.reload();
+			        }else{
+			        	top.layer.msg("保存失败！稍候重试");
+			        }		
 	        	},1000);
         	},error : function(xhr,status,error){
         		top.layer.close(index);
@@ -88,16 +91,5 @@ layui.use(['form','layer','laytpl','laydate'],function(){
     $("#cancel").click(function(){
     	parent.layer.close($("#index").val());
     });
-    //格式化时间
-    function filterTime(val){
-        if(val < 10){
-            return "0" + val;
-        }else{
-            return val;
-        }
-    }
-    //定时发布
-    var time = new Date();
-    var submitTime = time.getFullYear()+'-'+filterTime(time.getMonth()+1)+'-'+filterTime(time.getDate())+' '+filterTime(time.getHours())+':'+filterTime(time.getMinutes())+':'+filterTime(time.getSeconds());
-
+    
 })

@@ -6,7 +6,7 @@ layui.use(['form','layer','table','laytpl'],function(){
         table = layui.table;
 
 
-	var jsonstr = {"name":"工器具类别"};
+	var jsonstr = {"name":"安全工器具类别"};
 	loadselect(jsonstr,"tooltype");
 	jsonstr = {"name":"国网衡阳供电公司"};
 	loadselect(jsonstr,"unit");
@@ -37,15 +37,16 @@ layui.use(['form','layer','table','laytpl'],function(){
         cellMinWidth : 95,
         page : true,
         height : "full-125",
-        limits : [10,15,20,25],
+        limits : [10,20,30,50],
         id : "qrcodeListTable",
         cols : [[
+        	{field: 'batch', title: '序号', width:80, type:"numbers", sort:true},
             {field: 'unit', title: '单位', minWidth:100, align:"center"},
             {field: 'sunits', title: '三级单位', minWidth:150, align:'center'},
             {field: 'tooltype', title: '安全工器具类别', minWidth:100, align:'center'},
             {field: 'batch', title: '批次', align:'center', width:80},
-            {field: 'item', title: '数量', align:'center', width:80},
-            {field: 'createtime', title: '生成时间', align:'center',minWidth:150},
+            {field: 'item', title: '数量', align:'center', width:80, sort:true},
+            {field: 'createtime', title: '生成时间', align:'center',minWidth:150, sort:true},
             {field: 'remarks', title: '备注', align:'center',minWidth:200},
             {title: '操作', minWidth:175, templet:'#qrcodeListBar',fixed:"right",align:"center"}
         ]],
@@ -113,7 +114,7 @@ layui.use(['form','layer','table','laytpl'],function(){
 	                }
 	            },'data')
 	        layer.close(index);
-        },900);
+        },800);
         
     });
 

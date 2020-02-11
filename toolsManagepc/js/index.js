@@ -13,7 +13,7 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
 			openTabNum : "50",  //最大可打开窗口数量
 			url : "json/navs.json" //获取菜单json地址
 		});
-
+	
 	
 	//通过顶部菜单获取左侧二三级菜单   注：此处只做演示之用，实际开发中通过接口传参的方式获取导航数据
 	function getData(json){
@@ -84,14 +84,14 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
 		$(this).parent("li").siblings().removeClass("layui-nav-itemed");
 	})
 
-	//清除缓存
-	$(".clearCache").click(function(){
-		window.sessionStorage.clear();
-        window.localStorage.clear();
-        var index = layer.msg('清除缓存中，请稍候',{icon: 16,time:false,shade:0.8});
+	//退出登录
+	$(".signOut").click(function(){
+		
+        var index = layer.msg('退出登录中，请稍候',{icon: 16,time:false,shade:0.8});
         setTimeout(function(){
-            layer.close(index);
-            layer.msg("缓存清除成功！");
+        	window.sessionStorage.clear();
+        	window.localStorage.clear();
+        	window.location.href = "/toolsManagepc/page/login/login.html";
         },1000);
     })
 
@@ -143,47 +143,4 @@ function addTab(_this){
 }
 
 
-
-//图片管理弹窗
-function showImg(){
-    $.getJSON('json/images.json', function(json){
-        var res = json;
-        layer.photos({
-            photos: res,
-            anim: 5
-        });
-    });
-}
-/**3DES加密
- * keyHex   密匙
- * message  加密內容
- * vector   向量 
- */
-function Encrypt(message) {    
-	var keyHex = CryptoJS.enc.Utf8.parse('123456789012345678901234');
-	var vector = "01234567";
-	var encrypted = CryptoJS.TripleDES.encrypt(message, keyHex, {
-		iv: CryptoJS.enc.Utf8.parse(vector),
-		mode: CryptoJS.mode.CBC,
-		padding: CryptoJS.pad.Pkcs7
-	});
-	console.log(encrypted + "");
-}
-/**
- * 解密
- * keyHex   密匙
- * message  加密內容
- * vector   向量 
- */
-function Decrypt(message){
-	var keyHex = CryptoJS.enc.Utf8.parse('123456789012345678901234');
-	var vector = "01234567";
-	var encrypted = CryptoJS.TripleDES.decrypt(message, keyHex, {
-		iv: CryptoJS.enc.Utf8.parse(vector),
-		mode: CryptoJS.mode.CBC,
-		padding: CryptoJS.pad.Pkcs7
-	});
-	//console.log(CryptoJS.enc.Utf8.stringify(encrypted).toString());
-	return CryptoJS.enc.Utf8.stringify(encrypted).toString();
-}
 

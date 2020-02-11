@@ -1,9 +1,7 @@
-layui.use(['form','layer','table','laytpl'],function(){
+layui.use(['form','layer'],function(){
     var form = layui.form,
         layer = parent.layer === undefined ? layui.layer : top.layer,
-        $ = layui.jquery,
-        laytpl = layui.laytpl,
-        table = layui.table;
+        $ = layui.jquery;
 	
 	loadinfo();
 	//加载表单

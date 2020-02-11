@@ -64,10 +64,13 @@ layui.use(['form','layer','laytpl','laydate'],function(){
         	success : function(res){
 	        	setTimeout(function(){
 		            top.layer.close(index);
-		            top.layer.msg("用户添加成功！");
-		            layer.closeAll("iframe");
-		            //刷新父页面
-		            parent.location.reload();
+	        		if(res.data!="参数错误"){			            
+			            top.layer.msg("用户添加成功！");
+			            //刷新父页面
+			        	parent.location.reload();
+			        }else{
+			        	top.layer.msg("用户添加失败！稍候重试");
+			        }	
 	        	},1000);
         	},error : function(xhr,status,error){
         		top.layer.close(index);
@@ -85,7 +88,7 @@ layui.use(['form','layer','laytpl','laydate'],function(){
             return val;
         }
     }
-    //定时发布
+    //当前时间
     var time = new Date();
     var submitTime = time.getFullYear()+'-'+filterTime(time.getMonth()+1)+'-'+filterTime(time.getDate())+' '+filterTime(time.getHours())+':'+filterTime(time.getMinutes())+':'+filterTime(time.getSeconds());
 

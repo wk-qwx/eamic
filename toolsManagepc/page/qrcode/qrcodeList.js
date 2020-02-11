@@ -6,7 +6,7 @@ layui.use(['form','layer','table','laytpl'],function(){
         table = layui.table;
 
 
-	var jsonstr = {"name":"工器具类别"};
+	var jsonstr = {"name":"安全工器具类别"};
 	loadselect(jsonstr,"tooltype");
 	jsonstr = {"name":"国网衡阳供电公司"};
 	loadselect(jsonstr,"unit");
@@ -37,17 +37,18 @@ layui.use(['form','layer','table','laytpl'],function(){
         cellMinWidth : 95,
         page : true,
         height : "full-125",
-        limits : [10,15,20,25],
+        limits : [10,20,30,50],
         id : "qrcodeListTable",
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
+            {field: 'batch', title: '序号', width:80, type:"numbers", sort:true},
             {field: 'unit', title: '单位', minWidth:120, align:"center"},
-            {field: 'sunits', title: '三级单位', minWidth:200, align:'center'},
-            {field: 'groupname', title: '所属班组', minWidth:150, align:'center'},
+            {field: 'sunits', title: '三级单位', minWidth:120, align:'center'},
+            {field: 'groupname', title: '所属班组', minWidth:120, align:'center'},
             {field: 'tooltype', title: '安全工器具类别', minWidth:150, align:'center'},
-            {field: 'toolname', title: '安全工器具名称', minWidth:200, align:'center'},
-            {field: 'qrcode', title: 'qrcode', minWidth:100, align:'center'},
-            {field: 'createtime', title: '生成时间', align:'center',minWidth:150},
+            {field: 'toolname', title: '安全工器具名称', minWidth:280, align:'center'},
+            {field: 'qrcode', title: 'qrcode', minWidth:120, align:'center'},
+            {field: 'createtime', title: '生成时间', align:'center',minWidth:200, sort:true},
             {field: 'batch', title: '批次', align:'center',minWidth:80},
             {field: 'remarks', title: '备注', align:'center',minWidth:200}
         ]],
@@ -61,14 +62,7 @@ layui.use(['form','layer','table','laytpl'],function(){
         };
     	}
     });
-	/**
-	 *根据data数据解密 
-	 * @param {Object} data
-	 */
-	function decryptBydata(data){
-		
-		return parent.Decrypt(data);
-	}
+	
     //搜索
     $(".search_btn").on("click",function(){
     	var tooltype = $("#tooltype option:selected").val();//获取工器具类别下拉文本
@@ -101,7 +95,7 @@ layui.use(['form','layer','table','laytpl'],function(){
 	                }
 	            },'data')
 	        layer.close(index);
-        },900);
+        },1000);
         
     });
 

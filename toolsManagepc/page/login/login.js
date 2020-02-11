@@ -4,12 +4,31 @@ layui.use(['form','layer','jquery'],function(){
         $ = layui.jquery;
 
     
-
+	var baseUrl = "http://localhost:8086";
     //登录按钮
     form.on("submit(login)",function(data){
+    	var username = $("#username").val();
+    	var pwd = $("#password").val();
         $(this).text("登录中...").attr("disabled","disabled").addClass("layui-disabled");
         setTimeout(function(){
-            window.location.href = "/toolsManagepc/index.html";
+        	$.ajax({
+        	type:"POST",
+        	url:baseUrl+"/toolsManage/user/checkUser?username="+username+"&pwd="+pwd+"&token=1",
+        	data:"",
+        	contentType: "application/json; charset=UTF-8",
+        	dataType : "json",
+        	success : function(res){
+        		if(res.data=="[]"){
+        			$("#login").text("登录").removeAttr("disabled","").removeClass("layui-disabled");
+        			top.layer.msg("用户名或密码错误！");        			
+        		}else{
+        			var user = eval('('+res.data+')');
+        			localStorage.setItem("truename",user[0].truename);
+        			//localStorage.setItem("pwd",user[0].pwd);
+        			localStorage.setItem("token",res.token);
+        			window.location.href = "/toolsManagepc/index.html";
+        		}
+        	}});
         },1000);
         return false;
     })

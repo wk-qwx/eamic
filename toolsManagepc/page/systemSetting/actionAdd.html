@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>权限动作信息</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../css/public.css" media="all" />
+	
+</head>
+<body class="childrenBody">
+<form class="layui-form" style="width:90%;">	
+	<div class="layui-col-md6 layui-col-xs12">		
+		<div class="layui-form-item">
+			<label class="layui-form-label">权限/动作名称</label>
+			<div class="layui-input-block">
+				<input type="text" id="actionname" placeholder="请输入权限/动作名称" lay-verify="required" class="layui-input actionname">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">权限/动作代码</label>
+			<div class="layui-input-block">
+				<input type="text" id="action" placeholder="请输入权限/动作代码" lay-verify="required" class="layui-input action">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">分栏菜单</label>
+			<div class="layui-input-block">
+				<input type="text" id="actioncolumnid" placeholder="请输入分栏菜单" class="layui-input actioncolumnid">
+			</div>
+		</div>		
+		<div class="magb15 layui-col-md4 layui-col-xs12">
+			<label class="layui-form-label">是否启用</label>
+			<div class="layui-input-block viewmode">
+				<input type="radio" name="viewmode" value="是" title="是" checked>
+				<input type="radio" name="viewmode" value="否" title="否">
+			</div>
+		</div>								
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn" lay-submit="" lay-filter="addAction">立即提交</button>
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			</div>
+		</div>
+	</div>
+</form>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="actionAdd.js"></script>
+<script type="text/javascript" src="../../js/config.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 	"contentManagement": [		
 		{
 			"title": "安全工器具列表",
-			"icon": "&#xe61c;",
+			"icon": "&#xe631;",
 			"href": "page/toolsManage/toolList.html",
 			"spread": false
 				
@@ -11,35 +11,40 @@
 	"seraphApi": [				
 		{
 			"title": "二维码生成记录",
-			"icon": "&#xe61c;",
+			"icon": "&#xe655;",
 			"href": "page/qrcode/qrcode.html",
 			"spread": false
 		},
 		{
 			"title": "二维码列表",
-			"icon": "&#xe609;",
+			"icon": "&#xe60a;",
 			"href": "page/qrcode/qrcodeList.html",
 			"spread": false
 		}		
 	],	
 	"memberCenter": [
 		{
-			"title": "用户列表",
-			"icon": "&#xe612;",
+			"title": "用户管理",
+			"icon": "&#xe613;",
 			"href": "page/user/userList.html",
+			"spread": false
+		},{
+			"title": "角色管理",
+			"icon": "&#xe612;",
+			"href": "page/user/roleList.html",
 			"spread": false
 		}
 	],
 	"systemeSttings": [
 		{
 			"title": "字典管理",
-			"icon": "&#xe631;",
-			"href": "page/404.html",
+			"icon": "&#xe63c;",
+			"href": "page/systemSetting/dicList.html",
 			"spread": false
 		},{
-			"title": "权限配置",
-			"icon": "&#xe631;",
-			"href": "page/toolsManage/toolinfo.html",
+			"title": "权限管理",
+			"icon": "&#xe672;",
+			"href": "page/systemSetting/actionList.html",
 			"spread": false
 		}
 	]
