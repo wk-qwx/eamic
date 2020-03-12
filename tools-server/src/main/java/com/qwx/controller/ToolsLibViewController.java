@@ -55,10 +55,20 @@ public class ToolsLibViewController extends BaseController<ToolsLib2Entity> {
 	/**
 	 * 获取安全工器具信息
 	 */
-	@RequestMapping(value = "/getToolInfo/{qrcode}", method = RequestMethod.GET)
+	@RequestMapping(value = "/getToolInfo/{qrcode}", method = RequestMethod.POST)
 	public HttpResponseList<ToolsLibViewEntity> getToolInfo(@PathVariable("qrcode") String qrcode) {
 		try {			
-			
+			return new HttpResponseList<ToolsLibViewEntity>(toolslibvService.getToolInfo(qrcode));
+		} catch (Exception e) {
+			return new HttpResponseList<ToolsLibViewEntity>(ResponseStatusCode.C400);
+		}
+	}
+	/**
+	 * 获取安全工器具信息（微信扫描）
+	 */
+	@RequestMapping(value = "/getToolInfoByWx/{qrcode}", method = RequestMethod.GET)
+	public HttpResponseList<ToolsLibViewEntity> getToolInfoByWx(@PathVariable("qrcode") String qrcode) {
+		try {			
 			return new HttpResponseList<ToolsLibViewEntity>(toolslibvService.getToolInfo(qrcode));
 		} catch (Exception e) {
 			return new HttpResponseList<ToolsLibViewEntity>(ResponseStatusCode.C400);

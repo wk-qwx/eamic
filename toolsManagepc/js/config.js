@@ -3,6 +3,7 @@ var baseUrl = "http://localhost:8086";
 layui.use(['layer','jquery'],function(){
         $ = layui.jquery;
 
+if($("[class='loginBody']").text()!="")return;
 //判断并验证是否有效登录
 if(localStorage.getItem("token")=="" || localStorage.getItem("token")==null){
 	top.window.location.href = "/toolsManagepc/page/login/login.html";

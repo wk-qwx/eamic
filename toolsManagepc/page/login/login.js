@@ -4,7 +4,7 @@ layui.use(['form','layer','jquery'],function(){
         $ = layui.jquery;
 
     
-	var baseUrl = "http://localhost:8086";
+	//var baseUrl = "http://localhost:8086";
     //登录按钮
     form.on("submit(login)",function(data){
     	var username = $("#username").val();

@@ -8,7 +8,7 @@ layui.use(['form','layer'],function(){
 	function loadinfo(){
 		var code = getParams("code");
 		
-    	$.get("http://47.106.193.135:8081/toolsManage/toolslibv/getToolInfo/"+code+"",null,function(data){
+    	$.get("http://47.106.193.135:8081/toolsManage/toolslibv/getToolInfoByWx/"+code+"",null,function(data){
                     var data = data.data[0];
                     var body = $(".childrenBody");
                     body.find(".unit").val(data.unit);  //所属单位
