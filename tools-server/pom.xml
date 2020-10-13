@@ -9,7 +9,7 @@
 		<spring.version>4.2.4.RELEASE</spring.version>
 		<freemarker.version>2.3.22</freemarker.version>
 		<!--  <commons-lang.version>3.4</commons-lang.version>-->
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<httpcomponents.version>4.4.5</httpcomponents.version>
 		<httpclient.version>4.5.2</httpclient.version>
 		<fasterxml.jackson.version>2.6.1</fasterxml.jackson.version>
