@@ -13,7 +13,7 @@
 		<httpcomponents.version>4.4.5</httpcomponents.version>
 		<httpclient.version>4.5.2</httpclient.version>
 		<fasterxml.jackson.version>2.6.1</fasterxml.jackson.version>
-		<hibernate.version>4.2.13.Final</hibernate.version>
+		<hibernate.version>5.4.24.Final</hibernate.version>
 		<aspecj.version>1.7.4</aspecj.version>
 		<spring.data.commons.version>1.10.0.RELEASE</spring.data.commons.version>
 		<spring.data.jpa.version>1.9.2.RELEASE</spring.data.jpa.version>
