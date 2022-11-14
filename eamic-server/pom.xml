@@ -6,7 +6,7 @@
 	<packaging>war</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>4.2.4.RELEASE</spring.version>
+		<spring.version>4.2.7.RELEASE</spring.version>
 		<freemarker.version>2.3.22</freemarker.version>
 		<!--  <commons-lang.version>3.4</commons-lang.version>-->
 		<junit.version>4.12</junit.version>
